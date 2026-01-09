@@ -1,0 +1,28 @@
+﻿
+Running 5 tests using 1 worker
+
+[1A[2K[1/5] [chromium] 鈥?tests\e2e\auth.spec.ts:3:5 鈥?has title
+[1A[2K[2/5] [chromium] 鈥?tests\e2e\auth.spec.ts:9:5 鈥?root redirects to login page
+[1A[2K[3/5] [chromium] 鈥?tests\e2e\case-tab-deeplink.spec.ts:13:5 鈥?鍚岄〉锛氫换鍔￠€氱煡璺宠浆 /cases/:id?tab=tasks 瀹氫綅
+node.exe : [1A[2K[2m[WebServer] [22m[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+所在位置 C:\Program Files\nodejs\npx.ps1:29 字符: 3
++   & $NODE_EXE $NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([1A[2K[2m[We...ings.authjs.dev:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+[1A[2K[2m[WebServer] [22m[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+
+[1A[2K[4/5] [chromium] 鈥?tests\e2e\chat-notification.spec.ts:13:5 鈥?鍚岄〉锛欻eader 閫氱煡璺宠浆 /chat?threadId 瀹氫綅
+[1A[2K[2m[WebServer] [22m [31m[1m猕?[22m[39m Error: aborted
+[2m[WebServer] [22m    at [3mignore-listed frames[23m {
+[2m[WebServer] [22m  code: [32m'ECONNRESET'[39m
+[2m[WebServer] [22m}
+[1A[2K[5/5] [chromium] 鈥?tests\e2e\mainline.spec.ts:13:5 鈥?涓荤嚎锛氭浠垛啋浠诲姟鈫掍换鍔″垎閰嶉€氱煡鈫掕烦杞畾浣?
+[1A[2K[2m[WebServer] [22m [31m[1m猕?[22m[39m Error: aborted
+[2m[WebServer] [22m    at [3mignore-listed frames[23m {
+[2m[WebServer] [22m  code: [32m'ECONNRESET'[39m
+[2m[WebServer] [22m}
+
+[1A[2K  5 passed (47.9s)

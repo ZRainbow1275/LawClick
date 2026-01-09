@@ -1,0 +1,20 @@
+﻿pnpm prisma:generate
+START 2025-12-28T11:35:58.5260495+08:00
+
+> lawtime-erp@2.0.0 prisma:generate D:\Desktop\LawClick_NEW
+> pnpm --filter lawclick-next prisma:generate
+
+
+> lawclick-next@0.1.0 prisma:generate D:\Desktop\LawClick_NEW\lawclick-next
+> prisma generate
+
+Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+
+✔ Generated Prisma Client (v5.22.0) to .\..\node_modules\.pnpm\@prisma+client@5.22.0_prisma@5.22.0\node_modules\@prisma\client in 498ms
+
+Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+
+Tip: Easily identify and fix slow SQL queries in your app. Optimize helps you enhance your visibility: https://pris.ly/--optimize
+
+END exitCode=0 2025-12-28T11:36:01.2698367+08:00

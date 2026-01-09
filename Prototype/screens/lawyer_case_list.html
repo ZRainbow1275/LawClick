@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>案件列表 - 律时</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.4s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-surface">
+    <div class="w-full max-w-md mx-auto h-screen bg-surface flex flex-col">
+        <!-- Widget: AppBar | Props: title="案件列表", actions=[SearchButton, FilterButton] -->
+        <header class="flex-shrink-0 bg-surface p-4 flex items-center justify-between shadow-sm">
+            <a href="lawyer_dashboard.html"><i class="fas fa-arrow-left text-xl cursor-pointer text-gray-600"></i></a>
+            <h1 class="text-xl font-bold text-gray-900">案件列表</h1>
+            <div
+                class="flex items-center bg-gray-100 rounded-full px-3 py-1.5 w-40 focus-within:w-48 transition-all duration-300">
+                <i class="fas fa-search text-gray-400 mr-2"></i>
+                <input type="text" id="search-input" placeholder="搜索案件..."
+                    class="bg-transparent border-none focus:ring-0 text-sm w-full p-0 text-gray-700 placeholder-gray-400"
+                    oninput="renderCases()">
+            </div>
+        </header>
+
+        <!-- Widget: FilterChips -->
+        <div class="px-4 py-2 flex gap-2 overflow-x-auto custom-scrollbar" id="filter-chips">
+            <button onclick="setFilter('all')"
+                class="filter-chip active px-4 py-1.5 rounded-full bg-primary text-white text-sm font-medium shadow-sm whitespace-nowrap transition-colors">全部</button>
+            <button onclick="setFilter('诉讼')"
+                class="filter-chip px-4 py-1.5 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-medium whitespace-nowrap hover:bg-gray-50 transition-colors">诉讼</button>
+            <button onclick="setFilter('非诉')"
+                class="filter-chip px-4 py-1.5 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-medium whitespace-nowrap hover:bg-gray-50 transition-colors">非诉</button>
+            <button onclick="setFilter('常法')"
+                class="filter-chip px-4 py-1.5 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-medium whitespace-nowrap hover:bg-gray-50 transition-colors">常法</button>
+        </div>
+
+        <!-- Widget: CaseListView -->
+        <main class="flex-grow overflow-y-auto custom-scrollbar p-4 space-y-4" id="case-list-container">
+            <!-- Loaded via JS -->
+        </main>
+    </div>
+
+    <script src="../js/data_service.js"></script>
+    <script>
+        let currentFilter = 'all';
+
+        function setFilter(filter) {
+            currentFilter = filter;
+            // Update UI
+            document.querySelectorAll('.filter-chip').forEach(btn => {
+                if ((filter === 'all' && btn.innerText === '全部') || btn.innerText === filter) {
+                    btn.className = 'filter-chip active px-4 py-1.5 rounded-full bg-primary text-white text-sm font-medium shadow-sm whitespace-nowrap transition-colors';
+                } else {
+                    btn.className = 'filter-chip px-4 py-1.5 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-medium whitespace-nowrap hover:bg-gray-50 transition-colors';
+                }
+            });
+            renderCases();
+        }
+
+        function renderCases() {
+            const cases = DataService.cases.getAll();
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const container = document.getElementById('case-list-container');
+            container.innerHTML = '';
+
+            const filteredCases = cases.filter(c => {
+                const matchesSearch = c.title.toLowerCase().includes(searchTerm) || c.client.toLowerCase().includes(searchTerm);
+                const matchesFilter = currentFilter === 'all' || c.type === currentFilter;
+                return matchesSearch && matchesFilter;
+            });
+
+            if (filteredCases.length === 0) {
+                container.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-64 text-gray-400">
+                        <div class="bg-gray-50 p-4 rounded-full mb-3">
+                            <i class="fas fa-folder-open text-3xl"></i>
+                        </div>
+                        <p class="text-sm">暂无相关案件</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filteredCases.forEach((c, index) => {
+                // Determine status color
+                let statusClass = 'bg-blue-100 text-blue-700';
+                if (c.status === '等待开庭') statusClass = 'bg-orange-100 text-orange-700';
+                if (c.status === '服务中') statusClass = 'bg-green-100 text-green-700';
+
+                const el = document.createElement('div');
+                // Add animation delay
+                el.style.animationDelay = `${index * 0.05}s`;
+                el.className = 'bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all cursor-pointer group relative overflow-hidden animate-fade-in-up opacity-0 fill-mode-forwards';
+
+                el.innerHTML = `
+                    <div class="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex justify-between items-start mb-2 pl-2">
+                        <div>
+                            <span class="text-xs font-bold px-2 py-1 rounded-md ${statusClass} mb-2 inline-block">${c.status}</span>
+                            <h3 class="font-bold text-gray-800 text-base leading-tight">${c.title}</h3>
+                        </div>
+                        <i class="fas fa-ellipsis-h text-gray-400 hover:text-gray-600 p-1"></i>
+                    </div>
+                    
+                    <div class="pl-2">
+                        <p class="text-xs text-gray-500 mb-3 flex items-center gap-2">
+                            <i class="fas fa-user-tie text-gray-400"></i> ${c.client}
+                            <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                            <span>${c.type}</span>
+                        </p>
+                        
+                        <!-- Progress Bar -->
+                        <div class="flex items-center gap-3">
+                            <div class="flex-grow h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-primary rounded-full transition-all duration-1000 ease-out" style="width: ${c.progress}%"></div>
+                            </div>
+                            <span class="text-xs font-bold text-primary">${c.progress}%</span>
+                        </div>
+                        
+                        <!-- Tags -->
+                        <div class="mt-3 flex gap-2">
+                            ${c.tags.map(tag => `<span class="text-xs text-gray-500 bg-gray-50 px-2 py-1 rounded border border-gray-100">#${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+                // Link to detail
+                el.onclick = () => window.location.href = 'lawyer_case_detail.html';
+
+                container.appendChild(el);
+            });
+        }
+
+        window.addEventListener('load', renderCases);
+    </script>
+</body>
+
+</html>

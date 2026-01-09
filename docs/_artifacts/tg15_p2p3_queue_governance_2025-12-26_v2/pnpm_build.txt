@@ -1,0 +1,71 @@
+﻿
+> lawtime-erp@2.0.0 build D:\Desktop\LawClick_NEW
+> pnpm --filter lawclick-next build
+
+
+> lawclick-next@0.1.0 build D:\Desktop\LawClick_NEW\lawclick-next
+> next build
+
+   ▲ Next.js 16.0.6 (Turbopack)
+   - Environments: .env
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 9.0s
+   Running TypeScript ...
+   Collecting page data using 19 workers ...
+   Generating static pages using 19 workers (0/25) ...
+   Generating static pages using 19 workers (6/25) 
+   Generating static pages using 19 workers (12/25) 
+   Generating static pages using 19 workers (18/25) 
+ ✓ Generating static pages using 19 workers (25/25) in 1975.5ms
+   Finalizing page optimization ...
+
+Route (app)
+┌ ○ /_not-found
+├ ƒ /admin
+├ ƒ /admin/approvals
+├ ƒ /admin/document-templates
+├ ƒ /admin/finance
+├ ƒ /admin/ops
+├ ƒ /admin/ops/queue
+├ ƒ /admin/ops/uploads
+├ ƒ /api/auth/[...nextauth]
+├ ƒ /api/documents/[id]/file
+├ ƒ /api/queue/process
+├ ○ /auth/login
+├ ○ /auth/register
+├ ƒ /auth/reset-password
+├ ƒ /calendar
+├ ƒ /cases
+├ ƒ /cases/[id]
+├ ƒ /cases/active
+├ ƒ /cases/archive
+├ ƒ /cases/archived
+├ ƒ /cases/intake
+├ ƒ /chat
+├ ƒ /contacts
+├ ƒ /crm/customers
+├ ƒ /crm/customers/[id]
+├ ƒ /dashboard
+├ ƒ /dispatch
+├ ƒ /documents
+├ ƒ /documents/[id]
+├ ƒ /documents/[id]/review
+├ ƒ /notifications
+├ ƒ /profile
+├ ƒ /projects
+├ ƒ /projects/[id]
+├ ƒ /research
+├ ƒ /settings
+├ ƒ /tasks
+├ ƒ /tasks/[id]
+├ ƒ /time
+├ ƒ /timelog
+└ ƒ /tools
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

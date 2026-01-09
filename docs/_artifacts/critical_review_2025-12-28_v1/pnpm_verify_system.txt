@@ -1,0 +1,17 @@
+﻿pnpm -C lawclick-next verify:system
+START 2025-12-28T11:40:10.4844223+08:00
+
+> lawclick-next@0.1.0 verify:system D:\Desktop\LawClick_NEW\lawclick-next
+> node scripts/verify-system.js
+
+🔍 Starting System Verification...
+
+Checking Database Connection...
+✅ Database Connected. User count: 226
+✅ VerificationToken Table exists. Count: 0
+
+Checking MinIO Connection...
+✅ MinIO Connected. Buckets: lawclick-documents
+
+Verification Complete.
+END exitCode=0 2025-12-28T11:40:11.6415323+08:00

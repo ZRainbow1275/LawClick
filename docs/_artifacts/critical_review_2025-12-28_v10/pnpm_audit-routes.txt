@@ -1,0 +1,11 @@
+﻿
+> lawtime-erp@2.0.0 audit:routes D:\Desktop\LawClick_NEW
+> pnpm --filter lawclick-next audit:routes
+
+
+> lawclick-next@0.1.0 audit:routes D:\Desktop\LawClick_NEW\lawclick-next
+> node scripts/route-audit.js
+
+[route-audit] app routes: 46
+[route-audit] route refs: 124 (unique: 67)
+[route-audit] OK: 鏈彂鐜版柇閾捐矾鐢卞紩鐢?

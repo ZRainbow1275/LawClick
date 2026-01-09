@@ -1,0 +1,61 @@
+﻿git -C lawclick-next status -sb
+## master
+ M eslint.config.mjs
+ M next.config.ts
+ D package-lock.json
+ M package.json
+ M src/app/globals.css
+ M src/app/layout.tsx
+ D src/app/page.tsx
+ M tsconfig.json
+?? .tmp-eslint.json
+?? .tmp-single-lint.json
+?? .tmp-tools-lint.json
+?? .trigger_rebuild
+?? analyze-lint.js
+?? batch-lint-analysis.js
+?? build_debug.txt
+?? build_log.txt
+?? build_output.txt
+?? components.json
+?? create-client-user.js
+?? create-client-user.ts
+?? debug-auth-logic.ts
+?? debug-auth.js
+?? debug-create-user.ts
+?? debug-login.ts
+?? docker-compose.yml
+?? eslint-report.json
+?? find-critical-lints.js
+?? jest.config.ts
+?? lint-results.json
+?? lint.log
+?? lint_full.txt
+?? list-lint-files.js
+?? middleware.ts
+?? playwright-report/
+?? playwright.config.ts
+?? prisma/
+?? review_report.md
+?? scripts/
+?? src/actions/
+?? src/app/(auth)/
+?? src/app/(dashboard)/
+?? src/app/actions.ts
+?? src/app/api/
+?? src/auth.ts
+?? src/components/
+?? src/config/
+?? src/hooks/
+?? src/lib/
+?? src/middleware.ts.bak
+?? src/proxy.ts
+?? src/store/
+?? src/styles/
+?? src/types/
+?? tailwind.config.ts
+?? test-results/
+?? test_output.txt
+?? tests/
+
+exitCode=0

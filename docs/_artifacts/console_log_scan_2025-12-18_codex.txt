@@ -1,0 +1,25 @@
+﻿lawclick-next\src\actions\auth.ts:65:    console.log(`[Mock Email] Password Reset Token for ${user.email}: ${token}`)
+lawclick-next\src\lib\queue.ts:45:            console.log(`Processing Job ${job.id} [${job.type}]...`)
+lawclick-next\src\actions\register.ts:33:        console.log("DB: Creating user:", email)
+lawclick-next\src\actions\register.ts:43:        console.log("DB: User created.")
+lawclick-next\src\actions\register.ts:46:        console.log("REGISTRATION_CRASH:", e)
+apps\web-frontend\src\store\auth.ts:84:        console.log('用户选择角色:', roleData);
+apps\web-frontend\src\store\auth.ts:98:        console.log('用户切换角色:', role);
+apps\web-frontend\src\store\auth.ts:125:        console.log('clearAuth - Clearing all auth state');
+apps\web-frontend\src\store\auth.ts:146:          console.log('checkAuth - No token found, clearing auth state');
+apps\web-frontend\src\store\auth.ts:168:            console.log('checkAuth - Token expired, clearing auth state');
+apps\web-frontend\src\store\auth.ts:175:            console.log('checkAuth - Token valid, user authenticated');
+apps\web-frontend\src\store\auth.ts:182:            console.log('checkAuth - No user info, clearing auth state');
+apps\web-frontend\src\lib\api.ts:50:      console.log(`API请求耗时: ${duration}ms - ${response.config.url}`);
+apps\web-frontend\src\app\page.tsx:24:      console.log('HomePage - Found token, verifying...');
+apps\web-frontend\src\app\page.tsx:33:      console.log('HomePage - Auth State:', { isAuthenticated, needsRoleSelection, selectedRole, hasCheckedAuth });
+apps\web-frontend\src\app\page.tsx:36:        console.log('HomePage - Not authenticated, redirecting to login');
+apps\web-frontend\src\app\page.tsx:42:        console.log('HomePage - Needs role selection');
+apps\web-frontend\src\app\dashboard\page.tsx:16:    console.log('Dashboard - Auth State:', { isAuthenticated, needsRoleSelection, selectedRole });
+apps\web-frontend\src\app\dashboard\page.tsx:19:      console.log('Dashboard - Not authenticated, redirecting to login');
+apps\web-frontend\src\app\dashboard\page.tsx:25:      console.log('Dashboard - Needs role selection, redirecting');
+apps\web-frontend\src\app\dashboard\page.tsx:33:        console.log('Dashboard - Redirecting to lawyer dashboard');
+apps\web-frontend\src\app\dashboard\page.tsx:37:        console.log('Dashboard - Redirecting to client dashboard');
+apps\web-frontend\src\app\dashboard\page.tsx:41:        console.log('Dashboard - Redirecting to admin dashboard');
+apps\web-frontend\src\app\dashboard\page.tsx:45:        console.log('Dashboard - No valid role, redirecting to role selection');
+apps\web-frontend\src\app\login\page.tsx:84:      console.log('登录成功:', formData);

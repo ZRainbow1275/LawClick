@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>个人中心 - 律时</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { display: flex; justify-content: center; }
+        .mobile-shell {
+            width: 100%;
+            max-width: 420px;
+            height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        /* Custom scrollbar to match app aesthetic */
+        .custom-scrollbar::-webkit-scrollbar { display: none; }
+        .custom-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-gray-200">
+
+    <div class="mobile-shell bg-background flex flex-col">
+        <!-- Widget: AppBar | Props: title="", actions=[CloseButton] -->
+        <header class="flex-shrink-0 bg-surface p-4 flex items-center justify-end">
+             <i class="fas fa-times text-2xl cursor-pointer" style="color: var(--text-primary-color);"></i>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow overflow-y-auto custom-scrollbar">
+            <!-- Widget: ProfileHeader (reusing the logic from profile_card) -->
+            <div class="bg-surface p-4">
+                <div class="flex items-start gap-4">
+                    <div class="h-20 w-20 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-user text-4xl text-blue-600"></i>
+                    </div>
+                    <div class="flex-grow pt-1">
+                        <h2 class="text-2xl font-bold">赵启睿</h2>
+                        <p class="text-base mt-1" style="color: var(--text-secondary-color);">江西凌科安时律师事务所</p>
+                        <p class="text-base mt-1" style="color: var(--text-secondary-color);">151****8390</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Widget: ProjectList | Props: projects=[...] -->
+            <div class="mt-4 bg-surface">
+                <div class="p-4 flex justify-between items-center border-b border-themed">
+                    <h3 class="font-bold">当前项目</h3>
+                    <span class="text-sm" style="color: var(--text-secondary-color);">共 17</span>
+                </div>
+                <!-- This would be a ListView.builder in Flutter -->
+                <div class="p-4 flex flex-col gap-4">
+                     <!-- Widget: ProjectListItem | Props: color, projectCode, projectName, projectType -->
+                    <div class="flex items-center gap-3">
+                        <span class="h-3 w-3 rounded-full" style="background-color: #4CAF50;"></span>
+                        <span class="text-sm font-mono" style="color: var(--text-secondary-color);">00,</span>
+                        <span class="flex-grow font-medium truncate">临时未立项业务工作</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="h-3 w-3 rounded-full" style="background-color: #2196F3;"></span>
+                        <span class="text-sm font-mono" style="color: var(--text-secondary-color);">02,</span>
+                        <span class="flex-grow font-medium truncate">丰城住总, 常年顾问, 2023-2024</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="h-3 w-3 rounded-full" style="background-color: #FF9800;"></span>
+                        <span class="text-sm font-mono" style="color: var(--text-secondary-color);">02,</span>
+                        <span class="flex-grow font-medium truncate">供应链, 常年顾问, 2024-2025</span>
+                    </div>
+                    <!-- more items... -->
+                </div>
+            </div>
+
+            <!-- Widget: SettingsList | Props: ... -->
+            <div class="mt-4 bg-surface">
+                 <!-- Widget: ListTile | Props: title="统计报告", onTap=... -->
+                <div class="flex items-center p-4 border-b border-themed cursor-pointer hover:bg-gray-100">
+                    <span class="font-medium flex-grow">统计报告</span>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary-color);"></i>
+                </div>
+                 <h3 class="font-bold p-4 text-sm" style="color: var(--text-secondary-color);">个性化</h3>
+                <!-- Widget: ListTile | Props: title="通知提醒", onTap=... -->
+                <div class="flex items-center p-4 border-b border-themed cursor-pointer hover:bg-gray-100">
+                    <span class="font-medium flex-grow">通知提醒</span>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary-color);"></i>
+                </div>
+                <!-- Widget: ListTile | Props: title="主页形象", onTap=... -->
+                <div class="flex items-center p-4 border-b border-themed cursor-pointer hover:bg-gray-100">
+                    <span class="font-medium flex-grow">主页形象</span>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary-color);"></i>
+                </div>
+                 <!-- Widget: SwitchListTile | Props: title="虚拟人打招呼", value=false -->
+                 <div class="flex items-center p-4 cursor-pointer hover:bg-gray-100">
+                    <span class="font-medium flex-grow">虚拟人打招呼</span>
+                     <!-- A simple toggle switch -->
+                    <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                        <input type="checkbox" name="toggle" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                        <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                    </div>
+                 </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+/* src/styles/theme.css */
+
+/* 设计 tokens（不包含具体组件样式，避免重复来源） */
+:root {
+    /* Motion durations */
+    --animation-duration-fast: 150ms;
+    --animation-duration-normal: 200ms;
+    --animation-duration-slow: 300ms;
+    --animation-duration-slower: 500ms;
+
+    /* Motion easing */
+    --animation-easing: cubic-bezier(0.16, 1, 0.3, 1);
+    --animation-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --animation-easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --animation-easing-sharp: cubic-bezier(0.4, 0, 0.6, 1);
+
+/* RGB helpers (用于需要 alpha 的场景) */
+    --lc-primary-rgb: 255 107 53;
+
+    /* Accent swatches（固定值，不随主题/强调色切换而变化） */
+    --lc-accent-swatch-orange: #FF6B35;
+    --lc-accent-swatch-blue: #3B82F6;
+    --lc-accent-swatch-slate: #0F172A;
+}
+
+/* 打印样式 */
+@media print {
+
+    .hover-lift,
+    .btn-ripple,
+    .animate-fade-in,
+    .animate-slide-up,
+    .animate-scale-in {
+        animation: none;
+        transition: none;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .card {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+}

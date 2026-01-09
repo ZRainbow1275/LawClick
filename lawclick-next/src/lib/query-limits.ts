@@ -1,0 +1,8 @@
+export const TASKS_TAKE_DEFAULT = 200
+export const TASKS_TAKE_MAX = 500
+
+export const KANBAN_COLUMN_TAKE_DEFAULT = 60
+export const KANBAN_COLUMN_TAKE_MAX = 200
+
+export const PROJECTS_TAKE_DEFAULT = 50
+export const PROJECTS_TAKE_MAX = 200

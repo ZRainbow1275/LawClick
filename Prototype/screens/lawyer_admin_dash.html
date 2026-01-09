@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>行政中心 - 律时</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-background">
+    <div class="w-full max-w-md mx-auto h-screen bg-background flex flex-col">
+        <!-- Widget: AppBar | Props: title="行政中心" -->
+        <header class="flex-shrink-0 bg-surface p-4 flex items-center justify-between shadow-sm">
+            <i class="fas fa-arrow-left text-xl cursor-pointer"></i>
+            <h1 class="text-xl font-bold">行政中心</h1>
+            <div class="w-5"></div> <!-- Placeholder for centering title -->
+        </header>
+
+        <main class="flex-grow overflow-y-auto p-4 flex flex-col gap-6">
+            <!-- Widget: AdminStatCard | Props: ... -->
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-surface p-4 rounded-lg shadow-sm">
+                    <p class="text-sm" style="color: var(--text-secondary-color);">待我审批</p>
+                    <p class="text-3xl font-bold mt-1" style="color: var(--primary-color);">3</p>
+                </div>
+                <div class="bg-surface p-4 rounded-lg shadow-sm">
+                    <p class="text-sm" style="color: var(--text-secondary-color);">我的申请</p>
+                    <p class="text-3xl font-bold mt-1" style="color: var(--primary-color);">8</p>
+                </div>
+            </div>
+
+            <!-- Widget: NavigationList | A Column of ListTiles for admin functions -->
+            <div class="bg-surface rounded-lg shadow-md overflow-hidden">
+                <!-- Widget: ListTile | Props: title="财务报销", icon=... -->
+                <div class="flex items-center p-4 border-b border-themed hover:bg-secondary cursor-pointer transition-colors">
+                    <i class="fas fa-wallet w-8 text-center text-xl" style="color: var(--primary-color);"></i>
+                    <span class="flex-grow font-medium">财务报销</span>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary-color);"></i>
+                </div>
+                <!-- Widget: ListTile | Props: title="事项审批", icon=... -->
+                <div class="flex items-center p-4 border-b border-themed hover:bg-secondary cursor-pointer transition-colors">
+                    <i class="fas fa-check-to-slot w-8 text-center text-xl" style="color: var(--primary-color);"></i>
+                    <span class="flex-grow font-medium">事项审批</span>
+                     <span class="h-6 w-6 bg-red-500 text-white text-sm font-bold rounded-full flex items-center justify-center mr-2">3</span>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary-color);"></i>
+                </div>
+                <!-- Widget: ListTile | Props: title="盖章文书管理", icon=... -->
+                <div class="flex items-center p-4 border-b border-themed hover:bg-secondary cursor-pointer transition-colors">
+                    <i class="fas fa-stamp w-8 text-center text-xl" style="color: var(--primary-color);"></i>
+                    <span class="flex-grow font-medium">盖章文书管理</span>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary-color);"></i>
+                </div>
+                 <!-- Widget: ListTile | Props: title="律所知识库", icon=... -->
+                <div class="flex items-center p-4 hover:bg-secondary cursor-pointer transition-colors">
+                    <i class="fas fa-database w-8 text-center text-xl" style="color: var(--primary-color);"></i>
+                    <span class="flex-grow font-medium">律所知识库 (ERP)</span>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary-color);"></i>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

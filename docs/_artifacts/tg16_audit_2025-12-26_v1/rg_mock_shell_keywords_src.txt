@@ -1,0 +1,188 @@
+﻿lawclick-next\src\components\chat\ChatPageClient.tsx:200:                            placeholder="搜索会话..."
+lawclick-next\src\components\chat\ChatPageClient.tsx:301:                            placeholder={selectedThread ? "输入消息..." : "请选择会话"}
+lawclick-next\src\actions\document-templates.ts:36:    const placeholders = listTemplatePlaceholders(input.content)
+lawclick-next\src\actions\document-templates.ts:37:    const unknown = placeholders.filter((key) => !allowed.has(key))
+lawclick-next\src\actions\documents.ts:567:        const placeholders = listTemplatePlaceholders(template.content)
+lawclick-next\src\actions\documents.ts:569:        for (const key of placeholders) {
+lawclick-next\src\actions\collaboration-actions.ts:201:                    where: { tenantId, status: { in: ['TODO', 'IN_PROGRESS', 'REVIEW'] } },
+lawclick-next\src\components\calendar\CanvasCalendar.tsx:430:                                        placeholder="输入日程标题"
+lawclick-next\src\components\calendar\CanvasCalendar.tsx:534:                                        placeholder="搜索成员（支持 30-300 人规模）"
+lawclick-next\src\components\calendar\CanvasCalendar.tsx:586:                                        placeholder="会议地点或线上会议链接"
+lawclick-next\src\components\calendar\CanvasCalendar.tsx:594:                                        placeholder="日程详情..."
+lawclick-next\src\actions\tasks-crud.ts:233:        const targetStatus: TaskStatus = input.status ?? "TODO"
+lawclick-next\src\actions\tasks-crud.ts:324:        const targetStatus: TaskStatus = input.status ?? "TODO"
+lawclick-next\src\actions\tasks-crud.ts:800:            return { TODO: [], IN_PROGRESS: [], REVIEW: [], DONE: [] }
+lawclick-next\src\actions\tasks-crud.ts:819:            TODO: tasks.filter(t => t.status === "TODO"),
+lawclick-next\src\actions\tasks-crud.ts:826:        return { TODO: [], IN_PROGRESS: [], REVIEW: [], DONE: [] }
+lawclick-next\src\actions\stage-management.ts:412:                    status: 'TODO',
+lawclick-next\src\lib\ai-provider.ts:67:    if (lower.includes("mock")) return false
+lawclick-next\src\components\admin\UploadIntentsClient.tsx:215:                                <SelectValue placeholder="状态" />
+lawclick-next\src\components\admin\UploadIntentsClient.tsx:229:                            placeholder="搜索：文件名 / key / 案号 / 案件标题 / documentId"
+lawclick-next\src\components\cases\new-draft-dialog.tsx:134:                                <SelectValue placeholder={isLoadingTemplates ? "加载中..." : "选择模板..."} />
+lawclick-next\src\components\cases\new-draft-dialog.tsx:165:                                        placeholder={`请输入：${variable.label}`}
+lawclick-next\src\components\admin\QueueOpsClient.tsx:279:                                <SelectValue placeholder="状态" />
+lawclick-next\src\components\admin\QueueOpsClient.tsx:293:                            placeholder="type（精确匹配）"
+lawclick-next\src\components\admin\QueueOpsClient.tsx:303:                            placeholder="搜索：jobId / idempotencyKey / type"
+lawclick-next\src\components\cases\IntakeCasesWorkspaceClient.tsx:143:                    placeholder="搜索案件标题 / 编号 / 客户..."
+lawclick-next\src\components\ui\textarea.tsx:10:        "border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 flex field-sizing-content min-h-16 w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+lawclick-next\src\components\cases\CreateCaseWizard.tsx:351:                                        placeholder="请输入案件名称，如：张三诉李四民间借贷纠纷"
+lawclick-next\src\components\cases\CreateCaseWizard.tsx:361:                                        placeholder="请简要描述案件情况..."
+lawclick-next\src\components\cases\CreateCaseWizard.tsx:400:                                                <SelectValue placeholder="请选择客户" />
+lawclick-next\src\components\cases\CreateCaseWizard.tsx:424:                                                placeholder="公司名称或个人姓名"
+lawclick-next\src\components\cases\CreateCaseWizard.tsx:453:                                                    placeholder="client@example.com"
+lawclick-next\src\components\cases\CreateCaseWizard.tsx:463:                                                    placeholder="13800138000"
+lawclick-next\src\components\cases\CreateCaseWizard.tsx:478:                                            placeholder="输入对方当事人名称"
+lawclick-next\src\components\cases\CreateCaseWizard.tsx:555:                                        placeholder="请输入合同金额"
+lawclick-next\src\components\cases\CreateCaseWizard.tsx:574:                                            <SelectValue placeholder="选择案源律师（可选）" />
+lawclick-next\src\components\cases\CreateCaseWizard.tsx:593:                                            <SelectValue placeholder="选择承办律师" />
+lawclick-next\src\components\admin\DocumentTemplatesClient.tsx:292:                                        placeholder="例如：LITIGATION_COMPLAINT_V1"
+lawclick-next\src\components\admin\DocumentTemplatesClient.tsx:302:                                        placeholder="例如：起诉状（标准版）"
+lawclick-next\src\components\admin\DocumentTemplatesClient.tsx:312:                                        placeholder="用于起草时辅助填写变量"
+lawclick-next\src\components\admin\DocumentTemplatesClient.tsx:341:                                                    placeholder="key"
+lawclick-next\src\components\admin\DocumentTemplatesClient.tsx:349:                                                    placeholder="显示名称"
+lawclick-next\src\components\admin\DocumentTemplatesClient.tsx:391:                                    placeholder={"例如：\n\n标题：{{title}}\n日期：{{date}}\n\n正文：\n{{body}}"}
+lawclick-next\src\components\cases\CaseTeamCard.tsx:117:                                        placeholder="例如：lawyer@example.com"
+lawclick-next\src\components\cases\CaseTeamCard.tsx:127:                                            <SelectValue placeholder="选择角色" />
+lawclick-next\src\components\admin\ApprovalsBoardClient.tsx:421:                                    <SelectValue placeholder="选择审批类型" />
+lawclick-next\src\components\admin\ApprovalsBoardClient.tsx:440:                                    <SelectValue placeholder="选择审批人（可选）" />
+lawclick-next\src\components\admin\ApprovalsBoardClient.tsx:455:                            <Input value={draft.title} onChange={(e) => setDraft((p) => ({ ...p, title: e.target.value }))} placeholder="例如：请假申请 / 报销申请..." />
+lawclick-next\src\components\admin\ApprovalsBoardClient.tsx:460:                            <Textarea value={draft.description} onChange={(e) => setDraft((p) => ({ ...p, description: e.target.value }))} rows={3} placeholder="补充说明..." />
+lawclick-next\src\components\admin\ApprovalsBoardClient.tsx:465:                            <Input value={draft.amount} onChange={(e) => setDraft((p) => ({ ...p, amount: e.target.value }))} placeholder="例如：860" />
+lawclick-next\src\components\admin\ApprovalsBoardClient.tsx:482:                                    <Input value={caseQuery} onChange={(e) => searchCases(e.target.value)} placeholder="搜索案件（按标题/案号/客户）" />
+lawclick-next\src\components\admin\ApprovalsBoardClient.tsx:508:                            <Textarea value={draft.extra} onChange={(e) => setDraft((p) => ({ ...p, extra: e.target.value }))} rows={2} placeholder="例如：出差地点、请假原因、采购明细等" />
+lawclick-next\src\components\approvals\CreateApprovalDialog.tsx:112:                                <SelectValue placeholder="选择类型" />
+lawclick-next\src\components\approvals\CreateApprovalDialog.tsx:128:                            placeholder="例如：5000"
+lawclick-next\src\components\approvals\CreateApprovalDialog.tsx:136:                            placeholder="例如：差旅报销（北京出差）"
+lawclick-next\src\components\approvals\CreateApprovalDialog.tsx:155:                                <SelectValue placeholder={loadingApprovers ? "加载中..." : "默认：任一审批人"} />
+lawclick-next\src\components\approvals\CreateApprovalDialog.tsx:169:                        <Input value={form.extra} onChange={(e) => setForm((p) => ({ ...p, extra: e.target.value }))} placeholder="例如：出差城市/采购明细" />
+lawclick-next\src\components\ui\select.tsx:40:        "border-input data-[placeholder]:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex w-fit items-center justify-between gap-2 rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+lawclick-next\src\components\features\team-heatmap.tsx:252:                        placeholder="搜索成员/角色/状态..."
+lawclick-next\src\components\cases\CaseTaskKanban.tsx:50:    return [...grouped.TODO, ...grouped.IN_PROGRESS, ...grouped.REVIEW, ...grouped.DONE]
+lawclick-next\src\components\cases\CaseTaskKanban.tsx:148:                                placeholder="例如：撰写起诉状初稿"
+lawclick-next\src\components\cases\CaseTaskKanban.tsx:157:                                placeholder="补充任务背景与要求..."
+lawclick-next\src\components\cases\CaseTaskKanban.tsx:176:                                        <SelectValue placeholder="选择负责人" />
+lawclick-next\src\components\cases\CaseTaskKanban.tsx:233:                                    placeholder="例如：FILING"
+lawclick-next\src\components\cases\CaseTaskKanban.tsx:269:                                    placeholder="例如：2.5"
+lawclick-next\src\components\cases\CaseDetailClient.tsx:453:                                                        <Input id="title" name="title" placeholder="例如：起诉状副本" />
+lawclick-next\src\components\cases\CaseDetailClient.tsx:459:                                                                <SelectValue placeholder="选择分类" />
+lawclick-next\src\components\cases\CaseDetailClient.tsx:473:                                                        <Textarea id="notes" name="notes" placeholder="添加文档备注..." rows={2} />
+lawclick-next\src\components\ui\input.tsx:11:        "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+lawclick-next\src\components\cases\CaseListClient.tsx:182:                                placeholder="搜索案件标题、编号或客户..."
+lawclick-next\src\components\cases\CaseListClient.tsx:190:                                <SelectValue placeholder="状态" />
+lawclick-next\src\components\cases\CaseListClient.tsx:204:                                <SelectValue placeholder="类型" />
+lawclick-next\src\app\(auth)\auth\login\page.tsx:65:                            placeholder="name@example.com"
+lawclick-next\src\app\(auth)\auth\login\page.tsx:69:                            className="bg-white/5 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-primary/50"
+lawclick-next\src\app\(auth)\auth\login\page.tsx:85:                            className="bg-white/5 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-primary/50"
+lawclick-next\src\app\(auth)\auth\reset-password\ResetPasswordClient.tsx:71:                                <Input id="password" name="password" type="password" placeholder="••••••••" required />
+lawclick-next\src\app\(auth)\auth\reset-password\ResetPasswordClient.tsx:75:                                <Input id="confirmPassword" name="confirmPassword" type="password" placeholder="••••••••" required />
+lawclick-next\src\app\(auth)\auth\reset-password\ResetPasswordClient.tsx:85:                                <Input id="email" name="email" type="email" placeholder="name@example.com" required />
+lawclick-next\src\components\features\case-kanban.tsx:281:                                        {provided.placeholder}
+lawclick-next\src\app\(dashboard)\tools\page.tsx:94:                            placeholder="请输入金额"
+lawclick-next\src\app\(dashboard)\tools\page.tsx:165:                            placeholder="请输入本金"
+lawclick-next\src\app\(dashboard)\tools\page.tsx:287:                            placeholder="请输入天数"
+lawclick-next\src\components\cases\CaseSettingsTab.tsx:113:                                placeholder="输入案件名称"
+lawclick-next\src\components\cases\CaseSettingsTab.tsx:148:                                placeholder="输入案件简要描述"
+lawclick-next\src\components\cases\CaseSettingsTab.tsx:242:                                永久删除案件及所有相关数据（暂未开放）
+lawclick-next\src\components\ui\command.tsx:49:                "flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
+lawclick-next\src\components\cases\CasePartiesTab.tsx:289:                                placeholder="输入姓名或公司名称"
+lawclick-next\src\components\cases\CasePartiesTab.tsx:351:                                    <SelectValue placeholder="选择证件类型" />
+lawclick-next\src\components\cases\CasePartiesTab.tsx:367:                                placeholder="输入证件号码"
+lawclick-next\src\components\cases\CasePartiesTab.tsx:377:                                placeholder="输入电话号码"
+lawclick-next\src\components\cases\CasePartiesTab.tsx:387:                                placeholder="输入邮箱地址"
+lawclick-next\src\components\cases\CasePartiesTab.tsx:396:                                placeholder="输入联系地址"
+lawclick-next\src\components\cases\CasePartiesTab.tsx:406:                                placeholder="输入代理律师姓名"
+lawclick-next\src\components\cases\CasePartiesTab.tsx:415:                                placeholder="输入代理律师电话"
+lawclick-next\src\components\cases\CasePartiesTab.tsx:425:                                placeholder="其他备注信息"
+lawclick-next\src\app\(auth)\auth\register\page.tsx:69:                            placeholder="真实姓名"
+lawclick-next\src\app\(auth)\auth\register\page.tsx:70:                            className="bg-white/5 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-primary/50"
+lawclick-next\src\app\(auth)\auth\register\page.tsx:80:                            placeholder="lawyer@firm.com"
+lawclick-next\src\app\(auth)\auth\register\page.tsx:81:                            className="bg-white/5 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-primary/50"
+lawclick-next\src\app\(auth)\auth\register\page.tsx:91:                            placeholder="••••••••"
+lawclick-next\src\app\(auth)\auth\register\page.tsx:92:                            className="bg-white/5 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-primary/50"
+lawclick-next\src\components\cases\CaseIntakeDetailPanel.tsx:23:    TODO: "待办",
+lawclick-next\src\components\documents\DocumentListClient.tsx:307:                                    <Input id="title" name="title" placeholder="例如：起诉状副本" />
+lawclick-next\src\components\documents\DocumentListClient.tsx:313:                                            <SelectValue placeholder="选择分类" />
+lawclick-next\src\components\documents\DocumentListClient.tsx:326:                                            <SelectValue placeholder="选择关联案件" />
+lawclick-next\src\components\documents\DocumentListClient.tsx:337:                                    <Textarea id="notes" name="notes" placeholder="添加文档备注..." rows={2} />
+lawclick-next\src\components\documents\DocumentListClient.tsx:357:                        placeholder="搜索文档..."
+lawclick-next\src\components\documents\DocumentListClient.tsx:587:                                placeholder="添加备注信息..."
+lawclick-next\src\components\documents\DocumentAIReviewClient.tsx:196:                                    placeholder="请粘贴待审查的合同/文书内容（MVP：不做文件全文抽取）"
+lawclick-next\src\components\timelog\TimerWidget.tsx:301:                                placeholder="您正在做什么？"
+lawclick-next\src\components\timelog\TimerWidget.tsx:314:                                        <SelectValue placeholder="选择案件（可选）" />
+lawclick-next\src\app\(dashboard)\crm\customers\page.tsx:100:                            <Input name="q" defaultValue={q} className="pl-9" placeholder="搜索客户名称/邮箱/电话" />
+lawclick-next\src\components\dispatch\DispatchScheduleBoardClient.tsx:281:                        <Input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="搜索姓名/角色..." />
+lawclick-next\src\components\timelog\TimeLogClient.tsx:115:                                <Input id="description" name="description" placeholder="例如：起草合同条款" required />
+lawclick-next\src\components\timelog\TimeLogClient.tsx:121:                                        <SelectValue placeholder="选择案件（必选）" />
+lawclick-next\src\components\dispatch\DispatchTaskPoolClient.tsx:23:    TODO: "待办",
+lawclick-next\src\components\projects\CreateProjectDialog.tsx:85:                        <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="例如：官网改版、市场投放、合同模板升级" />
+lawclick-next\src\components\projects\CreateProjectDialog.tsx:109:                            placeholder="写清目标、范围、关键里程碑、负责人、预期交付物..."
+lawclick-next\src\components\crm\ManageCustomerTagsDialog.tsx:111:                            <Input value={newName} onChange={(e) => setNewName(e.target.value)} placeholder="标签名" />
+lawclick-next\src\components\crm\ManageCustomerTagsDialog.tsx:112:                            <Input value={newColor} onChange={(e) => setNewColor(e.target.value)} placeholder="#3b82f6" />
+lawclick-next\src\app\(dashboard)\tasks\page.tsx:21:    { value: "TODO", label: "待办" },
+lawclick-next\src\app\(dashboard)\tasks\page.tsx:53:        return statusFilter === "ALL" ? (["TODO", "IN_PROGRESS", "REVIEW", "DONE"] as TaskStatus[]) : ([statusFilter] as TaskStatus[])
+lawclick-next\src\app\(dashboard)\tasks\page.tsx:194:                            placeholder="搜索任务/案件..."
+lawclick-next\src\app\(dashboard)\profile\page.tsx:110:    const taskTodoCount = taskCounts.get("TODO") ?? 0
+lawclick-next\src\components\tasks\TaskKanban.tsx:63:    { id: "TODO", title: "待办", color: "bg-slate-50 border-slate-200" },
+lawclick-next\src\components\tasks\TaskKanban.tsx:118:            TODO: [],
+lawclick-next\src\components\tasks\TaskKanban.tsx:317:                                                        placeholder="输入任务标题，Enter 创建，Shift+Enter 换行"
+lawclick-next\src\components\tasks\TaskKanban.tsx:378:                                        {provided.placeholder}
+lawclick-next\src\components\projects\ProjectTasksPanelClient.tsx:27:    { value: "TODO", label: "待办" },
+lawclick-next\src\components\projects\ProjectTasksPanelClient.tsx:65:            ? (["TODO", "IN_PROGRESS", "REVIEW", "DONE"] as TaskStatus[])
+lawclick-next\src\components\projects\ProjectTasksPanelClient.tsx:266:                                placeholder="搜索任务标题/描述..."
+lawclick-next\src\components\projects\ProjectTasksPanelClient.tsx:442:                            <Input value={createTitle} onChange={(e) => setCreateTitle(e.target.value)} placeholder="例如：整理项目章程与里程碑" />
+lawclick-next\src\components\projects\ProjectTasksPanelClient.tsx:466:                                        <SelectValue placeholder="不指定" />
+lawclick-next\src\components\projects\ProjectTasksPanelClient.tsx:490:                                placeholder="补充关键背景、验收标准、交付物要求..."
+lawclick-next\src\components\crm\CustomerEditDialog.tsx:112:                                <SelectValue placeholder="选择负责人" />
+lawclick-next\src\components\crm\CustomerEditDialog.tsx:155:                                <SelectValue placeholder="选择阶段" />
+lawclick-next\src\components\crm\CustomerEditDialog.tsx:173:                                <SelectValue placeholder="选择等级" />
+lawclick-next\src\components\crm\CreateCaseFromCustomerDialog.tsx:91:                            placeholder="例如：××公司合同纠纷诉讼案"
+lawclick-next\src\components\crm\CreateCaseFromCustomerDialog.tsx:103:                                        <SelectValue placeholder="选择业务类型" />
+lawclick-next\src\components\crm\CreateCaseFromCustomerDialog.tsx:122:                                    <SelectValue placeholder="选择计费模式" />
+lawclick-next\src\components\crm\CreateCaseFromCustomerDialog.tsx:140:                            placeholder="例如：500000"
+lawclick-next\src\components\crm\CreateCaseFromCustomerDialog.tsx:150:                            placeholder="简述案情与目标..."
+lawclick-next\src\components\layout\Header.tsx:30:                        placeholder="搜索案件、任务或文档..."
+lawclick-next\src\components\crm\AddServiceRecordDialog.tsx:60:                                <SelectValue placeholder="选择类型" />
+lawclick-next\src\components\crm\AddServiceRecordDialog.tsx:87:                                <SelectValue placeholder="选择满意度" />
+lawclick-next\src\components\crm\AddServiceRecordDialog.tsx:105:                            placeholder="记录沟通要点、结论与建议..."
+lawclick-next\src\components\crm\AddServiceRecordDialog.tsx:124:                            placeholder="例如：整理证据清单 / 输出报价 / 预约复盘..."
+lawclick-next\src\app\(dashboard)\settings\page.tsx:4:    // TG12 审计：禁止可达“空壳/假数据”页面。
+lawclick-next\src\components\tasks\TaskDetailDialog.tsx:55:    { value: "TODO", label: "待办" },
+lawclick-next\src\components\tasks\TaskDetailDialog.tsx:92:        status: "TODO" as TaskStatus,
+lawclick-next\src\components\tasks\TaskDetailDialog.tsx:257:                                    placeholder="支持 Markdown（后续增强）"
+lawclick-next\src\components\tasks\TaskDetailDialog.tsx:355:                                                <SelectValue placeholder="未分配" />
+lawclick-next\src\components\tasks\TaskDetailDialog.tsx:401:                                        placeholder="例如：2.5"
+lawclick-next\src\components\profile\ProfileClient.tsx:84:    TODO: "待办",
+lawclick-next\src\components\crm\CreateCustomerDialog.tsx:85:                            placeholder="公司名或个人姓名"
+lawclick-next\src\components\crm\CreateCustomerDialog.tsx:96:                                <SelectValue placeholder="选择类型" />
+lawclick-next\src\components\crm\CreateCustomerDialog.tsx:110:                            placeholder="可选"
+lawclick-next\src\components\crm\CreateCustomerDialog.tsx:119:                            placeholder="可选"
+lawclick-next\src\components\crm\CreateCustomerDialog.tsx:128:                            placeholder="可选"
+lawclick-next\src\components\crm\CreateCustomerDialog.tsx:137:                            placeholder="推荐 / 广告 / 自来..."
+lawclick-next\src\components\crm\CreateCustomerDialog.tsx:146:                            placeholder="可选"
+lawclick-next\src\components\crm\CreateCustomerDialog.tsx:157:                                <SelectValue placeholder="选择阶段" />
+lawclick-next\src\components\crm\CreateCustomerDialog.tsx:176:                                <SelectValue placeholder="选择等级" />
+lawclick-next\src\components\crm\CreateCustomerDialog.tsx:193:                            placeholder="客户背景、偏好、风险点..."
+lawclick-next\src\components\layout\header-components.tsx:262:                        placeholder="搜索案件、任务、文档、客户…（至少 2 个字）"
+lawclick-next\src\components\projects\ProjectMembersPanel.tsx:92:                            placeholder="输入成员邮箱..."
+lawclick-next\src\components\tasks\QuickCreateTaskDialog.tsx:113:                                    <SelectValue placeholder="选择案件" />
+lawclick-next\src\components\tasks\QuickCreateTaskDialog.tsx:133:                        <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="例如：审查A轮融资协议" />
+lawclick-next\src\components\tasks\QuickCreateTaskDialog.tsx:157:                            placeholder="补充关键背景、截止时间、交付物要求..."
+lawclick-next\src\components\projects\ProjectsListClient.tsx:179:                                placeholder="搜索项目名称/编号..."
+lawclick-next\src\components\floating\ai-assistant-content.tsx:264:                            <SelectValue placeholder="选择会话" />
+lawclick-next\src\components\floating\ai-assistant-content.tsx:365:                        placeholder="输入您的法律问题..."
+lawclick-next\src\components\finance\CreateExpenseDialog.tsx:106:                                    placeholder="搜索案件（标题/案号/客户）"
+lawclick-next\src\components\finance\CreateExpenseDialog.tsx:139:                            placeholder="例如：差旅-交通 / 复印 / 快递"
+lawclick-next\src\components\finance\CreateExpenseDialog.tsx:147:                            placeholder="例如：860"
+lawclick-next\src\components\finance\RecordPaymentDialog.tsx:76:                            placeholder="例如：30000"
+lawclick-next\src\components\finance\RecordPaymentDialog.tsx:86:                                <SelectValue placeholder="选择方式" />
+lawclick-next\src\components\finance\RecordPaymentDialog.tsx:110:                            placeholder="银行流水号/收据号"
+lawclick-next\src\components\finance\CreateInvoiceDialog.tsx:108:                                    placeholder="搜索案件（标题/案号/客户）"
+lawclick-next\src\components\finance\CreateInvoiceDialog.tsx:141:                            placeholder="例如：50000"
+lawclick-next\src\components\finance\CreateInvoiceDialog.tsx:149:                            placeholder="例如：3000"
+lawclick-next\src\components\finance\CreateInvoiceDialog.tsx:166:                            placeholder="例如：阶段性代理费（第一期）"
+lawclick-next\src\components\finance\CreateContractDialog.tsx:111:                                <Input value={caseQuery} onChange={(e) => searchCases(e.target.value)} placeholder="搜索案件（标题/案号/客户）" />
+lawclick-next\src\components\finance\CreateContractDialog.tsx:140:                        <Input value={form.title} onChange={(e) => setForm((p) => ({ ...p, title: e.target.value }))} placeholder="例如：委托代理合同 / 尽调服务合同" />
+lawclick-next\src\components\finance\CreateContractDialog.tsx:150:                                    <SelectValue placeholder="选择状态" />
+lawclick-next\src\components\finance\CreateContractDialog.tsx:164:                        <Input value={form.amount} onChange={(e) => setForm((p) => ({ ...p, amount: e.target.value }))} placeholder="例如：500000" />
+lawclick-next\src\components\floating\floating-chat.tsx:199:                        placeholder={thread ? "输入消息..." : "加载中..."}
+lawclick-next\src\components\floating\timer-content.tsx:254:                    placeholder="正在做什么..."

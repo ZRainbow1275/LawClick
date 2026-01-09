@@ -1,0 +1,85 @@
+{
+  "name": "lawtime-erp",
+  "version": "2.0.0",
+  "description": "律时ERP系统 - 面向律师行业的综合性数字化平台",
+  "private": true,
+  "workspaces": [
+    "lawclick-next"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter lawclick-next dev",
+    "build": "pnpm --filter lawclick-next build",
+    "test": "pnpm --filter lawclick-next test",
+    "lint": "pnpm --filter lawclick-next lint",
+    "type-check": "pnpm --filter lawclick-next type-check",
+    "audit:routes": "pnpm --filter lawclick-next audit:routes",
+    "audit:actions-ui": "pnpm --filter lawclick-next audit:actions-ui",
+    "audit:actions-ui:report": "pnpm --filter lawclick-next audit:actions-ui:report",
+    "audit:tenant-scope": "pnpm --filter lawclick-next audit:tenant-scope",
+    "audit:permissions-sync": "pnpm --filter lawclick-next audit:permissions-sync",
+    "audit:api-surface": "pnpm --filter lawclick-next audit:api-surface",
+    "audit:orm-entity-sync": "pnpm --filter lawclick-next audit:orm-entity-sync",
+    "audit:lego-coverage": "pnpm --filter lawclick-next audit:lego-coverage",   
+    "audit:lego-freeform-coverage": "pnpm --filter lawclick-next audit:lego-freeform-coverage",
+    "audit:action-result-shape": "pnpm --filter lawclick-next audit:action-result-shape",
+    "audit:ui-disabled-buttons": "pnpm --filter lawclick-next audit:ui-disabled-buttons",
+    "prisma:validate": "pnpm --filter lawclick-next prisma:validate",
+    "prisma:generate": "pnpm --filter lawclick-next prisma:generate",
+    "restore:snapshot": "pnpm --filter lawclick-next restore:snapshot --",      
+    "dev:web": "pnpm --filter lawclick-next dev",
+    "build:web": "pnpm --filter lawclick-next build",
+    "dev:mobile": "cd apps/mobile && flutter run",
+    "build:mobile": "cd apps/mobile && flutter build apk",
+    "install:web": "pnpm install",
+    "install:mobile": "cd apps/mobile && flutter pub get",
+    "install:all": "pnpm run install:web"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "typescript": "5.3.3",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0"
+  },
+  "engines": {
+    "node": ">=18.19.0",
+    "pnpm": ">=8.12.1"
+  },
+  "packageManager": "pnpm@8.12.1",
+  "pnpm": {
+    "overrides": {
+      "glob": "10.5.0",
+      "js-yaml": "4.1.1"
+    }
+  },
+  "comments": {
+    "versions": "基于Context7验证的技术栈版本",
+    "nextjs": "15.1.8 - 最新稳定版本，支持Turbopack和React Server Components",
+    "react": "18.2.0 - 与Next.js 15兼容的稳定版本",
+    "rust": "1.75.0 - 支持最新语言特性的稳定版本",
+    "flutter": "3.16.5 - 原始需求明确指定的移动端技术栈"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lawtime/lawtime-erp.git"
+  },
+  "author": "LawTime Team <dev@lawtime.com>",
+  "license": "MIT",
+  "keywords": [
+    "erp",
+    "legal",
+    "lawyer",
+    "case-management",
+    "ai-driven",
+    "rust",
+    "react",
+    "nextjs",
+    "react-native"
+  ]
+}

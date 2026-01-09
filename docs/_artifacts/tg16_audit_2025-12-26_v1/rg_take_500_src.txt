@@ -1,0 +1,3 @@
+﻿lawclick-next\src\app\(dashboard)\tasks\page.tsx:138:                take: 500,
+lawclick-next\src\components\projects\ProjectTasksPanelClient.tsx:153:                take: 500,
+lawclick-next\src\components\features\timesheet\timesheet-calendar.tsx:60:            take: 500,

@@ -1,0 +1,564 @@
+﻿
+> lawtime-web-frontend@2.0.0 type-check D:\Desktop\LawClick_NEW\apps\web-frontend
+> tsc --noEmit
+
+src/app/calendar/page.tsx(187,14): error TS2786: 'Plus' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/calendar/page.tsx(204,24): error TS2786: 'ChevronLeft' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/calendar/page.tsx(214,24): error TS2786: 'ChevronRight' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/calendar/page.tsx(316,20): error TS2786: 'CalendarIcon' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/calendar/page.tsx(332,22): error TS2786: 'CalendarIcon' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/calendar/page.tsx(353,32): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/calendar/page.tsx(361,34): error TS2786: 'MapPin' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/calendar/page.tsx(368,34): error TS2786: 'Users' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/calendar/page.tsx(394,20): error TS2786: 'Plus' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/calendar/page.tsx(398,20): error TS2786: 'CalendarIcon' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/calendar/page.tsx(402,20): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/cases/page.tsx(168,14): error TS2786: 'Plus' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/cases/page.tsx(176,14): error TS2786: 'Search' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/cases/page.tsx(186,14): error TS2786: 'Filter' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/cases/page.tsx(211,18): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/cases/page.tsx(217,20): error TS2786: 'Plus' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/cases/page.tsx(229,18): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/app/cases/page.tsx(257,28): error TS2786: 'User' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/cases/page.tsx(261,28): error TS2786: 'Calendar' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/cases/page.tsx(266,30): error TS2786: 'Calendar' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(116,17): error TS2786: 'Users' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(118,17): error TS2786: 'MapPin' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(120,17): error TS2786: 'Video' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(122,17): error TS2786: 'CalendarIcon' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(198,14): error TS2786: 'MessageCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(213,20): error TS2786: 'ChevronLeft' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(223,20): error TS2786: 'ChevronRight' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(237,16): error TS2786: 'CalendarIcon' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(256,18): error TS2786: 'CalendarIcon' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(260,20): error TS2786: 'MessageCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(279,32): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(281,62): error TS2345: Argument of type '"datetime"' is not assignable to parameter of type '"short" | "long" | "time" | undefined'.
+src/app/client/calendar/page.tsx(286,34): error TS2786: 'MapPin' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(299,30): error TS2786: 'Video' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(303,28): error TS2786: 'Phone' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(306,28): error TS2786: 'MessageCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(325,18): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(333,18): error TS2786: 'Video' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(346,14): error TS2786: 'CalendarIcon' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(350,14): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/calendar/page.tsx(354,14): error TS2786: 'MessageCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/[id]/timeline/page.tsx(48,25): error TS4111: Property 'id' comes from an index signature, so it must be accessed with ['id'].
+src/app/client/cases/[id]/timeline/page.tsx(239,12): error TS2786: 'AlertCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/[id]/timeline/page.tsx(254,12): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/app/client/cases/[id]/timeline/page.tsx(258,14): error TS2786: 'ArrowLeft' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/[id]/timeline/page.tsx(302,16): error TS2786: 'Calendar' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/[id]/timeline/page.tsx(323,26): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/[id]/timeline/page.tsx(357,36): error TS2786: 'Download' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/[id]/timeline/page.tsx(363,36): error TS2786: 'Eye' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/[id]/timeline/page.tsx(395,14): error TS2786: 'MessageCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/[id]/timeline/page.tsx(399,14): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/page.tsx(175,14): error TS2786: 'MessageCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/page.tsx(183,14): error TS2786: 'Search' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/page.tsx(206,14): error TS2786: 'Filter' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/page.tsx(265,18): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/page.tsx(271,20): error TS2786: 'MessageCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/page.tsx(310,26): error TS2786: 'Calendar' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/page.tsx(314,26): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/page.tsx(319,28): error TS2786: 'Calendar' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/page.tsx(359,26): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/app/client/cases/page.tsx(361,30): error TS2786: 'Eye' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/cases/page.tsx(365,26): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/app/client/cases/page.tsx(367,30): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/dashboard/page.tsx(185,12): error TS2786: 'AlertCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/dashboard/page.tsx(202,14): error TS2786: 'MessageCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/dashboard/page.tsx(216,18): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/dashboard/page.tsx(228,18): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/dashboard/page.tsx(240,18): error TS2786: 'CheckCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/dashboard/page.tsx(252,18): error TS2786: 'AlertCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/dashboard/page.tsx(263,16): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/app/client/dashboard/page.tsx(267,23): error TS2786: 'ArrowRight' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/dashboard/page.tsx(275,22): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/app/client/dashboard/page.tsx(306,16): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/app/client/dashboard/page.tsx(310,23): error TS2786: 'ArrowRight' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/dashboard/page.tsx(347,30): error TS2304: Cannot find name 'cn'.
+src/app/client/documents/page.tsx(61,13): error TS2353: Object literal may only specify known properties, and 'category' does not exist in type 'Document'.
+src/app/client/documents/page.tsx(73,13): error TS2353: Object literal may only specify known properties, and 'category' does not exist in type 'Document'.
+src/app/client/documents/page.tsx(85,13): error TS2353: Object literal may only specify known properties, and 'category' does not exist in type 'Document'.
+src/app/client/documents/page.tsx(97,13): error TS2353: Object literal may only specify known properties, and 'category' does not exist in type 'Document'.
+src/app/client/documents/page.tsx(109,13): error TS2353: Object literal may only specify known properties, and 'category' does not exist in type 'Document'.
+src/app/client/documents/page.tsx(117,67): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+  Type 'ForwardRefExoticComponent<LucideProps>' is not assignable to type 'FunctionComponent<{ className?: string; }>'.
+    Type 'React.ReactNode' is not assignable to type 'import("D:/Desktop/LawClick_NEW/node_modules/.pnpm/@types+react@18.2.46/node_modules/@types/react/index").ReactNode'.
+src/app/client/documents/page.tsx(118,53): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/app/client/documents/page.tsx(119,59): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/app/client/documents/page.tsx(120,53): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/app/client/documents/page.tsx(121,59): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/app/client/documents/page.tsx(122,51): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/app/client/documents/page.tsx(142,39): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/documents/page.tsx(143,69): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/documents/page.tsx(144,67): error TS2786: 'Archive' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/documents/page.tsx(145,41): error TS2786: 'Image' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/documents/page.tsx(146,13): error TS2786: 'File' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/documents/page.tsx(161,43): error TS2339: Property 'category' does not exist on type 'Document'.
+src/app/client/documents/page.tsx(211,14): error TS2786: 'Search' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/documents/page.tsx(221,14): error TS2786: 'Filter' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/documents/page.tsx(274,18): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/documents/page.tsx(292,32): error TS2339: Property 'category' does not exist on type 'Document'.
+src/app/client/documents/page.tsx(293,32): error TS2339: Property 'category' does not exist on type 'Document'.
+src/app/client/documents/page.tsx(294,32): error TS2339: Property 'category' does not exist on type 'Document'.
+src/app/client/documents/page.tsx(295,32): error TS2339: Property 'category' does not exist on type 'Document'.
+src/app/client/documents/page.tsx(296,32): error TS2339: Property 'category' does not exist on type 'Document'.
+src/app/client/documents/page.tsx(303,26): error TS2786: 'Eye' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/documents/page.tsx(307,26): error TS2786: 'Download' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/documents/page.tsx(322,16): error TS2786: 'Download' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/documents/page.tsx(339,14): error TS2786: 'Download' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/documents/page.tsx(343,14): error TS2786: 'Archive' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/messages/page.tsx(153,35): error TS2345: Argument of type 'Conversation | undefined' is not assignable to parameter of type 'SetStateAction<Conversation | null>'.
+  Type 'undefined' is not assignable to type 'SetStateAction<Conversation | null>'.
+src/app/client/messages/page.tsx(224,18): error TS2786: 'Search' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/messages/page.tsx(323,26): error TS2786: 'Phone' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/messages/page.tsx(326,26): error TS2786: 'Video' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/messages/page.tsx(329,26): error TS2786: 'MoreHorizontal' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/messages/page.tsx(350,32): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/messages/page.tsx(371,24): error TS2786: 'Paperclip' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/messages/page.tsx(381,24): error TS2786: 'Send' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/client/messages/page.tsx(389,20): error TS2786: 'MessageCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(151,17): error TS2786: 'Users' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(153,17): error TS2786: 'MapPin' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(155,17): error TS2786: 'Video' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(157,17): error TS2786: 'CalendarIcon' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(235,14): error TS2786: 'Plus' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(250,20): error TS2786: 'ChevronLeft' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(260,20): error TS2786: 'ChevronRight' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(294,16): error TS2786: 'CalendarIcon' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(313,18): error TS2786: 'CalendarIcon' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(317,20): error TS2786: 'Plus' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(336,32): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(343,34): error TS2786: 'MapPin' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(356,30): error TS2786: 'Video' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(360,28): error TS2786: 'Phone' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(363,28): error TS2786: 'Edit' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(366,28): error TS2786: 'Trash2' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(380,14): error TS2786: 'CalendarIcon' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(384,14): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/calendar/page.tsx(388,14): error TS2786: 'Plus' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(47,25): error TS4111: Property 'id' comes from an index signature, so it must be accessed with ['id'].
+src/app/lawyer/cases/[id]/page.tsx(202,17): error TS2786: 'CheckCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(204,17): error TS2786: 'Play' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(206,17): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(208,17): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(238,12): error TS2786: 'AlertCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(253,12): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(257,14): error TS2786: 'ArrowLeft' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(295,20): error TS2786: 'MoreHorizontal' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(318,22): error TS2786: 'Pause' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(323,22): error TS2786: 'Play' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(336,16): error TS2786: 'CheckCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(375,16): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(407,18): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(415,22): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(435,14): error TS2786: 'MessageCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(439,14): error TS2786: 'Calendar' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/[id]/page.tsx(443,14): error TS2786: 'Edit' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/page.tsx(187,14): error TS2786: 'Plus' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/page.tsx(195,14): error TS2786: 'Search' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/page.tsx(205,14): error TS2786: 'Filter' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/page.tsx(264,18): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/page.tsx(270,20): error TS2786: 'Plus' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/page.tsx(286,24): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/app/lawyer/cases/page.tsx(302,28): error TS2786: 'MoreHorizontal' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/page.tsx(315,26): error TS2786: 'User' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/page.tsx(319,26): error TS2786: 'Calendar' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/page.tsx(324,28): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/page.tsx(329,26): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/page.tsx(369,28): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/cases/page.tsx(372,26): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/app/lawyer/cases/page.tsx(374,30): error TS2786: 'Edit' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/communication/page.tsx(184,17): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/communication/page.tsx(186,17): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/communication/page.tsx(226,14): error TS2786: 'MessageCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/communication/page.tsx(233,12): error TS2786: 'Search' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/communication/page.tsx(271,20): error TS2786: 'MessageCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/communication/page.tsx(277,22): error TS2786: 'MessageCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/communication/page.tsx(326,28): error TS2786: 'Phone' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/communication/page.tsx(329,28): error TS2786: 'Video' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/communication/page.tsx(332,28): error TS2786: 'MoreHorizontal' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/communication/page.tsx(350,26): error TS2786: 'Bot' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/communication/page.tsx(365,28): error TS2786: 'MessageCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/contract-review/page.tsx(152,29): error TS2345: Argument of type 'ContractReview | undefined' is not assignable to parameter of type 'SetStateAction<ContractReview | null>'.
+  Type 'undefined' is not assignable to type 'SetStateAction<ContractReview | null>'.
+src/app/lawyer/contract-review/page.tsx(184,17): error TS2786: 'AlertTriangle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/contract-review/page.tsx(186,17): error TS2786: 'CheckCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/contract-review/page.tsx(188,17): error TS2786: 'Info' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/contract-review/page.tsx(190,17): error TS2786: 'Info' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/contract-review/page.tsx(271,24): error TS2786: 'Upload' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/contract-review/page.tsx(286,18): error TS2786: 'Bot' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/contract-review/page.tsx(295,18): error TS2786: 'Zap' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/contract-review/page.tsx(320,24): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/contract-review/page.tsx(377,26): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/contract-review/page.tsx(452,26): error TS2786: 'Download' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/contract-review/page.tsx(492,20): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/dashboard/page.tsx(157,12): error TS2786: 'AlertCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/dashboard/page.tsx(174,14): error TS2786: 'Plus' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/dashboard/page.tsx(188,18): error TS2786: 'FileText' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/dashboard/page.tsx(200,18): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/dashboard/page.tsx(212,18): error TS2786: 'Users' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/dashboard/page.tsx(226,18): error TS2786: 'TrendingUp' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/dashboard/page.tsx(237,16): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/app/lawyer/dashboard/page.tsx(241,23): error TS2786: 'ArrowRight' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/dashboard/page.tsx(269,16): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/app/lawyer/dashboard/page.tsx(273,23): error TS2786: 'ArrowRight' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/time-logs/page.tsx(241,14): error TS2786: 'Plus' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/time-logs/page.tsx(253,22): error TS2786: 'Timer' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/time-logs/page.tsx(266,24): error TS2786: 'Square' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/time-logs/page.tsx(287,18): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/time-logs/page.tsx(301,18): error TS2786: 'DollarSign' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/time-logs/page.tsx(315,18): error TS2786: 'DollarSign' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/time-logs/page.tsx(329,18): error TS2786: 'Calendar' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/time-logs/page.tsx(359,14): error TS2786: 'Download' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/time-logs/page.tsx(385,18): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/time-logs/page.tsx(389,20): error TS2786: 'Play' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/time-logs/page.tsx(400,24): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/time-logs/page.tsx(428,26): error TS2786: 'Edit' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/time-logs/page.tsx(431,26): error TS2786: 'Trash2' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/time-logs/page.tsx(453,18): error TS2786: 'Play' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/lawyer/time-logs/page.tsx(465,18): error TS2786: 'Play' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/login/page.tsx(144,16): error TS2375: Type '{ label: string; type: "text"; placeholder: string; value: string; onChange: (value: string) => void; error: string | undefined; required: true; disabled: boolean; }' is not assignable to type 'InputProps' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'error' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/app/login/page.tsx(161,20): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/app/login/page.tsx(168,18): error TS2375: Type '{ type: "password"; placeholder: string; value: string; onChange: (value: string) => void; error: string | undefined; required: true; disabled: boolean; }' is not assignable to type 'InputProps' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'error' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/app/login/page.tsx(193,16): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/app/page.tsx(13,88): error TS2339: Property 'checkAuth' does not exist on type '{ isInitialized: boolean; isLoading: boolean; login: (credentials: LoginCredentials) => Promise<void>; selectRole: (roleData: RoleSelectionData) => Promise<...>; ... 11 more ...; needsRoleSelection: boolean; } | { ...; }'.
+src/app/role-selection/page.tsx(117,24): error TS2345: Argument of type 'UserRole | undefined' is not assignable to parameter of type 'UserRole'.
+  Type 'undefined' is not assignable to type 'UserRole'.
+src/app/role-selection/page.tsx(164,24): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/role-selection/page.tsx(167,24): error TS2786: 'CheckCircle' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/role-selection/page.tsx(220,32): error TS2786: 'ArrowRight' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/time-logs/page.tsx(250,18): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/time-logs/page.tsx(264,18): error TS2786: 'Calendar' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/time-logs/page.tsx(278,18): error TS2786: 'DollarSign' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/time-logs/page.tsx(288,16): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/time-logs/page.tsx(322,22): error TS2786: 'Play' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/time-logs/page.tsx(332,24): error TS2786: 'Pause' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/time-logs/page.tsx(340,24): error TS2786: 'Square' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/time-logs/page.tsx(353,14): error TS2786: 'Search' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/time-logs/page.tsx(363,14): error TS2786: 'Filter' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/app/time-logs/page.tsx(385,18): error TS2786: 'Clock' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/components/layout/header.tsx(31,16): error TS2786: 'Menu' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/components/layout/header.tsx(36,14): error TS2786: 'Search' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/components/layout/header.tsx(41,49): error TS2339: Property 'target' does not exist on type 'string'.
+src/components/layout/header.tsx(52,16): error TS2786: 'Bell' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/components/layout/header.tsx(70,18): error TS2786: 'User' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/components/layout/sidebar.tsx(42,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+  Type 'ForwardRefExoticComponent<LucideProps>' is not assignable to type 'FunctionComponent<{ className?: string; }>'.
+    Type 'React.ReactNode' is not assignable to type 'import("D:/Desktop/LawClick_NEW/node_modules/.pnpm/@types+react@18.2.46/node_modules/@types/react/index").ReactNode'.
+src/components/layout/sidebar.tsx(48,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/sidebar.tsx(54,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/sidebar.tsx(60,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/sidebar.tsx(66,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/sidebar.tsx(72,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/sidebar.tsx(82,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/sidebar.tsx(88,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/sidebar.tsx(94,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/sidebar.tsx(100,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/sidebar.tsx(106,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/sidebar.tsx(112,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/sidebar.tsx(122,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/sidebar.tsx(128,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/sidebar.tsx(134,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/sidebar.tsx(140,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/sidebar.tsx(149,64): error TS2304: Cannot find name 'useSSRSafeAuth'.
+src/components/layout/sidebar.tsx(211,14): error TS2786: 'ChevronRight' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/components/layout/sidebar.tsx(213,14): error TS2786: 'ChevronLeft' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/components/layout/sidebar.tsx(223,34): error TS7006: Parameter 'role' implicitly has an 'any' type.
+src/components/layout/sidebar.tsx(250,14): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+src/components/layout/sidebar.tsx(285,12): error TS2786: 'LogOut' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/components/layout/SidebarFixed.tsx(41,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+  Type 'ForwardRefExoticComponent<LucideProps>' is not assignable to type 'FunctionComponent<{ className?: string; }>'.
+    Type 'React.ReactNode' is not assignable to type 'import("D:/Desktop/LawClick_NEW/node_modules/.pnpm/@types+react@18.2.46/node_modules/@types/react/index").ReactNode'.
+      Type 'bigint' is not assignable to type 'ReactNode'.
+src/components/layout/SidebarFixed.tsx(46,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/SidebarFixed.tsx(51,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/SidebarFixed.tsx(56,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/SidebarFixed.tsx(61,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/SidebarFixed.tsx(66,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/SidebarFixed.tsx(75,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/SidebarFixed.tsx(80,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/SidebarFixed.tsx(85,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/SidebarFixed.tsx(90,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/SidebarFixed.tsx(95,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/SidebarFixed.tsx(104,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/SidebarFixed.tsx(109,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/SidebarFixed.tsx(114,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/SidebarFixed.tsx(119,5): error TS2322: Type 'LucideIcon' is not assignable to type 'ComponentType<{ className?: string; }>'.
+src/components/layout/SidebarFixed.tsx(152,18): error TS2345: Argument of type 'string' is not assignable to parameter of type 'RoleSelectionData & UserRole'.
+src/components/layout/SidebarFixed.tsx(194,14): error TS2786: 'ChevronRight' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+    Type 'ForwardRefExoticComponent<LucideProps>' is not assignable to type '(props: any, deprecatedLegacyContext?: any) => ReactNode'.
+      Type 'React.ReactNode' is not assignable to type 'import("D:/Desktop/LawClick_NEW/node_modules/.pnpm/@types+react@18.2.46/node_modules/@types/react/index").ReactNode'.
+src/components/layout/SidebarFixed.tsx(196,14): error TS2786: 'ChevronLeft' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/components/layout/SidebarFixed.tsx(232,14): error TS2786: 'Link' cannot be used as a JSX component.
+  Its type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not a valid JSX element type.
+    Type 'ForwardRefExoticComponent<Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof InternalLinkProps> & InternalLinkProps & { ...; } & RefAttributes<...>>' is not assignable to type '(props: any, deprecatedLegacyContext?: any) => ReactNode'.
+      Type 'React.ReactNode' is not assignable to type 'import("D:/Desktop/LawClick_NEW/node_modules/.pnpm/@types+react@18.2.46/node_modules/@types/react/index").ReactNode'.
+src/components/layout/SidebarFixed.tsx(267,12): error TS2786: 'LogOut' cannot be used as a JSX component.
+  Its type 'LucideIcon' is not a valid JSX element type.
+src/hooks/useSSRSafeAuth.ts(36,29): error TS2551: Property 'setLoading' does not exist on type 'AuthStore'. Did you mean 'isLoading'?
+src/lib/api.ts(5,34): error TS4111: Property 'NEXT_PUBLIC_API_URL' comes from an index signature, so it must be accessed with ['NEXT_PUBLIC_API_URL'].
+src/lib/api.ts(33,12): error TS2339: Property 'metadata' does not exist on type 'InternalAxiosRequestConfig<any>'.
+src/lib/api.ts(47,39): error TS2339: Property 'metadata' does not exist on type 'InternalAxiosRequestConfig<any>'.
+src/lib/auth.ts(83,10): error TS7053: Element implicitly has an 'any' type because expression of type 'UserRole' can't be used to index type '{ lawyer: string; client: string; admin: string; }'.
+  Property 'staff' does not exist on type '{ lawyer: string; client: string; admin: string; }'.
+src/lib/auth.ts(89,37): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(data: string): string', gave the following error.
+    Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+  Overload 2 of 2, '(data: string): string', gave the following error.
+    Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/lib/auth.ts(100,28): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(data: string): string', gave the following error.
+    Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+  Overload 2 of 2, '(data: string): string', gave the following error.
+    Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/store/auth.ts(56,15): error TS2345: Argument of type '{ user: User; token: string; isAuthenticated: true; isLoading: false; availableRoles: UserRole[]; needsRoleSelection: boolean; selectedRole: UserRole | null | undefined; }' is not assignable to parameter of type 'AuthStore | Partial<AuthStore> | ((state: AuthStore) => AuthStore | Partial<AuthStore>)'.
+  Type '{ user: User; token: string; isAuthenticated: true; isLoading: false; availableRoles: UserRole[]; needsRoleSelection: boolean; selectedRole: UserRole | null | undefined; }' is not assignable to type 'Partial<AuthStore>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Types of property 'selectedRole' are incompatible.
+      Type 'UserRole | null | undefined' is not assignable to type 'UserRole | null'.
+        Type 'undefined' is not assignable to type 'UserRole | null'.
+src/store/auth.ts(162,43): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+tests/components/input.test.tsx(6,1): error TS2582: Cannot find name 'describe'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.
+tests/components/input.test.tsx(7,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.
+tests/components/input.test.tsx(9,5): error TS2304: Cannot find name 'expect'.
+tests/components/input.test.tsx(12,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.
+tests/components/input.test.tsx(14,5): error TS2304: Cannot find name 'expect'.
+tests/components/input.test.tsx(17,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.
+tests/components/input.test.tsx(20,5): error TS2304: Cannot find name 'expect'.
+tests/components/input.test.tsx(23,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.
+tests/components/input.test.tsx(26,5): error TS2304: Cannot find name 'expect'.
+tests/components/input.test.tsx(29,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.
+tests/components/input.test.tsx(30,26): error TS2708: Cannot use namespace 'jest' as a value.
+tests/components/input.test.tsx(36,5): error TS2304: Cannot find name 'expect'.
+tests/components/input.test.tsx(39,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.
+tests/components/input.test.tsx(42,5): error TS2304: Cannot find name 'expect'.
+tests/components/input.test.tsx(45,3): error TS2582: Cannot find name 'it'. Do you need to install type definitions for a test runner? Try `npm i --save-dev @types/jest` or `npm i --save-dev @types/mocha`.
+tests/components/input.test.tsx(48,5): error TS2304: Cannot find name 'expect'.
+ ELIFECYCLE  Command failed with exit code 2.

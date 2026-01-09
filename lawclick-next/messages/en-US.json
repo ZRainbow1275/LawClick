@@ -1,0 +1,123 @@
+{
+  "app": {
+    "title": "LawClick - Next-gen Legal Workspace",
+    "description": "A professional legal collaboration platform by LegalMind"
+  },
+  "nav": {
+    "dashboard": "Workspace",
+    "calendar": "Calendar",
+    "dispatch": "Dispatch",
+    "cases": {
+      "label": "Cases",
+      "intake": "Intake",
+      "active": "My Cases",
+      "archived": "Archive"
+    },
+    "projects": "Projects",
+    "tasks": "Tasks",
+    "invites": "Invites",
+    "time": "Time Tracking",
+    "documents": "Documents",
+    "tools": "Tools",
+    "ai": "AI Assistant",
+    "crm": "CRM",
+    "admin": {
+      "label": "Admin",
+      "tenants": "Tenants",
+      "approvals": "Approvals",
+      "finance": "Finance",
+      "templates": "Templates",
+      "recycle": "Recycle Bin",
+      "ops": "Operations"
+    },
+    "chat": "Chat",
+    "profile": "Profile"
+  },
+  "settings": {
+    "global": {
+      "title": "UI Preferences (Global)",
+      "theme": "Theme",
+      "density": "Density",
+      "accent": "Accent",
+      "contrast": "Contrast",
+      "locale": "Language",
+      "restoreDefault": "Restore defaults",
+      "hint": "Settings are persisted and synced across devices."
+    },
+    "locale": {
+      "zhCN": "中文（简体）",
+      "enUS": "English (US)"
+    }
+  },
+  "common": {
+    "loading": "Loading…",
+    "apply": "Apply",
+    "cancel": "Cancel",
+    "noPermission": "Access denied"
+  },
+  "ai": {
+    "page": {
+      "title": "AI Assistant",
+      "subtitle": "Chat, generate drafts, and auditable invocations"
+    },
+    "widgets": {
+      "header": "Overview",
+      "conversations": "Conversations",
+      "chat": "Chat",
+      "draft": "Draft Generator",
+      "invocations": "Invocations"
+    },
+    "status": {
+      "configured": "Configured",
+      "notConfigured": "Not configured",
+      "provider": "Provider",
+      "model": "Default model",
+      "lastInvocation": "Last invocation",
+      "tokens": "Token usage"
+    },
+    "conversations": {
+      "new": "New conversation",
+      "creating": "Creating…",
+      "refresh": "Refresh",
+      "empty": "No conversations",
+      "untitled": "Untitled conversation",
+      "selectHint": "Select or create a conversation to start chatting"
+    },
+    "chat": {
+      "placeholder": "Ask something…",
+      "send": "Send",
+      "sending": "Sending…"
+    },
+    "draft": {
+      "case": "Case",
+      "caseSearch": "Search cases (title/code)",
+      "caseSelect": "Select case",
+      "titleOptional": "Title (optional)",
+      "instructions": "Instructions",
+      "generate": "Generate draft",
+      "generating": "Generating…",
+      "generated": "Draft generated",
+      "openDocument": "Open document",
+      "noCasePermission": "Your role cannot access cases, so case-based drafts are unavailable."
+    },
+    "toast": {
+      "statusLoadFailed": "Failed to load AI status",
+      "conversationsLoadFailed": "Failed to load conversations",
+      "openConversationFailed": "Failed to open conversation",
+      "createConversationFailed": "Failed to create conversation",
+      "sendFailed": "Failed to send message",
+      "caseOptionsLoadFailed": "Failed to load cases",
+      "selectCaseRequired": "Please select a case",
+      "instructionsRequired": "Please provide instructions",
+      "draftGenerateFailed": "Failed to generate draft",
+      "draftGenerated": "Draft generated",
+      "draftGeneratedDescription": "Saved to Documents: {documentId}",
+      "invocationsLoadFailed": "Failed to load invocations"
+    },
+    "invocations": {
+      "refresh": "Refresh",
+      "empty": "No invocations",
+      "filterByConversation": "Only current conversation"
+    }
+  }
+}

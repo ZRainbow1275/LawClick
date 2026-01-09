@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>AI合同审查 - 律时</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { display: flex; justify-content: center; }
+        .mobile-shell {
+            width: 100%;
+            max-width: 420px; 
+            height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Simulates TextSpan styling in Flutter's RichText */
+        .highlight {
+            padding: 2px 0;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+        }
+        .highlight-risk {
+            background-color: #FEE2E2; /* light red */
+            border-bottom: 2px solid var(--error-color);
+        }
+        .highlight-suggestion {
+            background-color: #D1FAE5; /* light green */
+            border-bottom: 2px solid var(--success-color);
+        }
+        .highlight-info {
+            background-color: #DBEAFE; /* light blue */
+            border-bottom: 2px solid #3B82F6;
+        }
+
+        .ai-comment-card {
+            border-left-width: 4px;
+            transition: all var(--transition-duration) ease-in-out;
+        }
+        .ai-comment-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="mobile-shell bg-background flex flex-col">
+
+        <!-- Widget: Scaffold -->
+        <!-- Widget: AppBar | Props: title="合同审查报告", actions=[Button(...)] -->
+        <header class="flex-shrink-0 bg-surface shadow-sm z-10">
+            <div class="flex items-center justify-between p-4">
+                <i class="fas fa-arrow-left text-xl cursor-pointer"></i>
+                <h1 class="text-xl font-bold">合同审查报告</h1>
+                <button class="text-sm font-medium py-1 px-3 rounded-md text-white" style="background-color: var(--primary-color);">导出</button>
+            </div>
+        </header>
+        
+        <!-- 
+            Widget Tree Equivalent:
+            Row(
+              children: [
+                Expanded(flex: 3, child: ContractView()),
+                Expanded(flex: 2, child: AISuggestionPanel()),
+              ]
+            )
+            Note: On mobile, this would likely be a TabView or a slide-in panel.
+            For this prototype, we'll simulate a view where comments are below the text.
+        -->
+        <main class="flex-grow overflow-y-auto p-4 flex flex-col gap-6">
+            
+            <!-- Widget: ContractView | Props: document=... -->
+            <div class="bg-surface p-6 rounded-lg shadow-inner text-base leading-relaxed">
+                <h3 class="text-center font-bold text-lg mb-4">软件服务协议</h3>
+                <p class="mb-4">
+                    ...本协议由甲方（客户）与乙方（“律时”软件提供商）签订。乙方同意为甲方提供项目计时与案件管理软件服务。
+                </p>
+                <p class="mb-4">
+                    第五条 服务费用与支付。甲方应在每月结束后五个工作日内支付当月服务费。
+                    <span id="issue-1" class="highlight highlight-risk">若逾期未付，乙方有权中止服务，并要求甲方支付每日千分之五的违约金。</span>
+                </p>
+                <p class="mb-4">
+                    第九条 保密条款。双方应对在合作期间知悉的
+                    <span id="issue-2" class="highlight highlight-info">任何商业秘密、技术信息</span>
+                    承担保密义务。未经对方书面同意，不得向任何第三方泄露。
+                </p>
+                 <p class="mb-4">
+                    第十二条 争议解决。
+                    <span id="issue-3" class="highlight highlight-suggestion">因本协议产生的一切争议，双方应友好协商解决。</span>
+                    协商不成的，应提交乙方所在地人民法院诉讼解决。
+                </p>
+            </div>
+
+            <!-- Widget: AISuggestionPanel | Props: suggestions=... -->
+            <div class="flex flex-col gap-4">
+                <h3 class="text-lg font-bold" style="color: var(--text-primary-color);">AI审查意见 (3)</h3>
+
+                <!-- Widget: CommentCard | Props: issueType="高风险", text="..." -->
+                <div class="bg-surface rounded-lg ai-comment-card" style="border-left-color: var(--error-color);">
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-exclamation-circle" style="color: var(--error-color);"></i>
+                            <h4 class="font-bold text-red-700">高风险：违约金条款</h4>
+                        </div>
+                        <p class="text-sm mb-3" style="color: var(--text-secondary-color);">“每日千分之五”的违约金标准远高于法定上限（通常为年化24%），在司法实践中可能不被支持或被调整。</p>
+                        <div class="flex gap-2">
+                            <button class="text-xs font-medium py-1 px-3 rounded-md text-white" style="background-color: var(--primary-color);">采纳修改建议</button>
+                            <button class="text-xs font-medium py-1 px-3 rounded-md bg-gray-200">忽略</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Widget: CommentCard | Props: issueType="优化建议", text="..." -->
+                <div class="bg-surface rounded-lg ai-comment-card" style="border-left-color: #3B82F6;">
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                             <i class="fas fa-lightbulb" style="color: #3B82F6;"></i>
+                            <h4 class="font-bold text-blue-700">信息：保密范围</h4>
+                        </div>
+                        <p class="text-sm" style="color: var(--text-secondary-color);">条款中对“商业秘密”的定义较为宽泛，建议附件中明确列出保密信息的具体范围，以减少未来争议。</p>
+                    </div>
+                </div>
+
+                <!-- Widget: CommentCard | Props: issueType="修改建议", text="..." -->
+                <div class="bg-surface rounded-lg ai-comment-card" style="border-left-color: var(--success-color);">
+                    <div class="p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                            <h4 class="font-bold text-green-700">优化建议：争议解决</h4>
+                        </div>
+                        <p class="text-sm mb-3" style="color: var(--text-secondary-color);">条款中仅约定了“友好协商”，建议增加“先行调解”程序，并明确约定仲裁机构而非法院管辖，仲裁通常更高效、保密。</p>
+                        <div class="flex gap-2">
+                           <button class="text-xs font-medium py-1 px-3 rounded-md text-white" style="background-color: var(--primary-color);">采纳修改建议</button>
+                            <button class="text-xs font-medium py-1 px-3 rounded-md bg-gray-200">忽略</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

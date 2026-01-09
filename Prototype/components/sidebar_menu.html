@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component: Sidebar Menu</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body,
+        html {
+            background-color: var(--secondary-color);
+            /* Slate 900 */
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="p-4">
+
+    <!-- Widget: DrawerHeader -->
+    <div class="flex items-center gap-3 pb-6 border-b border-gray-700 mb-6">
+        <a href="../screens/lawyer_profile.html" target="_parent" class="relative group">
+            <img class="h-12 w-12 rounded-full border-2 border-transparent group-hover:border-primary transition-all"
+                src="https://i.pravatar.cc/150?u=lawyer" alt="律师头像">
+            <div class="absolute bottom-0 right-0 h-3 w-3 bg-green-500 rounded-full border-2 border-slate-900"></div>
+        </a>
+        <div>
+            <h2 class="font-bold text-white tracking-wide">赵启睿</h2>
+            <p class="text-xs text-gray-400">江西凌科安时律师事务所</p>
+        </div>
+    </div>
+
+    <!-- Widget: ListView of Navigation Tiles -->
+    <nav class="flex flex-col gap-1">
+        <!-- Widget: ListTile | Props: leading, title, onTap -->
+        <a href="../screens/lawyer_dashboard.html" target="_parent"
+            class="flex items-center gap-4 p-3 rounded-lg text-sm font-medium bg-primary/10 text-primary transition-all hover:bg-primary hover:text-white group">
+            <i class="fas fa-tachometer-alt w-6 text-center group-hover:scale-110 transition-transform"></i>
+            <span>仪表盘</span>
+        </a>
+        <a href="../screens/lawyer_calendar_view.html" target="_parent"
+            class="flex items-center gap-4 p-3 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 hover:text-white transition-all group">
+            <i class="fas fa-calendar-alt w-6 text-center group-hover:scale-110 transition-transform"></i>
+            <span>日程安排</span>
+        </a>
+        <a href="../screens/lawyer_time_log.html" target="_parent"
+            class="flex items-center gap-4 p-3 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 hover:text-white transition-all group">
+            <i class="fas fa-clock w-6 text-center group-hover:scale-110 transition-transform"></i>
+            <span>工时记录</span>
+        </a>
+        <a href="../screens/lawyer_case_list.html" target="_parent"
+            class="flex items-center gap-4 p-3 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 hover:text-white transition-all group">
+            <i class="fas fa-briefcase w-6 text-center group-hover:scale-110 transition-transform"></i>
+            <span>案件管理</span>
+        </a>
+        <a href="../screens/lawyer_admin_dash.html" target="_parent"
+            class="flex items-center gap-4 p-3 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 hover:text-white transition-all group">
+            <i class="fas fa-sitemap w-6 text-center group-hover:scale-110 transition-transform"></i>
+            <span>行政中心</span>
+        </a>
+
+        <!-- Divider -->
+        <div class="h-px bg-gray-700 my-4 mx-2"></div>
+
+        <a href="#"
+            class="flex items-center gap-4 p-3 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 hover:text-white transition-all group">
+            <i class="fas fa-cog w-6 text-center group-hover:scale-110 transition-transform"></i>
+            <span>设置</span>
+        </a>
+        <a href="../screens/auth_login.html" target="_parent"
+            class="flex items-center gap-4 p-3 rounded-lg text-sm font-medium text-gray-300 hover:bg-red-500/10 hover:text-red-400 transition-all group">
+            <i class="fas fa-sign-out-alt w-6 text-center group-hover:scale-110 transition-transform"></i>
+            <span>退出登录</span>
+        </a>
+    </nav>
+</body>
+
+</html>

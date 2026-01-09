@@ -1,0 +1,16 @@
+﻿rg -n (TODO|FIXME|HACK|XXX) lawclick-next/src
+START 2025-12-28T11:41:52.5386786+08:00
+lawclick-next/src\actions\cases.ts:253:    const counts: Record<TaskStatus, number> = { TODO: 0, IN_PROGRESS: 0, REVIEW: 0, DONE: 0 }
+lawclick-next/src\actions\tasks-crud.ts:1204:                counts: { TODO: 0, IN_PROGRESS: 0, REVIEW: 0, DONE: 0 } satisfies KanbanStatusCounts,
+lawclick-next/src\actions\tasks-crud.ts:1218:                counts: { TODO: 0, IN_PROGRESS: 0, REVIEW: 0, DONE: 0 } satisfies KanbanStatusCounts,
+lawclick-next/src\actions\tasks-crud.ts:1228:        const counts: KanbanStatusCounts = { TODO: 0, IN_PROGRESS: 0, REVIEW: 0, DONE: 0 }
+lawclick-next/src\actions\tasks-crud.ts:1241:            counts: { TODO: 0, IN_PROGRESS: 0, REVIEW: 0, DONE: 0 } satisfies KanbanStatusCounts,
+lawclick-next/src\actions\ops-kanban-monitoring.ts:21:                TODO: z.number().int().min(0),
+lawclick-next/src\lib\ops\kanban-health-check.ts:174:        TODO: 0,
+lawclick-next/src\components\cases\CaseIntakeDetailPanel.tsx:13:    TODO: "待办",
+lawclick-next/src\components\tasks\TaskKanban.tsx:145:const EMPTY_COUNTS: KanbanStatusCounts = { TODO: 0, IN_PROGRESS: 0, REVIEW: 0, DONE: 0 }
+lawclick-next/src\components\tasks\TaskKanban.tsx:168:        TODO: { page: 0, take, cursor: null, hasMore: enabled.has("TODO"), loading: false, loaded: !enabled.has("TODO") },
+lawclick-next/src\components\tasks\TaskKanban.tsx:656:            TODO: [],
+lawclick-next/src\components\profile\ProfileClient.tsx:84:    TODO: "待办",
+lawclick-next/src\components\dispatch\DispatchTaskPoolClient.tsx:23:    TODO: "待办",
+END exitCode=0 2025-12-28T11:41:52.5946421+08:00

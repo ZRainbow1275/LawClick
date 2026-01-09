@@ -1,0 +1,1 @@
+﻿lawclick-next\src\lib\pdf.ts:1:// @ts-expect-error pdf-parse 的 ESM 子路径缺少类型声明

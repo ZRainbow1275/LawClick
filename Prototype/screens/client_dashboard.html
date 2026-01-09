@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>客户仪表盘 - 律时</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+        .mobile-shell {
+            width: 100%;
+            max-width: 420px;
+            height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .custom-card {
+            filter: var(--shadow-md-filter);
+            transition: all var(--transition-duration) var(--transition-timing-function);
+        }
+        .custom-card:hover {
+            filter: var(--shadow-lg-filter);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="mobile-shell bg-background flex flex-col">
+
+        <!-- Widget: AppBar | Props: title="我的案件", leadingIcon="menu", actions=[Avatar(...)] -->
+        <header class="flex-shrink-0 bg-surface shadow-md z-10">
+            <div class="flex items-center justify-between p-4">
+                <i class="fas fa-bars text-xl" style="color: var(--text-primary-color);"></i>
+                <h1 class="text-xl font-bold" style="color: var(--text-primary-color);">我的案件</h1>
+                <!-- Widget: Avatar | Props: imageUrl="...", size="md" -->
+                <img class="h-10 w-10 rounded-full" src="https://i.pravatar.cc/150?u=client" alt="客户头像">
+            </div>
+        </header>
+
+        <!-- Main scrollable content -->
+        <main class="flex-grow overflow-y-auto p-4 flex flex-col gap-6">
+
+            <!-- Widget: DigitalHumanCard | Props: userName="李先生" -->
+            <div class="p-6 rounded-lg bg-secondary custom-card flex items-center gap-4" style="background-color: var(--secondary-color);">
+                <img src="https://cdn-icons-png.flaticon.com/512/8943/8943324.png" alt="Digital Human" class="h-20 w-20 flex-shrink-0">
+                <div class="flex flex-col">
+                    <h2 class="text-lg font-bold" style="color: var(--primary-color);">李先生，欢迎回来！</h2>
+                    <p class="text-sm" style="color: var(--text-secondary-color);">您的 “A轮融资协议” 案有新动态，点击查看详情。</p>
+                </div>
+            </div>
+
+            <!-- Widget: Row | Props: children=[StatCard(...), StatCard(...)] -->
+            <div class="grid grid-cols-2 gap-4">
+                <!-- Widget: StatCard | Props: title="当前案件状态", value="证据交换", icon="fa-gavel" -->
+                <div class="bg-surface p-4 rounded-lg custom-card flex flex-col gap-2">
+                    <div class="flex items-center justify-between text-secondary" style="color: var(--text-secondary-color);">
+                        <span class="text-sm font-medium">当前案件状态</span>
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <p class="text-2xl font-bold" style="color: var(--text-primary-color);">证据交换中</p>
+                </div>
+
+                <!-- Widget: StatCard | Props: title="下一关键日期", value="庭前会议", subValue="7月25日" icon="fa-calendar-check" -->
+                <div class="bg-surface p-4 rounded-lg custom-card flex flex-col gap-2">
+                    <div class="flex items-center justify-between text-secondary" style="color: var(--text-secondary-color);">
+                        <span class="text-sm font-medium">下一关键节点</span>
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div>
+                        <p class="text-2xl font-bold" style="color: var(--text-primary-color);">庭前会议</p>
+                        <p class="text-sm font-medium" style="color: var(--text-secondary-color);">2024年7月25日</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Widget: ListView.builder | Props: ... (for recent activities) -->
+            <div class="flex flex-col gap-3">
+                <h3 class="text-lg font-bold" style="color: var(--text-primary-color);">最新动态</h3>
+
+                <!-- Widget: ActivityListItem | Props: title="王律师上传了新文件...", subtitle="2小时前", icon="fa-file-arrow-up" -->
+                <div class="bg-surface p-4 rounded-lg custom-card flex items-center gap-4">
+                    <i class="fas fa-file-arrow-up text-xl w-6 text-center" style="color: var(--primary-color);"></i>
+                    <div class="flex-grow">
+                        <p class="font-semibold">王律师上传了新文件: “补充证据清单.pdf”</p>
+                        <p class="text-sm text-secondary" style="color: var(--text-secondary-color);">2小时前</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-secondary" style="color: var(--text-secondary-color);"></i>
+                </div>
+
+                <!-- Widget: ActivityListItem | Props: title="案件节点 '立案' 已完成", subtitle="3天前", icon="fa-check-circle" -->
+                <div class="bg-surface p-4 rounded-lg custom-card flex items-center gap-4">
+                    <i class="fas fa-check-circle text-xl w-6 text-center" style="color: var(--success-color);"></i>
+                    <div class="flex-grow">
+                        <p class="font-semibold">案件节点 "立案" 已完成</p>
+                        <p class="text-sm text-secondary" style="color: var(--text-secondary-color);">3天前</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-secondary" style="color: var(--text-secondary-color);"></i>
+                </div>
+                
+                 <!-- Widget: ActivityListItem | Props: title="您在 '庭前会议' 节点发表了评论", subtitle="4天前", icon="fa-comment" -->
+                <div class="bg-surface p-4 rounded-lg custom-card flex items-center gap-4">
+                    <i class="fas fa-comment text-xl w-6 text-center" style="color: var(--primary-color);"></i>
+                    <div class="flex-grow">
+                        <p class="font-semibold">您在 "庭前会议" 节点发表了评论</p>
+                        <p class="text-sm text-secondary" style="color: var(--text-secondary-color);">4天前</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-secondary" style="color: var(--text-secondary-color);"></i>
+                </div>
+            </div>
+
+        </main>
+        
+        <!-- Widget: FloatingActionButton | Props: icon="fa-robot", onPressed="openAIChat()" -->
+        <button class="absolute bottom-6 right-6 h-14 w-14 rounded-full flex items-center justify-center text-white shadow-lg hover:opacity-90 transition-all duration-200" style="background-color: var(--primary-color);">
+            <i class="fas fa-robot text-xl"></i>
+        </button>
+
+    </div>
+
+</body>
+</html>

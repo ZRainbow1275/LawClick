@@ -1,0 +1,14 @@
+﻿pnpm prisma:validate
+START 2025-12-28T11:35:45.7703466+08:00
+
+> lawtime-erp@2.0.0 prisma:validate D:\Desktop\LawClick_NEW
+> pnpm --filter lawclick-next prisma:validate
+
+
+> lawclick-next@0.1.0 prisma:validate D:\Desktop\LawClick_NEW\lawclick-next
+> prisma validate
+
+Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+The schema at prisma\schema.prisma is valid 🚀
+END exitCode=0 2025-12-28T11:35:47.5627542+08:00

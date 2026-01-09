@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+    <title>律时 (Lǜ Shí) Logo</title>
+    <defs>
+        <!-- 
+            Widget: AppLogoIcon
+            Purpose: Reusable SVG symbol for the application logo.
+            This mimics creating a reusable Icon/SVG component in Flutter.
+            The design combines a scale (law) and a clock (time).
+        -->
+        <symbol id="app-logo" viewBox="0 0 256 256">
+            <style>
+                .logo-primary { fill: #5E35B1; }
+                .logo-accent { fill: #00BFA5; }
+            </style>
+            <g transform="translate(128, 128) scale(1)">
+                <!-- Clock face base -->
+                <path class="logo-primary" d="M0, -110 a110,110 0 1,1 0,220 a110,110 0 1,1 0,-220 Z M0, -95 a95,95 0 1,0 0,190 a95,95 0 1,0 0,-190 Z" />
+
+                <!-- Clock hands (representing the scale's pivot) -->
+                <rect class="logo-accent" x="-4" y="-60" width="8" height="70" rx="4" />
+                <rect class="logo-accent" x="-40" y="-8" width="80" height="8" rx="4" />
+
+                <!-- Scale pans -->
+                <path class="logo-primary" d="M-80 -5 Q -70 20, -60 -5 Z" />
+                <path class="logo-primary" d="M80 -5 Q 70 20, 60 -5 Z" />
+                
+                <!-- Connection lines from scale bar to pans -->
+                <line x1="-70" y1="-8" x2="-70" y2="-20" stroke="#5E35B1" stroke-width="4" />
+                <line x1="70" y1="-8" x2="70" y2="-20" stroke="#5E35B1" stroke-width="4" />
+            </g>
+        </symbol>
+    </defs>
+
+    <!-- This part is for direct viewing of the file. In the app, we'll use the <symbol> -->
+    <use href="#app-logo" width="256" height="256" x="0" y="0" />
+</svg>

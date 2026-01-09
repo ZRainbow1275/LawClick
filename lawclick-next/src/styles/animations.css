@@ -1,0 +1,623 @@
+/* LegalMind 专用动画和交互效果（动效层） */
+/* 说明：tokens 统一定义在 `src/styles/theme.css` 与 `src/app/globals.css` 中 */
+
+/* 统一的过渡效果类 */
+.transition-smooth {
+    transition-property: background-color, border-color, color, box-shadow, transform, opacity, filter;
+    transition-duration: var(--animation-duration-normal);
+    transition-timing-function: var(--animation-easing);
+}
+
+.transition-fast {
+    transition-property: background-color, border-color, color, box-shadow, transform, opacity, filter;
+    transition-duration: var(--animation-duration-fast);
+    transition-timing-function: var(--animation-easing);
+}
+
+.transition-slow {
+    transition-property: background-color, border-color, color, box-shadow, transform, opacity, filter;
+    transition-duration: var(--animation-duration-slow);
+    transition-timing-function: var(--animation-easing);
+}
+
+/* 页面加载动画 */
+.page-enter {
+    animation: pageEnter 0.6s ease-out;
+}
+
+.page-exit {
+    animation: pageExit 0.4s ease-in;
+}
+
+/* 统一的动画类 - 使用CSS变量 */
+.animate-fade-in {
+    animation: fadeIn var(--animation-duration-slower) var(--animation-easing);
+}
+
+/* 滑入动画 */
+.animate-slide-up {
+    animation: slideUp var(--animation-duration-slower) var(--animation-easing);
+}
+
+.animate-slide-down {
+    animation: slideDown var(--animation-duration-slower) var(--animation-easing);
+}
+
+.animate-slide-left {
+    animation: slideLeft var(--animation-duration-slower) var(--animation-easing);
+}
+
+.animate-slide-right {
+    animation: slideRight var(--animation-duration-slower) var(--animation-easing);
+}
+
+/* 缩放动画 */
+.animate-scale-in {
+    animation: scaleIn var(--animation-duration-slow) var(--animation-easing);
+}
+
+.animate-scale-out {
+    animation: scaleOut var(--animation-duration-slow) var(--animation-easing-sharp);
+}
+
+/* 弹跳动画 */
+.animate-bounce-in {
+    animation: bounceIn var(--animation-duration-slower) var(--animation-easing-bounce);
+}
+
+/* 卡片动画 */
+.card-animate {
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+.card-animate:nth-child(2n) {
+    animation-delay: -2s;
+}
+
+.card-animate:nth-child(3n) {
+    animation-delay: -4s;
+}
+
+/* 统一的按钮点击波纹效果 */
+.btn-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgb(var(--lc-primary-rgb) / 0.24);
+    transform: translate(-50%, -50%);
+    transition: width var(--animation-duration-slower) var(--animation-easing),
+        height var(--animation-duration-slower) var(--animation-easing);
+}
+
+.btn-ripple:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* 统一的导航项动画 */
+.nav-item-animate {
+    opacity: 0;
+    animation: slideUp var(--animation-duration-slow) var(--animation-easing) forwards;
+}
+
+/* 统一的悬停效果类 */
+.hover-lift {
+    transition-property: transform, box-shadow;
+    transition-duration: var(--animation-duration-normal);
+    transition-timing-function: var(--animation-easing);
+}
+
+.hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-brand);
+}
+
+.hover-scale {
+    transition: transform var(--animation-duration-normal) var(--animation-easing);
+}
+
+.hover-scale:hover {
+    transform: scale(1.02);
+}
+
+.hover-glow {
+    transition-property: box-shadow, filter;
+    transition-duration: var(--animation-duration-normal);
+    transition-timing-function: var(--animation-easing);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgb(var(--lc-primary-rgb) / 0.3);
+}
+
+.hover-brightness {
+    transition: filter var(--animation-duration-normal) var(--animation-easing);
+}
+
+.hover-brightness:hover {
+    filter: brightness(1.1);
+}
+
+/* 统一的输入框聚焦动画 */
+.input-animate {
+    position: relative;
+    transition-property: background-color, border-color, box-shadow, color, transform;
+    transition-duration: var(--animation-duration-normal);
+    transition-timing-function: var(--animation-easing);
+}
+
+.input-animate::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius);
+    opacity: 0;
+    transform: scale(1.02);
+    transition-property: opacity, transform;
+    transition-duration: var(--animation-duration-slow);
+    transition-timing-function: var(--animation-easing);
+    pointer-events: none;
+}
+
+.input-animate:focus-within::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* 数据加载骨架屏 */
+.skeleton {
+    background: linear-gradient(90deg,
+            var(--color-muted) 25%,
+            var(--color-border) 50%,
+            var(--color-muted) 75%);
+    background-size: 200% 100%;
+    animation: skeleton 1.5s infinite;
+}
+
+/* 通知动画 */
+.notification-enter {
+    animation: notificationSlideIn 0.4s ease-out;
+}
+
+.notification-exit {
+    animation: notificationSlideOut 0.3s ease-in;
+}
+
+/* 模态框动画 */
+.modal-backdrop {
+    animation: backdropFadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    animation: modalSlideIn 0.4s ease-out;
+}
+
+/* 工具提示动画 */
+.tooltip {
+    animation: tooltipFadeIn 0.2s ease-out;
+}
+
+/* 进度条动画 */
+.progress-bar {
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent);
+    animation: progressShine 2s infinite;
+}
+
+/* 关键帧动画定义 */
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pageExit {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes cardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes skeleton {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes notificationSlideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes notificationSlideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes backdropFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes progressShine {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* 响应式动画控制 */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* 深色模式动画调整 */
+/* 新增动画关键帧 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 下拉选择动画 */
+@keyframes dropdownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 优化的Select组件动画 - 修复从左上角飞下来的问题 */
+@keyframes selectContentOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-4px);
+        transform-origin: var(--radix-select-content-transform-origin, center top);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        transform-origin: var(--radix-select-content-transform-origin, center top);
+    }
+}
+
+@keyframes selectContentClose {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        transform-origin: var(--radix-select-content-transform-origin, center top);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.95) translateY(-4px);
+        transform-origin: var(--radix-select-content-transform-origin, center top);
+    }
+}
+
+/* 修复DropdownMenu动画 */
+@keyframes dropdownContentOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-4px);
+        transform-origin: var(--radix-dropdown-menu-content-transform-origin, center top);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        transform-origin: var(--radix-dropdown-menu-content-transform-origin, center top);
+    }
+}
+
+@keyframes dropdownContentClose {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        transform-origin: var(--radix-dropdown-menu-content-transform-origin, center top);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.95) translateY(-4px);
+        transform-origin: var(--radix-dropdown-menu-content-transform-origin, center top);
+    }
+}
+
+/* Select项目悬停动画 */
+.select-item-hover {
+    transition-property: background-color, transform;
+    transition-duration: 0.15s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.select-item-hover:hover {
+    background-color: rgb(var(--lc-primary-rgb) / 0.10);
+    transform: translateX(2px);
+}
+
+/* Select触发器动画 - 使用品牌橙色 */
+.select-trigger {
+    transition-property: background-color, border-color, box-shadow, color, transform;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.select-trigger:focus {
+    box-shadow: 0 0 0 2px rgb(var(--lc-primary-rgb) / 0.2);
+    border-color: var(--color-primary);
+}
+
+.select-trigger[data-state="open"] {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px rgb(var(--lc-primary-rgb) / 0.2);
+}
+
+/* 确保下拉内容正确定位 */
+[data-radix-select-content] {
+    transform-origin: var(--radix-select-content-transform-origin) !important;
+}
+
+[data-radix-dropdown-menu-content] {
+    transform-origin: var(--radix-dropdown-menu-content-transform-origin) !important;
+}
+
+/* 模态框动画 */
+@keyframes modalBackdrop {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalContent {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* 响应式动画优化 */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+
+    .animate-slide-up,
+    .animate-slide-down,
+    .animate-slide-left,
+    .animate-slide-right {
+        animation-duration: 0.4s;
+    }
+
+    .animate-scale-in,
+    .animate-scale-out {
+        animation-duration: 0.3s;
+    }
+}

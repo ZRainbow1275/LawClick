@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>律时 (Lǜ Shí) - 设计系统蓝图 v2.1</title>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: var(--font-family-sans);
+            background-color: #374151;
+            color: white;
+            padding: var(--spacing-lg);
+        }
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid #4B5563;
+        }
+        .logo { width: 64px; height: 64px; }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: var(--spacing-xl);
+        }
+        .section-title {
+            grid-column: 1 / -1; /* Span full width */
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-top: var(--spacing-lg);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--accent-color);
+        }
+        .screen-wrapper {
+            background-color: #1F2937;
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-lg);
+        }
+        .screen-title {
+            font-weight: var(--font-weight-bold);
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+            text-align: center;
+        }
+        .screen-iframe {
+            width: 100%;
+            height: 720px;
+            border: 2px solid #4B5563;
+            border-radius: var(--border-radius-md);
+            background-color: var(--background-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="dashboard-header">
+        <svg class="logo" viewBox="0 0 256 256">
+            <use href="assets/icons/logo.svg#app-logo"></use>
+        </svg>
+        <div>
+            <h1 style="font-size: var(--font-size-h1);">律时 (Lǜ Shí) - 设计系统蓝图 v2.1</h1>
+            <p style="color: #D1D5DB;">一个深度交互、高保真的应用原型，包含可复用组件和已验证的业务逻辑。</p>
+        </div>
+    </header>
+
+    <div class="grid-container">
+
+        <h2 class="section-title">核心交互组件 (v2.1 新增)</h2>
+        <div class="screen-wrapper">
+            <h3 class="screen-title">Component: 添加任务模态框</h3>
+            <iframe class="screen-iframe" src="components/add_task_modal.html"></iframe>
+        </div>
+        <div class="screen-wrapper">
+            <h3 class="screen-title">Component: 个人信息卡片</h3>
+            <iframe class="screen-iframe" src="components/profile_card.html"></iframe>
+        </div>
+        <div class="screen-wrapper">
+            <h3 class="screen-title">Component: 侧边栏菜单</h3>
+            <iframe class="screen-iframe" src="components/sidebar_menu.html"></iframe>
+        </div>
+
+        <h2 class="section-title">应用屏幕</h2>
+        
+        <!-- Authentication Flow -->
+        <div class="screen-wrapper">
+            <h3 class="screen-title">1. 登录页 (auth_login.html)</h3>
+            <iframe class="screen-iframe" src="screens/auth_login.html"></iframe>
+        </div>
+        <div class="screen-wrapper">
+            <h3 class="screen-title">2. 角色选择 (auth_role_selection.html)</h3>
+            <iframe class="screen-iframe" src="screens/auth_role_selection.html"></iframe>
+        </div>
+        
+        <!-- Lawyer Flow (v2.1 Re-architected) -->
+        <div class="screen-wrapper">
+            <h3 class="screen-title">3. 仪表盘 (v2.1 重构)</h3>
+            <iframe class="screen-iframe" src="screens/lawyer_dashboard.html"></iframe>
+        </div>
+        <div class="screen-wrapper">
+            <h3 class="screen-title">4. 日程安排 (v2.1 新增/日历视图)</h3>
+            <iframe class="screen-iframe" src="screens/lawyer_calendar_view.html"></iframe>
+        </div>
+        <div class="screen-wrapper">
+            <h3 class="screen-title">5. 工时记录 (v2.1 新增)</h3>
+            <iframe class="screen-iframe" src="screens/lawyer_time_log.html"></iframe>
+        </div>
+        <div class="screen-wrapper">
+            <h3 class="screen-title">6. 个人中心 (v2.1 新增)</h3>
+            <iframe class="screen-iframe" src="screens/lawyer_profile.html"></iframe>
+        </div>
+        <div class="screen-wrapper">
+            <h3 class="screen-title">7. 案件详情 (v2.1 重构/工作流)</h3>
+            <iframe class="screen-iframe" src="screens/lawyer_case_detail.html"></iframe>
+        </div>
+        <div class="screen-wrapper">
+            <h3 class="screen-title">8. 案件列表</h3>
+            <iframe class="screen-iframe" src="screens/lawyer_case_list.html"></iframe>
+        </div>
+        <div class="screen-wrapper">
+            <h3 class="screen-title">9. AI合同审查</h3>
+            <iframe class="screen-iframe" src="screens/lawyer_contract_review.html"></iframe>
+        </div>
+        <div class="screen-wrapper">
+            <h3 class="screen-title">10. 沟通中心</h3>
+            <iframe class="screen-iframe" src="screens/lawyer_communication.html"></iframe>
+        </div>
+        <div class="screen-wrapper">
+            <h3 class="screen-title">11. 行政中心</h3>
+            <iframe class="screen-iframe" src="screens/lawyer_admin_dash.html"></iframe>
+        </div>
+
+        <!-- Client Flow (Maintained for integrity) -->
+        <div class="screen-wrapper">
+            <h3 class="screen-title">12. 客户仪表盘</h3>
+            <iframe class="screen-iframe" src="screens/client_dashboard.html"></iframe>
+        </div>
+         <div class="screen-wrapper">
+            <h3 class="screen-title">13. 客户案件进展</h3>
+            <iframe class="screen-iframe" src="screens/client_case_timeline.html"></iframe>
+        </div>
+
+    </div>
+
+</body>
+</html>

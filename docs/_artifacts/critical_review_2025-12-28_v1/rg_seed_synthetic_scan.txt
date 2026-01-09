@@ -1,0 +1,9 @@
+﻿rg -n seed-synthetic|synthetic seed|造数
+START 2025-12-28T11:42:15.6894567+08:00
+lawclick-next\prisma\seed.ts:4: * 严禁生成任何模拟/示例业务数据（Synthetic Seed）。
+lawclick-next\prisma\seed.ts:7: * 目标：保证开发/测试数据与生产 1:1 同构，而不是“脚本造数”。
+lawclick-next\prisma\seed.ts:12:        "根据极限标准：禁止使用 synthetic seed（示例/造数）。",
+lawclick-next\prisma\seed.ts:19:        "说明：历史造数脚本已移动到 prisma/seed-synthetic.ts（非主线/禁止默认运行）。",
+lawclick-next\prisma\seed.js:2:    "根据极限标准：禁止使用 synthetic seed（示例/造数）。",
+lawclick-next\prisma\seed.js:9:    "说明：历史造数脚本已移动到 prisma/seed-synthetic.ts（非主线/禁止默认运行）。",
+END exitCode=0 2025-12-28T11:42:15.8749978+08:00

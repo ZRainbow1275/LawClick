@@ -1,0 +1,14 @@
+﻿pnpm audit:routes
+START 2025-12-28T11:35:20.5311411+08:00
+
+> lawtime-erp@2.0.0 audit:routes D:\Desktop\LawClick_NEW
+> pnpm --filter lawclick-next audit:routes
+
+
+> lawclick-next@0.1.0 audit:routes D:\Desktop\LawClick_NEW\lawclick-next
+> node scripts/route-audit.js
+
+[route-audit] app routes: 45
+[route-audit] route refs: 121 (unique: 66)
+[route-audit] OK: 未发现断链路由引用
+END exitCode=0 2025-12-28T11:35:21.8101205+08:00

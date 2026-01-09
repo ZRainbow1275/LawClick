@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>选择身份 - 律时</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .role-card {
+            filter: var(--shadow-md-filter);
+            border: 2px solid transparent;
+            transition: all var(--transition-duration) var(--transition-timing-function);
+        }
+        .role-card:hover {
+            filter: var(--shadow-lg-filter);
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+        }
+    </style>
+</head>
+<body class="bg-background">
+
+    <!-- 
+      Flutter Widget Tree Equivalent:
+      Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("请选择您的身份"),
+              SizedBox(height: 32),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [ RoleCard(...), RoleCard(...) ],
+              )
+            ]
+          )
+        )
+      )
+    -->
+    <div class="p-4 text-center">
+        <svg class="h-12 w-12 text-primary mx-auto mb-4" fill="currentColor" viewBox="0 0 256 256">
+            <use href="../assets/icons/logo.svg#app-logo"></use>
+        </svg>
+        <h1 class="text-2xl font-bold mb-2" style="color: var(--text-primary-color);">欢迎使用 律时</h1>
+        <p class="mb-10" style="color: var(--text-secondary-color);">请选择您的身份以继续</p>
+        
+        <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+            <!-- Widget: RoleCard | Props: title="我是律师", icon="fa-scale-balanced", targetRoute="/lawyer-dashboard" -->
+            <a href="lawyer_dashboard.html" class="w-64 h-64 bg-surface rounded-lg p-6 flex flex-col justify-center items-center gap-4 cursor-pointer role-card no-underline">
+                <i class="fas fa-scale-balanced text-6xl" style="color: var(--primary-color);"></i>
+                <h2 class="text-2xl font-bold" style="color: var(--text-primary-color);">我是律师</h2>
+                <p class="text-sm" style="color: var(--text-secondary-color);">管理案件、记录工时、与客户沟通</p>
+            </a>
+            
+            <!-- Widget: RoleCard | Props: title="我是客户", icon="fa-user-tie", targetRoute="/client-dashboard" -->
+            <a href="client_dashboard.html" class="w-64 h-64 bg-surface rounded-lg p-6 flex flex-col justify-center items-center gap-4 cursor-pointer role-card no-underline">
+                 <i class="fas fa-user-tie text-6xl" style="color: var(--primary-color);"></i>
+                <h2 class="text-2xl font-bold" style="color: var(--text-primary-color);">我是客户</h2>
+                <p class="text-sm" style="color: var(--text-secondary-color);">追踪案件进展、查看文件、与律师沟通</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

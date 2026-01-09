@@ -1,0 +1,1929 @@
+// LawClick Revolution Schema (v8.0)
+// Based on Unified Requirements v8.0 & LegalMind Architecture
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+  // extensions = [vector] // 暂时禁用，需要pgvector扩展
+}
+
+// ============================================================================
+// Enums
+// ============================================================================
+
+enum Role {
+  // 专业序列
+  PARTNER // 律所合伙人
+  SENIOR_LAWYER // 高级律师
+  LAWYER // 专职律师
+  TRAINEE // 实习生
+
+  // 行政序列
+  ADMIN // 主管/管理员
+  HR // 人事
+  MARKETING // 品牌
+  LEGAL_SECRETARY // 法律秘书
+
+  // 外部角色
+  CLIENT // 客户
+
+  // 系统角色
+  FIRM_ENTITY // 律所本体（用于离职人员资料归档）
+}
+
+// 租户成员角色（用于真多租户终态：一个用户可属于多个 Tenant）
+enum TenantMembershipRole {
+  OWNER
+  ADMIN
+  MEMBER
+  VIEWER
+}
+
+enum TenantMembershipStatus {
+  ACTIVE
+  INVITED
+  DISABLED
+}
+
+enum TenantInviteStatus {
+  PENDING
+  ACCEPTED
+  REVOKED
+  EXPIRED
+}
+
+enum CaseRole {
+  OWNER // 案源/负责人
+  HANDLER // 承办人
+  MEMBER // 普通成员
+  VIEWER // 观察员
+}
+
+// 状态机逻辑: LEAD -> INTAKE -> ACTIVE <-> SUSPENDED -> CLOSED -> ARCHIVED
+enum CaseStatus {
+  LEAD // 线索
+  INTAKE // 立案(冲突审查中)
+  ACTIVE // 在办
+  SUSPENDED // 中止
+  CLOSED // 结案
+  ARCHIVED // 归档
+}
+
+// 项目状态机（非案件项目，如行政/市场/IT等）
+enum ProjectStatus {
+  PLANNED // 规划中
+  ACTIVE // 进行中
+  ON_HOLD // 暂停
+  COMPLETED // 已完成
+  ARCHIVED // 归档
+}
+
+enum ProjectType {
+  ADMIN // 行政
+  HR // 人事
+  MARKETING // 品牌市场
+  IT // 信息化/IT
+  BUSINESS // 业务项目（非案件）
+  OTHER // 其他
+}
+
+enum ProjectRole {
+  OWNER
+  MEMBER
+  VIEWER
+}
+
+enum ServiceType {
+  LITIGATION // 诉讼
+  NON_LITIGATION // 非诉
+  ADVISORY // 常年顾问
+  ARBITRATION // 仲裁
+}
+
+enum BillingMode {
+  HOURLY // 计时
+  FIXED // 固定
+  CAPPED // 风险/封顶
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  REVIEW
+  DONE
+}
+
+enum TaskPriority {
+  P0_URGENT // 紧急
+  P1_HIGH // 高
+  P2_MEDIUM // 中
+  P3_LOW // 低
+}
+
+enum TimeLogStatus {
+  RUNNING // 计时中
+  PAUSED // 暂停
+  COMPLETED // 完成 (待通过)
+  APPROVED // 已通过 (可开票)
+  BILLED // 已开票
+}
+
+// 诉讼案件阶段（收案→立案→庭前→庭审→结案）
+enum LitigationStage {
+  INTAKE_CONSULTATION // 收案接洽
+  FILING // 立案
+  PRETRIAL // 庭前准备
+  TRIAL // 庭审
+  CLOSING_EXECUTION // 结案执行
+}
+
+// 非诉案件阶段（尽调→签约→交割）
+enum NonLitigationStage {
+  DUE_DILIGENCE // 尽职调查
+  TRANSACTION // 交易签约
+  CLOSING_COMPLIANCE // 交割合规
+}
+
+// 当事人类型（诉讼地位）
+enum PartyType {
+  PLAINTIFF // 原告/申请人
+  DEFENDANT // 被告/被申请人
+  THIRD_PARTY // 第三人
+  AGENT // 诉讼代理人
+  WITNESS // 证人
+  OPPOSING_PARTY // 对方当事人（非诉用）
+}
+
+// 当事人与本所关系
+enum PartyRelation {
+  CLIENT // 我方委托人
+  OPPONENT // 对方
+  RELATED // 相关方
+}
+
+// 用户工作状态
+enum UserStatus {
+  AVAILABLE // 空闲
+  BUSY // 忙碌
+  FOCUS // 专注
+  MEETING // 会议中
+  AWAY // 出差
+  OFFLINE // 离线
+}
+
+// 协作邀请类型
+enum InviteType {
+  CASE // 加入案件
+  TASK // 分配任务
+  MEETING // 参加会议
+}
+
+// 邀请状态
+enum InviteStatus {
+  PENDING // 待响应
+  ACCEPTED // 已接受
+  REJECTED // 已拒绝
+  EXPIRED // 已过期
+}
+
+// 消息沟通（以案件/团队为中心）
+enum ChatThreadType {
+  TEAM // 全所/团队群聊
+  CASE // 案件群聊
+  DIRECT // 私聊（1v1）
+}
+
+enum ChatMessageType {
+  TEXT
+  SYSTEM
+}
+
+enum NotificationType {
+  SYSTEM
+  CHAT_MESSAGE
+  CASE_ASSIGNED
+  CASE_MEMBER_ADDED
+  TASK_ASSIGNED
+  INVITE_RECEIVED
+  INVITE_ACCEPTED
+  INVITE_REJECTED
+}
+
+// 审批类型
+enum ApprovalType {
+  LEAVE // 请假
+  EXPENSE // 报销
+  PURCHASE // 采购申请
+  CONTRACT // 合同审批
+  INVOICE // 发票申请
+  OTHER // 其他
+}
+
+// 审批状态
+enum ApprovalStatus {
+  DRAFT // 草稿
+  PENDING // 待审批
+  APPROVED // 已批准
+  REJECTED // 已驳回
+  CANCELLED // 已撤回
+}
+
+// 发票状态
+enum InvoiceStatus {
+  DRAFT // 草稿
+  PENDING // 待付款
+  PAID // 已付款
+  PARTIAL // 部分付款
+  OVERDUE // 逾期
+  CANCELLED // 已取消
+}
+
+// 付款方式
+enum PaymentMethod {
+  BANK // 银行转账
+  CASH // 现金
+  CHECK // 支票
+  ONLINE // 在线支付
+  OTHER // 其他
+}
+
+// 费用状态
+enum ExpenseStatus {
+  PENDING // 待审批
+  APPROVED // 已批准
+  REJECTED // 已拒绝
+  REIMBURSED // 已报销
+}
+
+// 合同状态
+enum ContractStatus {
+  DRAFT // 草稿
+  SIGNED // 已签署
+  ACTIVE // 生效中
+  EXPIRED // 已到期
+  CANCELLED // 已作废
+}
+
+// 客户阶段（开拓漏斗）
+enum CustomerStage {
+  POTENTIAL // 潜在客户
+  CONTACTED // 初步接触
+  NEGOTIATING // 深入沟通
+  QUOTING // 报价阶段
+  SIGNED // 签约成功
+  LONG_TERM // 长期客户
+  LOST // 已流失
+}
+
+// 客户等级
+enum CustomerGrade {
+  VIP // VIP客户
+  NORMAL // 普通客户
+  POTENTIAL // 潜在客户
+}
+
+// 统一调用状态（AI/工具箱审计）
+enum InvocationStatus {
+  PENDING
+  SUCCESS
+  ERROR
+}
+
+// AI 调用类型（便于审计筛选）
+enum AIInvocationType {
+  CHAT
+  DOCUMENT_ANALYSIS
+}
+
+// 运维指标类型
+enum OpsMetricKind {
+  QUEUE_HEALTH
+  KANBAN_HEALTH
+}
+
+// 运维告警类型
+enum OpsAlertType {
+  QUEUE_BACKLOG
+  QUEUE_STALE_PROCESSING
+  QUEUE_FAILURE_SPIKE
+  KANBAN_BACKLOG
+}
+
+// 运维告警严重度（对齐 TG14 P0-P3 口径）
+enum OpsAlertSeverity {
+  P0
+  P1
+  P2
+  P3
+}
+
+// 运维告警状态机
+enum OpsAlertStatus {
+  OPEN
+  ACKED
+  SNOOZED
+  RESOLVED
+}
+
+// 租户级实时信号（用于多人协作的“更新提示/增量刷新”）
+enum TenantSignalKind {
+  TASKS_CHANGED
+}
+
+// ============================================================================
+// Models
+// ============================================================================
+
+// 工具模块（N8N扩展接口预留）
+model ToolModule {
+  id          String  @id @default(uuid())
+  tenantId    String  @default("default-tenant")
+  name        String // 模块名称
+  description String? // 描述
+  icon        String? // 图标名或URL
+  url         String? // 外部链接
+  webhookUrl  String? // N8N Webhook地址
+  category    String // 分类：calculator/link/external
+  isActive    Boolean @default(true)
+  sortOrder   Int     @default(0)
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  invocations ToolInvocation[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([tenantId, category, isActive, sortOrder])
+}
+
+// 工具箱调用审计
+model ToolInvocation {
+  id String @id @default(uuid())
+
+  tenantId String @default("default-tenant")
+  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  toolModuleId String
+  toolModule   ToolModule @relation(fields: [toolModuleId], references: [id], onDelete: Cascade)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  payload  Json?
+  response Json?
+  status   InvocationStatus @default(SUCCESS)
+  error    String?
+
+  createdAt DateTime @default(now())
+
+  @@index([tenantId, createdAt])
+  @@index([tenantId, userId, createdAt])
+  @@index([tenantId, toolModuleId, createdAt])
+}
+
+// 运维指标快照（用于趋势与复盘）
+model OpsMetricSnapshot {
+  id       String       @id @default(uuid())
+  tenantId String       @default("default-tenant")
+  kind     OpsMetricKind
+  metrics  Json
+  capturedAt DateTime   @default(now())
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  @@index([tenantId, kind, capturedAt])
+}
+
+// 运维告警（可追踪、可确认、可静音）
+model OpsAlert {
+  id       String        @id @default(uuid())
+  tenantId String        @default("default-tenant")
+  type     OpsAlertType
+  severity OpsAlertSeverity
+  status   OpsAlertStatus @default(OPEN)
+
+  title   String
+  message String
+  payload Json?
+
+  idempotencyKey String?
+
+  firstSeenAt DateTime @default(now())
+  lastSeenAt  DateTime @default(now())
+  lastNotifiedAt DateTime?
+
+  snoozedUntil DateTime?
+
+  acknowledgedAt DateTime?
+  acknowledgedById String?
+  acknowledgedBy   User? @relation("OpsAlertAcknowledgedBy", fields: [acknowledgedById], references: [id], onDelete: SetNull)
+
+  resolvedAt DateTime?
+  resolvedById String?
+  resolvedBy   User? @relation("OpsAlertResolvedBy", fields: [resolvedById], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  @@unique([tenantId, idempotencyKey])
+  @@index([tenantId, status, severity, lastSeenAt])
+  @@index([tenantId, type, status])
+  @@index([acknowledgedById])
+  @@index([resolvedById])
+}
+
+// 租户级实时信号：用极小的写入代价提供“全租户数据已变化”的可观测入口（可用于 SSE/轮询）
+// 说明：采用复合主键（tenantId+kind），确保每种信号在每个租户仅 1 行，避免写放大与无界增长。
+model TenantSignal {
+  tenantId String @default("default-tenant")
+  kind     TenantSignalKind
+
+  payload Json?
+  // 单调递增版本号：用于避免 updatedAt 毫秒级精度导致的“同毫秒多次更新丢信号”
+  version Int @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  @@id([tenantId, kind])
+  @@index([tenantId, updatedAt])
+}
+
+// 租户（Tenant/Firm）- 数据隔离边界的唯一真源
+// 说明：当前默认租户为 `default-tenant`；未来可扩展为多租户（子域名/组织切换等）。
+model Firm {
+  id   String @id
+  name String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tenants     Tenant[]
+  memberships FirmMembership[]
+}
+
+model FirmMembership {
+  id     String @id @default(uuid())
+  firmId String
+  userId String
+
+  role   TenantMembershipRole   @default(MEMBER)
+  status TenantMembershipStatus @default(ACTIVE)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  firm Firm @relation(fields: [firmId], references: [id], onDelete: Restrict)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([firmId, userId])
+  @@index([userId, status])
+  @@index([firmId, status, role])
+}
+
+model Tenant {
+  id   String @id // e.g. "default-tenant" / "acme-firm"
+  name String
+  firmId String
+
+  firm Firm @relation(fields: [firmId], references: [id], onDelete: Restrict)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  users         User[] @relation("UserTenant")
+  activeUsers   User[] @relation("UserActiveTenant")
+  memberships   TenantMembership[]
+  invites       TenantInvite[]
+  contacts      Contact[]
+  cases         Case[]
+  projects      Project[]
+  customerTags  CustomerTag[]
+  chatThreads   ChatThread[]
+  notifications Notification[]
+  approvalRequests ApprovalRequest[]
+  invoices         Invoice[]
+  payments         Payment[]
+  expenses         Expense[]
+  contracts        Contract[]
+  tasks         Task[]
+  timeLogs      TimeLog[]
+  events        Event[]
+  schedules     Schedule[]
+  outOfOfficeEntries OutOfOffice[]
+  taskQueue     TaskQueue[]
+  emailDeliveries EmailDelivery[]
+  uploadIntents UploadIntent[]
+  toolModules     ToolModule[]
+  toolInvocations ToolInvocation[]
+  aiConversations AIConversation[]
+  aiInvocations   AIInvocation[]
+  caseTemplates   CaseTemplate[]
+  documentTemplates DocumentTemplate[]
+  signals    TenantSignal[]
+  opsMetrics OpsMetricSnapshot[]
+  opsAlerts  OpsAlert[]
+
+  @@index([firmId])
+}
+
+model User {
+  id        String  @id @default(uuid())
+  tenantId  String  @default("default-tenant")
+  // 当前会话/工作区使用的租户（可切换）；用于保持全链路 tenant scope 一致
+  activeTenantId String @default("default-tenant")
+  email     String  @unique
+  name      String?
+  role      Role    @default(LAWYER)
+  avatarUrl String?
+
+  tenant       Tenant @relation("UserTenant", fields: [tenantId], references: [id], onDelete: Restrict)
+  activeTenant Tenant @relation("UserActiveTenant", fields: [activeTenantId], references: [id], onDelete: Restrict)
+
+  // 人事信息
+  department String? // 部门（如：诉讼部、非诉部、知产部）
+  title      String? // 职称/职位
+  phone      String? // 手机号
+  employeeNo String? // 工号
+  joinDate   DateTime? // 入职日期
+  leaveDate  DateTime? // 离职日期
+  isActive   Boolean   @default(true) // 账号是否激活
+
+  // 工作状态（协作枢纽功能）
+  status        UserStatus @default(AVAILABLE) // 当前状态
+  statusMessage String? // 状态说明（如"正在开庭"）
+  statusExpiry  DateTime? // 状态过期时间
+  lastActiveAt  DateTime? // 最后活跃时间
+
+  // 上级关系
+  supervisorId String? // 上级ID
+  supervisor   User?   @relation("UserSupervisor", fields: [supervisorId], references: [id])
+  subordinates User[]  @relation("UserSupervisor")
+
+  // Rate info for billing
+  hourlyRate Decimal @default(2000)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  originatedCases Case[]       @relation("CaseOriginator")
+  handledCases    Case[]       @relation("CaseHandler")
+  deletedCases    Case[]       @relation("CaseDeletedBy")
+  caseMemberships CaseMember[]
+  tenantMemberships TenantMembership[]
+  firmMemberships   FirmMembership[]
+  createdTenantInvites TenantInvite[] @relation("TenantInviteCreatedBy")        
+  acceptedTenantInvites TenantInvite[] @relation("TenantInviteAcceptedBy")
+
+  assignedTasks            Task[]            @relation("TaskAssignee")
+  timeLogs                 TimeLog[]
+  events                   Event[]
+  conflictChecks           ConflictCheck[] // 执行的利益冲突检查
+  uploadedDocuments        Document[]        @relation("DocumentUploader") // 上传的文档
+  uploadedDocumentVersions DocumentVersion[] @relation("DocumentVersionUploader") // 上传的文档版本
+  uploadIntents            UploadIntent[] // 上传意图（presigned 直传审计）
+  dashboardLayouts         DashboardLayout[] // 仪表盘布局（MDI/DIY）
+  settings                 UserSetting[] // 用户偏好设置（跨设备一致）
+  acknowledgedOpsAlerts    OpsAlert[] @relation("OpsAlertAcknowledgedBy")
+  resolvedOpsAlerts        OpsAlert[] @relation("OpsAlertResolvedBy")
+
+  // 项目（非案件）
+  ownedProjects      Project[]       @relation("ProjectOwner")
+  deletedProjects    Project[]       @relation("ProjectDeletedBy")
+  projectMemberships ProjectMember[]
+
+  // 协作邀请
+  sentInvites     CollaborationInvite[] @relation("InviteSender")
+  receivedInvites CollaborationInvite[] @relation("InviteReceiver")
+
+  // 审批
+  myApprovalRequests ApprovalRequest[] @relation("ApprovalRequester")
+  approvalsToHandle  ApprovalRequest[] @relation("ApprovalApprover")
+
+  // 合同台账
+  contractsCreated Contract[] @relation("ContractCreator")
+  deletedContracts Contract[] @relation("ContractDeletedBy")
+
+  // 财务
+  expenses Expense[] @relation("UserExpenses")
+
+  // CRM
+  assignedCustomers Contact[]       @relation("CustomerAssignee")
+  deletedContacts   Contact[]       @relation("ContactDeletedBy")
+  serviceRecords    ServiceRecord[] @relation("ServiceRecordLawyer")        
+
+  // AI会话
+  aiConversations AIConversation[] @relation("UserAIConversations")
+  aiInvocations   AIInvocation[]
+  toolInvocations ToolInvocation[]
+
+  // 消息沟通
+  chatThreadsCreated ChatThread[]      @relation("ChatThreadCreator")
+  chatParticipants   ChatParticipant[]
+  chatMessages       ChatMessage[]     @relation("ChatMessageSender")
+
+  // 通知中心
+  notifications     Notification[] @relation("NotificationRecipient")
+  notificationsSent Notification[] @relation("NotificationActor")
+
+  // 日程参与（邀请/接受/拒绝）
+  eventParticipations EventParticipant[]
+
+  // 可用性/排班
+  schedules          Schedule[]
+  outOfOfficeEntries OutOfOffice[]
+
+  // Auth
+  accounts Account[]
+  sessions Session[]
+  passwordResetTokens PasswordResetToken[]
+  password String?
+
+  @@index([tenantId])
+  @@index([activeTenantId])
+  @@index([supervisorId])
+}
+
+model TenantMembership {
+  id       String                 @id @default(uuid())
+  tenantId String                 @default("default-tenant")
+  userId   String
+  role     TenantMembershipRole   @default(MEMBER)
+  status   TenantMembershipStatus @default(ACTIVE)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, userId])
+  @@index([userId, status])
+  @@index([tenantId, status, role])
+}
+
+model TenantInvite {
+  id        String              @id @default(uuid())
+  tenantId  String              @default("default-tenant")
+  status    TenantInviteStatus  @default(PENDING)
+  email     String
+  role      TenantMembershipRole @default(MEMBER)
+  tokenHash String              @unique
+  expiresAt DateTime
+
+  createdById  String
+  acceptedById String?
+  acceptedAt   DateTime?
+  revokedAt    DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tenant     Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+  createdBy  User   @relation("TenantInviteCreatedBy", fields: [createdById], references: [id], onDelete: Restrict)
+  acceptedBy User?  @relation("TenantInviteAcceptedBy", fields: [acceptedById], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, status, expiresAt])
+  @@index([tenantId, email])
+  @@index([acceptedById])
+  @@index([createdById])
+}
+
+// AI会话历史
+model AIConversation {
+  id     String @id @default(uuid())
+
+  tenantId String @default("default-tenant")
+  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  userId String
+  user   User   @relation("UserAIConversations", fields: [userId], references: [id])
+
+  title    String? // 会话标题（自动生成或用户自定义）
+  messages Json // [{role, content, timestamp}]
+  caseId   String? // 关联案件上下文（可选）
+  context  Json? // 通用上下文（caseId/documentId/taskId/approvalId/...）
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  invocations AIInvocation[]
+
+  @@index([tenantId, userId])
+  @@index([tenantId, caseId])
+}
+
+// AI 调用审计（可追溯/可回放/可排障）
+model AIInvocation {
+  id String @id @default(uuid())
+
+  tenantId String @default("default-tenant")
+  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  type AIInvocationType @default(CHAT)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  conversationId String?
+  conversation   AIConversation? @relation(fields: [conversationId], references: [id], onDelete: SetNull)
+
+  context  Json?
+  prompt   String
+  response String?
+
+  provider   String
+  model      String
+  status     InvocationStatus @default(SUCCESS)
+  error      String?
+  tokenUsage Json?
+
+  createdAt DateTime @default(now())
+
+  @@index([tenantId, userId, createdAt])
+  @@index([tenantId, conversationId, createdAt])
+}
+
+// 协作邀请
+model CollaborationInvite {
+  id       String     @id @default(uuid())
+  type     InviteType // CASE/TASK/MEETING
+  targetId String // 目标ID（caseId/taskId/eventId）
+
+  senderId String
+  sender   User   @relation("InviteSender", fields: [senderId], references: [id])
+
+  receiverId String
+  receiver   User   @relation("InviteReceiver", fields: [receiverId], references: [id])
+
+  status  InviteStatus @default(PENDING)
+  message String? // 邀请留言
+
+  createdAt   DateTime  @default(now())
+  respondedAt DateTime?
+
+  @@index([receiverId])
+  @@index([senderId])
+  @@index([targetId])
+}
+
+// 消息沟通：会话（Thread）
+model ChatThread {
+  id    String         @id @default(uuid())
+  key   String         // TEAM:default / CASE:{caseId} / DIRECT:{minUserId}:{maxUserId}
+  type  ChatThreadType
+  title String
+
+  tenantId String @default("default-tenant")
+  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  caseId String?
+  case   Case?   @relation(fields: [caseId], references: [id], onDelete: SetNull)
+
+  createdById String
+  createdBy   User   @relation("ChatThreadCreator", fields: [createdById], references: [id], onDelete: Cascade)
+
+  lastMessageAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  participants ChatParticipant[]
+  messages     ChatMessage[]
+
+  @@unique([tenantId, key])
+  @@index([type, lastMessageAt])
+  @@index([caseId])
+  @@index([tenantId, type, lastMessageAt])
+  @@index([createdById])
+}
+
+// 消息沟通：参与人（用于未读/静音/后续扩展）
+model ChatParticipant {
+  id String @id @default(uuid())
+
+  threadId String
+  thread   ChatThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  joinedAt   DateTime  @default(now())
+  lastReadAt DateTime?
+  muted      Boolean   @default(false)
+
+  @@unique([threadId, userId])
+  @@index([userId, lastReadAt])
+}
+
+// 消息沟通：消息（Message）
+model ChatMessage {
+  id String @id @default(uuid())
+
+  threadId String
+  thread   ChatThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+
+  senderId String
+  sender   User   @relation("ChatMessageSender", fields: [senderId], references: [id], onDelete: Cascade)
+
+  type    ChatMessageType @default(TEXT)
+  content String
+
+  createdAt DateTime @default(now())
+
+  @@index([threadId, createdAt])
+  @@index([senderId, createdAt])
+}
+
+// 通知中心：个人通知（落库，Header 未读数/列表使用）
+model Notification {
+  id String @id @default(uuid())
+
+  tenantId String @default("default-tenant")
+  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  userId String
+  user   User   @relation("NotificationRecipient", fields: [userId], references: [id], onDelete: Cascade)
+
+  actorId String?
+  actor   User?   @relation("NotificationActor", fields: [actorId], references: [id], onDelete: SetNull)
+
+  type      NotificationType @default(SYSTEM)
+  title     String
+  content   String?
+  actionUrl String?
+  metadata  Json?
+
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId, createdAt])
+  @@index([userId, readAt])
+  @@index([type, createdAt])
+  @@index([tenantId, createdAt])
+  @@index([actorId])
+}
+
+// 审批申请
+model ApprovalRequest {
+  id          String       @id @default(uuid())
+  tenantId String @default("default-tenant")
+  type        ApprovalType // 审批类型
+  title       String // 标题
+  description String? // 说明
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  // 关联对象（最小追溯：案件/客户）
+  caseId   String?
+  case     Case?    @relation(fields: [caseId], references: [id], onDelete: SetNull)
+  clientId String?
+  client   Contact? @relation("ClientApprovals", fields: [clientId], references: [id], onDelete: SetNull)
+
+  // 申请人
+  requesterId String
+  requester   User   @relation("ApprovalRequester", fields: [requesterId], references: [id])
+
+  // 审批人
+  approverId String?
+  approver   User?   @relation("ApprovalApprover", fields: [approverId], references: [id])
+
+  status ApprovalStatus @default(DRAFT)
+  amount Decimal? // 金额（报销/采购用）
+
+  // 表单数据（JSON存储不同类型的额外字段）
+  metadata Json?
+
+  // 时间
+  createdAt   DateTime  @default(now())
+  submittedAt DateTime?
+  resolvedAt  DateTime?
+
+  // 审批意见
+  approvalNote String?
+
+  @@index([tenantId, createdAt])
+  @@index([tenantId, status])
+  @@index([caseId])
+  @@index([clientId])
+  @@index([approverId])
+  @@index([requesterId])
+  @@index([status])
+}
+
+// 发票
+model Invoice {
+  id        String @id @default(uuid())
+  tenantId  String @default("default-tenant")
+  invoiceNo String // 发票号
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  // 关联案件和客户
+  caseId   String?
+  case     Case?    @relation(fields: [caseId], references: [id])
+  clientId String?
+  client   Contact? @relation("ClientInvoices", fields: [clientId], references: [id])
+
+  // 金额信息
+  amount      Decimal // 发票金额
+  tax         Decimal @default(0) // 税额
+  totalAmount Decimal // 总金额（含税）
+
+  status InvoiceStatus @default(DRAFT)
+
+  // 日期
+  issuedAt DateTime? // 开票日期
+  dueDate  DateTime? // 付款截止日期
+
+  description String?
+  notes       String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // 收款记录
+  payments Payment[]
+
+  @@unique([tenantId, invoiceNo])
+  @@index([tenantId, status, createdAt])
+  @@index([caseId])
+  @@index([clientId])
+}
+
+// 收款记录
+model Payment {
+  id String @id @default(uuid())
+
+  tenantId String @default("default-tenant")
+  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  invoiceId String
+  invoice   Invoice @relation(fields: [invoiceId], references: [id])
+
+  amount Decimal // 收款金额
+  method PaymentMethod @default(BANK)
+
+  receivedAt DateTime // 收款日期
+  reference  String? // 银行流水号/参考号
+  note       String?
+
+  // 记录人
+  recorderId String?
+
+  createdAt DateTime @default(now())
+
+  @@index([tenantId, receivedAt])
+  @@index([tenantId, invoiceId])
+  @@index([recorderId])
+}
+
+// 费用记录
+model Expense {
+  id String @id @default(uuid())
+  tenantId String @default("default-tenant")
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  // 关联案件
+  caseId String?
+  case   Case?   @relation(fields: [caseId], references: [id])
+
+  // 记录人
+  userId String
+  user   User   @relation("UserExpenses", fields: [userId], references: [id])
+
+  category    String // 费用类别（交通/住宿/餐饮/复印等）
+  amount      Decimal
+  description String?
+
+  status ExpenseStatus @default(PENDING)
+
+  // 发生日期
+  expenseDate DateTime
+
+  // 附件（收据等）
+  attachments String[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([tenantId, expenseDate])
+  @@index([tenantId, userId, expenseDate])
+  @@index([tenantId, caseId])
+}
+
+// 合同台账
+model Contract {
+  id         String         @id @default(uuid())
+  tenantId   String         @default("default-tenant")
+  contractNo String         // 合同编号
+  title      String // 合同标题
+  status     ContractStatus @default(DRAFT)
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  amount    Decimal?
+  startDate DateTime?
+  endDate   DateTime?
+  signedAt  DateTime?
+  notes     String?
+
+  // 关联案件/客户
+  caseId   String?
+  case     Case?    @relation(fields: [caseId], references: [id], onDelete: SetNull)
+  clientId String?
+  client   Contact? @relation("ClientContracts", fields: [clientId], references: [id], onDelete: SetNull)
+
+  // 关联合同文件（复用 Document）
+  documentId String?   @unique
+  document   Document? @relation("ContractDocument", fields: [documentId], references: [id], onDelete: SetNull)
+
+  // 创建人
+  creatorId String
+  creator   User   @relation("ContractCreator", fields: [creatorId], references: [id])
+
+  deletedAt   DateTime?
+  deletedById String?
+  deletedBy   User?     @relation("ContractDeletedBy", fields: [deletedById], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tenantId, contractNo])
+  @@index([tenantId, deletedAt, status, updatedAt])
+  @@index([caseId])
+  @@index([clientId])
+  @@index([creatorId])
+  @@index([deletedById])
+  @@index([status])
+}
+
+// 客户/联系人/当事人
+model Contact {
+  id   String @id @default(uuid())
+  tenantId String @default("default-tenant")
+  name String // 公司名或人名
+  type String // COMPANY / INDIVIDUAL
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  // CRM info
+  email     String?
+  phone     String?
+  industry  String?
+  riskScore Int     @default(0) // 风险评分
+
+  // CRM扩展字段
+  stage   CustomerStage @default(POTENTIAL) // 客户阶段
+  grade   CustomerGrade @default(POTENTIAL) // 客户等级
+  source  String? // 客户来源（推荐/广告/自来等）
+  address String? // 地址
+  notes   String? // 备注
+
+  // 跟进管理
+  nextFollowUp DateTime? // 下次跟进日期
+  assigneeId   String? // 负责人ID
+  assignee     User?     @relation("CustomerAssignee", fields: [assigneeId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  deletedAt   DateTime?
+  deletedById String?
+  deletedBy   User?   @relation("ContactDeletedBy", fields: [deletedById], references: [id])
+
+  // Relations
+  casesAsClient    Case[]            @relation("ClientCases")
+  invoices         Invoice[]         @relation("ClientInvoices")
+  contracts        Contract[]        @relation("ClientContracts")
+  approvalRequests ApprovalRequest[] @relation("ClientApprovals")
+  tags             CustomerTag[]     @relation("ContactTags")
+  serviceRecords   ServiceRecord[]
+
+  @@index([tenantId, deletedAt, updatedAt])
+  @@index([assigneeId])
+  @@index([deletedById])
+}
+
+// 客户标签
+model CustomerTag {
+  id    String @id @default(uuid())
+  tenantId String @default("default-tenant")
+  name  String
+  color String @default("#3b82f6") // 标签颜色
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  contacts Contact[] @relation("ContactTags")
+
+  createdAt DateTime @default(now())
+
+  @@unique([tenantId, name])
+  @@index([tenantId, name])
+}
+
+// 服务记录
+model ServiceRecord {
+  id String @id @default(uuid())
+
+  contactId String
+  contact   Contact @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
+  // 服务内容
+  type    String // 咨询/诉讼/非诉/常年法顾...
+  content String // 服务详情
+
+  // 负责律师
+  lawyerId String
+  lawyer   User   @relation("ServiceRecordLawyer", fields: [lawyerId], references: [id])
+
+  // 评价
+  satisfaction Int? // 满意度1-5
+
+  // 跟进
+  followUpNote String?
+  nextAction   String?
+
+  serviceDate DateTime
+  createdAt   DateTime @default(now())
+
+  @@index([contactId])
+  @@index([lawyerId])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model PasswordResetToken {
+  id        String   @id @default(uuid())
+  userId    String
+  tokenHash String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+// 案件模板（乐高式模板配置）
+model CaseTemplate {
+  id           String      @id @default(uuid())
+  tenantId     String      @default("default-tenant")
+  name         String // 模板名称 e.g. "商事诉讼标准模板"
+  code         String // 模板代码 e.g. "LITIGATION_STANDARD"
+  serviceType  ServiceType
+  description  String?
+  stages       Json // 阶段配置 [{stage, name, requiredDocs, defaultTasks}]
+  requiredDocs Json // 必备文书清单 [{docType, name, isRequired}]
+  defaultTasks Json // 默认任务分解 [{title, stage, priority}]
+  isActive     Boolean     @default(true)
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  cases Case[] // 使用此模板的案件
+
+  @@unique([tenantId, code])
+  @@index([tenantId, serviceType, isActive, updatedAt])
+}
+
+// 文档模板（用于模板起草/草稿生成）
+model DocumentTemplate {
+  id          String  @id @default(uuid())
+  tenantId    String  @default("default-tenant")
+  code        String // 模板代码（推荐全大写下划线，例如：LITIGATION_COMPLAINT_V1）
+  name        String // 模板名称（用户可见）
+  description String?
+
+  variables Json // [{ key, label, type, required }]
+  content   String // 模板正文（支持 {{var}} 占位符）
+
+  isActive Boolean @default(true)
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tenantId, code])
+  @@index([tenantId, isActive, updatedAt])
+}
+
+model Case {
+  id       String @id @default(uuid())
+  tenantId String @default("default-tenant") // 对应 requirements: tenant_id
+  caseCode String // 案号: LC-2025-BJ-001
+  title    String // 案件全称
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  // Status Machine
+  status CaseStatus @default(INTAKE)
+
+  // Classification
+  serviceType ServiceType @default(LITIGATION)
+  billingMode BillingMode @default(HOURLY)
+
+  // Clients
+  clientId String
+  client   Contact @relation("ClientCases", fields: [clientId], references: [id])
+
+  // People
+  originatorId String? // 案源律师
+  originator   User?   @relation("CaseOriginator", fields: [originatorId], references: [id])
+
+  handlerId String? // 承办律师
+  handler   User?   @relation("CaseHandler", fields: [handlerId], references: [id])
+
+  // Metadata
+  description   String?
+  contractValue Decimal?
+  metadata      Json? // 扩展字段
+
+  // 案件阶段管理
+  currentStage String? // 当前阶段（LitigationStage或NonLitigationStage的值）
+  templateId   String? // 使用的案件模板
+  template     CaseTemplate? @relation(fields: [templateId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  deletedAt   DateTime?
+  deletedById String?
+  deletedBy   User?     @relation("CaseDeletedBy", fields: [deletedById], references: [id])
+
+  // Relations
+  members        CaseMember[]
+  tasks          Task[]
+  documents      Document[]
+  uploadIntents  UploadIntent[]
+  timeLogs       TimeLog[]
+  events         Event[]
+  conflictChecks ConflictCheck[] // 利益冲突检查记录
+  parties        Party[] // 案件当事人
+
+  // 财务
+  invoices         Invoice[]
+  expenses         Expense[]
+  approvalRequests ApprovalRequest[]
+  contracts        Contract[]
+
+  // Channels
+  channelId String? // 关联的 IM Channel ID
+
+  // 消息沟通
+  chatThreads ChatThread[]
+
+  @@unique([tenantId, caseCode])
+  @@index([tenantId, deletedAt, updatedAt])
+  @@index([channelId])
+  @@index([clientId])
+  @@index([deletedById])
+  @@index([handlerId])
+  @@index([originatorId])
+  @@index([templateId])
+}
+
+model CaseMember {
+  id       String   @id @default(uuid())
+  caseId   String
+  userId   String
+  role     CaseRole @default(MEMBER)
+  joinedAt DateTime @default(now())
+
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([caseId, userId])
+}
+
+// 非案件项目（行政/市场/IT等）
+model Project {
+  id       String @id @default(uuid())
+  tenantId String @default("default-tenant")
+  projectCode String
+  title    String
+  description String?
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  status ProjectStatus @default(ACTIVE)
+  type   ProjectType   @default(OTHER)
+
+  ownerId String
+  owner   User   @relation("ProjectOwner", fields: [ownerId], references: [id])
+
+  deletedAt   DateTime?
+  deletedById String?
+  deletedBy   User?   @relation("ProjectDeletedBy", fields: [deletedById], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  members ProjectMember[]
+  tasks   Task[]
+
+  @@unique([tenantId, projectCode])
+  @@index([ownerId])
+  @@index([tenantId, deletedAt, updatedAt])
+  @@index([deletedById])
+}
+
+model ProjectMember {
+  id        String      @id @default(uuid())
+  projectId String
+  userId    String
+  role      ProjectRole @default(MEMBER)
+  joinedAt  DateTime    @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, userId])
+  @@index([userId])
+  @@index([projectId])
+}
+
+// 案件当事人模型
+model Party {
+  id     String @id @default(uuid())
+  caseId String
+
+  // 当事人基本信息
+  name     String // 姓名/公司名
+  type     PartyType // 诉讼地位（原告/被告/第三人等）
+  relation PartyRelation // 与本所关系（委托人/对方）
+
+  // 身份信息
+  entityType String? // INDIVIDUAL/COMPANY
+  idType     String? // 身份证/营业执照/护照
+  idNumber   String? // 证件号码
+
+  // 联系方式
+  phone   String?
+  email   String?
+  address String?
+
+  // 代理人信息
+  attorney      String? // 代理律师
+  attorneyPhone String?
+
+  // 备注
+  notes String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@index([caseId])
+}
+
+model Task {
+  id          String  @id @default(uuid())
+  tenantId    String  @default("default-tenant")
+  title       String
+  description String? // Markdown support
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  status   TaskStatus   @default(TODO)
+  priority TaskPriority @default(P2_MEDIUM)
+
+  // Kanban Info
+  swimlane String? // 自定义泳道
+  order    Int     @default(0) // 排序
+
+  checklist Json? // 子任务进度条 e.g. [{text: "Step 1", done: false}]
+
+  dueDate DateTime?
+
+  // 阶段管理
+  stage String? // 所属阶段（INTAKE_CONSULTATION, FILING, PRETRIAL, TRIAL, CLOSING_EXECUTION）
+
+  // 任务类型与关联
+  taskType       String? // DOCUMENT_DRAFT | MATERIAL_COLLECT | MEETING | COURT | REVIEW | OTHER
+  documentId     String? // 关联的文书ID（文书撰写任务）
+  document       Document? @relation(fields: [documentId], references: [id], onDelete: SetNull)
+  estimatedHours Float? // 预估工时（小时）
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  caseId String?
+  case   Case?   @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  projectId String?
+  project   Project? @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  assigneeId String?
+  assignee   User?   @relation("TaskAssignee", fields: [assigneeId], references: [id])
+
+  timeLogs TimeLog[] // 任务关联的工时记录
+  events   Event[] // 任务关联的日程（如会议/截止期）
+
+  @@index([caseId])
+  @@index([projectId])
+  @@index([assigneeId])
+  @@index([documentId])
+  @@index([tenantId, status, updatedAt])
+  @@index([tenantId, caseId, status, swimlane, order], map: "task_case_kanban_order_idx")
+  @@index([tenantId, projectId, status, swimlane, order], map: "task_project_kanban_order_idx")
+  @@index([tenantId, caseId, status, order, id], map: "task_case_kanban_status_order_idx")
+  @@index([tenantId, projectId, status, order, id], map: "task_project_kanban_status_order_idx")
+}
+
+model Document {
+  id       String @id @default(uuid())
+  title    String
+  fileUrl  String?
+  fileType String? // mime type (e.g. application/pdf)
+  fileSize Int    @default(0)
+
+  // Versioning
+  version Int @default(1)
+
+  // 阶段文书管理
+  stage        String? // 所属阶段
+  documentType String? // 文书类型代码（如 CONTRACT, COMPLAINT, EVIDENCE）
+  isRequired   Boolean @default(false) // 是否必备文书
+  isCompleted  Boolean @default(false) // 是否完成
+
+  // 新增字段 - 满足架构设计需求
+  category       String? // 分类：litigation/evidence/contract/procedure/other
+  tags           String[] // 标签数组
+  notes          String? // 备注
+  summary        String? // AI摘要
+  isFavorite     Boolean  @default(false) // 是否收藏
+  isConfidential Boolean  @default(false) // 是否保密
+
+  // 上传人
+  uploaderId String?
+  uploader   User?   @relation("DocumentUploader", fields: [uploaderId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  caseId   String
+  case     Case              @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  tasks    Task[] // 关联的任务（如文书撰写任务）
+  contract Contract?         @relation("ContractDocument")
+  versions DocumentVersion[]
+  // embeddings Embedding[] // 暂时禁用，需要pgvector扩展
+
+  @@index([caseId])
+  @@index([uploaderId])
+}
+
+model DocumentVersion {
+  id String @id @default(uuid())
+
+  documentId String
+  document   Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  version  Int
+  fileKey  String
+  fileType String
+  fileSize Int    @default(0)
+
+  uploaderId String?
+  uploader   User?   @relation("DocumentVersionUploader", fields: [uploaderId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@unique([documentId, version])
+  @@index([documentId])
+  @@index([uploaderId])
+}
+
+enum UploadIntentKind {
+  DOCUMENT
+}
+
+enum UploadIntentStatus {
+  INITIATED
+  FINALIZED
+  EXPIRED
+  CLEANED
+  FAILED
+}
+
+// 上传意图审计（用于 presigned 直传的追溯与孤儿对象回收）
+model UploadIntent {
+  id       String @id @default(uuid())
+  tenantId String @default("default-tenant")
+  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  kind UploadIntentKind @default(DOCUMENT)
+
+  createdById String?
+  createdBy   User?   @relation(fields: [createdById], references: [id])
+
+  // 强制关联案件，避免“无归属对象”与权限绕过
+  caseId String
+  case   Case   @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  // 文档ID：可能是“计划中的新 documentId”（init 阶段 Document 尚未落库），因此不做外键约束
+  documentId String
+  // 对应文档版本（finalize 成功后写入）
+  documentVersionId String?
+
+  key         String
+  filename    String
+  contentType String
+
+  expectedFileSize Int
+  expectedVersion  Int
+
+  status UploadIntentStatus @default(INITIATED)
+
+  expiresAt   DateTime
+  finalizedAt DateTime?
+  cleanedAt   DateTime?
+
+  lastError String?
+  result    Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([key])
+  @@index([tenantId, status, expiresAt, createdAt])
+  @@index([status, expiresAt])
+  @@index([caseId, status, createdAt])
+  @@index([documentId, status, createdAt])
+  @@index([createdById])
+  @@index([documentVersionId])
+}
+
+model DashboardLayout {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  dashboardKey String @default("default")
+  config       Json
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, dashboardKey])
+  @@index([userId])
+}
+
+// 用户偏好设置（跨设备一致的 UI/交互状态）
+model UserSetting {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  key   String
+  value Json
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, key])
+  @@index([userId])
+  @@index([key])
+}
+
+// API 速率限制（分布式/多实例：使用 DB 作为共享计数器）
+model ApiRateLimit {
+  id          String   @id @default(uuid())
+  key         String
+  windowStart DateTime
+  count       Int      @default(0)
+  expiresAt   DateTime
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([key, windowStart])
+  @@index([key])
+  @@index([expiresAt])
+}
+
+// 利益冲突检查记录
+model ConflictCheck {
+  id     String @id @default(uuid())
+  caseId String
+  case   Case   @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  checkResult   String // CLEAR | CONFLICT | PENDING
+  conflictsWith Json? // [{entityType, entityId, entityName, reason}]
+  notes         String?
+
+  checkedById String
+  checkedBy   User     @relation(fields: [checkedById], references: [id])
+  checkedAt   DateTime @default(now())
+
+  @@index([caseId])
+  @@index([checkedById])
+}
+
+model TimeLog {
+  id          String @id @default(uuid())
+  tenantId    String @default("default-tenant")
+  description String
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  // Timing
+  startTime DateTime  @default(now())
+  endTime   DateTime?
+  duration  Int       @default(0) // in seconds for precision, converted to minutes for billing
+
+  // Billing
+  status        TimeLogStatus @default(RUNNING)
+  isBillable    Boolean       @default(true)
+  billingRate   Decimal? // Snapshot of rate at time of log
+  billingAmount Decimal? // Calculated amount
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  caseId String?
+  case   Case?   @relation(fields: [caseId], references: [id])
+
+  taskId String? // 关联的任务（任务级计时）
+  task   Task?   @relation(fields: [taskId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, userId, startTime])
+  @@index([tenantId, caseId, startTime])
+  @@index([taskId])
+}
+
+enum EventType {
+  MEETING
+  HEARING
+  DEADLINE
+  OTHER
+}
+
+enum EventVisibility {
+  PRIVATE // 仅参与人可见
+  TEAM_BUSY // 团队可见忙闲（详情脱敏）
+  TEAM_PUBLIC // 团队可见详情
+  CASE_TEAM // 案件成员可见详情
+}
+
+enum EventStatus {
+  SCHEDULED
+  CANCELLED
+}
+
+enum EventParticipantStatus {
+  INVITED
+  ACCEPTED
+  DECLINED
+}
+
+model Event {
+  id          String          @id @default(uuid())
+  tenantId    String          @default("default-tenant")
+  title       String
+  description String?
+  type        EventType       @default(MEETING)
+  visibility  EventVisibility @default(TEAM_BUSY)
+  status      EventStatus     @default(SCHEDULED)
+  startTime   DateTime
+  endTime     DateTime
+  location    String?
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  caseId String?
+  case   Case?   @relation(fields: [caseId], references: [id])
+
+  taskId String?
+  task   Task?   @relation(fields: [taskId], references: [id], onDelete: SetNull)
+
+  creatorId String
+  creator   User   @relation(fields: [creatorId], references: [id])
+
+  participants EventParticipant[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([tenantId, startTime])
+  @@index([tenantId, creatorId, startTime])
+  @@index([tenantId, caseId, startTime])
+  @@index([taskId])
+}
+
+model EventParticipant {
+  id String @id @default(uuid())
+
+  eventId String
+  event   Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  status EventParticipantStatus @default(INVITED)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([eventId, userId])
+  @@index([userId])
+  @@index([eventId])
+}
+
+model Schedule {
+  id        String  @id @default(uuid())
+  tenantId  String  @default("default-tenant")
+  name      String
+  timeZone  String  @default("Asia/Shanghai")
+  isDefault Boolean @default(true)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  rules AvailabilityRule[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([tenantId, userId])
+  @@index([userId])
+}
+
+model AvailabilityRule {
+  id String @id @default(uuid())
+
+  scheduleId String
+  schedule   Schedule @relation(fields: [scheduleId], references: [id], onDelete: Cascade)
+
+  dayOfWeek   Int // 0-6, Sunday=0
+  startMinute Int // e.g. 9:30 => 570
+  endMinute   Int // e.g. 18:00 => 1080
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([scheduleId])
+  @@index([dayOfWeek])
+}
+
+model OutOfOffice {
+  id String @id @default(uuid())
+
+  tenantId String @default("default-tenant")
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  startTime DateTime
+  endTime   DateTime
+  reason    String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([tenantId, userId])
+  @@index([userId])
+  @@index([startTime])
+}
+
+// Embedding模型暂时禁用，需要pgvector扩展
+// model Embedding {
+//   id      String                      @id @default(uuid())
+//   content String
+//   vector  Unsupported("vector(1536)")
+//   documentId String
+//   document   Document @relation(...)
+// }
+
+enum QueueStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum EmailDeliveryStatus {
+  PENDING
+  PROCESSING
+  SENT
+  FAILED
+}
+
+model EmailDelivery {
+  id String @id @default(uuid())
+
+  tenantId String @default("default-tenant")
+  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  idempotencyKey String
+  to             String
+  subject        String
+  payloadHash    String
+  provider       String
+
+  status        EmailDeliveryStatus @default(PENDING)
+  attempts      Int                @default(0)
+  lastAttemptAt DateTime?
+  lastError     String?
+  messageId     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tenantId, idempotencyKey])
+  @@index([tenantId, status, updatedAt])
+  @@index([tenantId, lastAttemptAt])
+  @@index([tenantId, messageId])
+}
+
+model TaskQueue {
+  id      String      @id @default(uuid())
+  tenantId String     @default("default-tenant")
+  type    String // e.g. "GENERATE_REPORT", "SEND_EMAIL"
+  payload Json // Job arguments
+  status  QueueStatus @default(PENDING)
+  result  Json? // Result or Error info
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  idempotencyKey String?
+
+  priority   Int      @default(0)
+  availableAt DateTime @default(now())
+  lockedAt   DateTime?
+  lockedBy   String?
+
+  attempts Int @default(0)
+  maxAttempts Int @default(8)
+  lastError   String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status, availableAt, priority, createdAt])
+  @@index([lockedAt])
+  @@unique([tenantId, idempotencyKey])
+  @@index([tenantId, status, availableAt, priority, createdAt])
+}

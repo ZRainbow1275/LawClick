@@ -1,0 +1,2 @@
+    Checking lawtime-erp v2.0.0 (D:\Desktop\LawClick_NEW)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.96s

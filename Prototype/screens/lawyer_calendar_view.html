@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>日程 - 律时</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .mobile-shell {
+            width: 100%;
+            max-width: 420px;
+            height: 100vh;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .custom-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Core Calendar Grid Layout */
+        .calendar-container {
+            display: grid;
+            grid-template-columns: 50px 1fr;
+            /* Time labels | Main grid */
+        }
+
+        .time-labels {
+            padding-right: 8px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            /* 7 days of the week */
+            /* 24 hours * 2 rows per hour (for half-hour slots) = 48 rows */
+            grid-template-rows: repeat(48, 25px);
+            background-image: repeating-linear-gradient(to bottom,
+                    var(--border-color) 0,
+                    var(--border-color) 1px,
+                    transparent 1px,
+                    transparent 50px);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .calendar-event {
+            position: relative;
+            background-color: var(--secondary-color);
+            border-left: 3px solid var(--primary-color);
+            border-radius: var(--border-radius-sm);
+            padding: 4px 6px;
+            overflow: hidden;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .calendar-event:hover {
+            opacity: 0.8;
+            box-shadow: var(--shadow-md);
+        }
+    </style>
+</head>
+
+<body class="bg-surface">
+
+    <div class="mobile-shell bg-surface flex flex-col">
+        <!-- Widget: AppBar -->
+        <header class="flex-shrink-0 bg-surface p-4 border-b border-gray-100 z-10 shadow-sm">
+            <div class="flex justify-between items-center">
+                <i
+                    class="fas fa-arrow-left text-xl cursor-pointer text-gray-600 hover:text-gray-900 transition-colors"></i>
+                <h1 class="text-lg font-bold text-gray-900">2025年6月8日 - 14日</h1>
+                <div class="flex items-center gap-4">
+                    <i
+                        class="fas fa-search text-lg cursor-pointer text-gray-600 hover:text-gray-900 transition-colors"></i>
+                    <i class="fas fa-plus-circle text-2xl cursor-pointer hover:scale-110 transition-transform shadow-sm rounded-full"
+                        style="color: var(--primary-color);"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Widget: CalendarView -->
+        <main class="flex-grow overflow-y-auto custom-scrollbar" id="calendar-main">
+            <!-- Header for days of the week -->
+            <div class="sticky top-0 bg-surface pt-2 z-10 border-b border-gray-100 pb-2 shadow-sm">
+                <div class="calendar-container">
+                    <div></div> <!-- Empty space above time labels -->
+                    <div class="grid grid-cols-7 text-center text-sm">
+                        <div class="text-gray-500 py-1">日 8</div>
+                        <div class="text-gray-500 py-1">一 9</div>
+                        <div class="text-gray-500 py-1">二 10</div>
+                        <div class="text-white bg-primary rounded-lg p-1 shadow-md transform scale-105 font-bold">三 11
+                        </div>
+                        <div class="text-gray-500 py-1">四 12</div>
+                        <div class="text-gray-500 py-1">五 13</div>
+                        <div class="text-gray-500 py-1">六 14</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main calendar grid -->
+            <div class="calendar-container mt-2">
+                <!-- Widget: TimeLabels (Generated dynamically in Flutter) -->
+                <div class="time-labels text-right text-xs font-medium" style="color: var(--text-secondary-color);">
+                    <!-- These would be generated from 00:00 to 23:00 -->
+                    <div style="height: 50px;">09:00</div>
+                    <div style="height: 50px;">10:00</div>
+                    <div style="height: 50px;">11:00</div>
+                    <div style="height: 50px;">12:00</div>
+                    <div style="height: 50px;">13:00</div>
+                    <!DOCTYPE html>
+                    <html lang="zh-CN">
+
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+                        <title>日程 - 律时</title>
+                        <link rel="stylesheet" href="../styles/main.css">
+                        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+                            rel="stylesheet">
+                        <link rel="stylesheet"
+                            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+                        <style>
+                            body {
+                                display: flex;
+                                justify-content: center;
+                            }
+
+                            .mobile-shell {
+                                width: 100%;
+                                max-width: 420px;
+                                height: 100vh;
+                                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+                            }
+
+                            .custom-scrollbar::-webkit-scrollbar {
+                                display: none;
+                            }
+
+                            .custom-scrollbar {
+                                -ms-overflow-style: none;
+                                scrollbar-width: none;
+                            }
+
+                            /* Core Calendar Grid Layout */
+                            .calendar-container {
+                                display: grid;
+                                grid-template-columns: 50px 1fr;
+                                /* Time labels | Main grid */
+                            }
+
+                            .time-labels {
+                                padding-right: 8px;
+                            }
+
+                            .calendar-grid {
+                                display: grid;
+                                grid-template-columns: repeat(7, 1fr);
+                                /* 7 days of the week */
+                                /* 24 hours * 2 rows per hour (for half-hour slots) = 48 rows */
+                                grid-template-rows: repeat(48, 25px);
+                                background-image: repeating-linear-gradient(to bottom,
+                                        var(--border-color) 0,
+                                        var(--border-color) 1px,
+                                        transparent 1px,
+                                        transparent 50px);
+                                border-top: 1px solid var(--border-color);
+                            }
+
+                            .calendar-event {
+                                position: relative;
+                                background-color: var(--secondary-color);
+                                border-left: 3px solid var(--primary-color);
+                                border-radius: var(--border-radius-sm);
+                                padding: 4px 6px;
+                                overflow: hidden;
+                                font-size: 12px;
+                                cursor: pointer;
+                                transition: all 0.2s ease;
+                            }
+
+                            .calendar-event:hover {
+                                opacity: 0.8;
+                                box-shadow: var(--shadow-md);
+                            }
+                        </style>
+                    </head>
+
+                    <body class="bg-surface">
+
+                        <div class="mobile-shell bg-surface flex flex-col">
+                            <!-- Widget: AppBar -->
+                            <header class="flex-shrink-0 bg-surface p-4 border-b border-gray-100 z-10 shadow-sm">
+                                <div class="flex justify-between items-center">
+                                    <i
+                                        class="fas fa-arrow-left text-xl cursor-pointer text-gray-600 hover:text-gray-900 transition-colors"></i>
+                                    <h1 class="text-lg font-bold text-gray-900">2025年6月8日 - 14日</h1>
+                                    <div class="flex items-center gap-4">
+                                        <i
+                                            class="fas fa-search text-lg cursor-pointer text-gray-600 hover:text-gray-900 transition-colors"></i>
+                                        <i class="fas fa-plus-circle text-2xl cursor-pointer hover:scale-110 transition-transform shadow-sm rounded-full"
+                                            style="color: var(--primary-color);"></i>
+                                    </div>
+                                </div>
+                            </header>
+
+                            <!-- Widget: CalendarView -->
+                            <main class="flex-grow overflow-y-auto custom-scrollbar" id="calendar-main">
+                                <!-- Header for days of the week -->
+                                <div class="sticky top-0 bg-surface pt-2 z-10 border-b border-gray-100 pb-2 shadow-sm">
+                                    <div class="calendar-container">
+                                        <div></div> <!-- Empty space above time labels -->
+                                        <div class="grid grid-cols-7 text-center text-sm">
+                                            <div class="text-gray-500 py-1">日 8</div>
+                                            <div class="text-gray-500 py-1">一 9</div>
+                                            <div class="text-gray-500 py-1">二 10</div>
+                                            <div
+                                                class="text-white bg-primary rounded-lg p-1 shadow-md transform scale-105 font-bold">
+                                                三 11
+                                            </div>
+                                            <div class="text-gray-500 py-1">四 12</div>
+                                            <div class="text-gray-500 py-1">五 13</div>
+                                            <div class="text-gray-500 py-1">六 14</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Main calendar grid -->
+                                <div class="calendar-container mt-2">
+                                    <!-- Widget: TimeLabels (Generated dynamically in Flutter) -->
+                                    <div class="time-labels text-right text-xs font-medium"
+                                        style="color: var(--text-secondary-color);">
+                                        <!-- These would be generated from 00:00 to 23:00 -->
+                                        <div style="height: 50px;">09:00</div>
+                                        <div style="height: 50px;">10:00</div>
+                                        <div style="height: 50px;">11:00</div>
+                                        <div style="height: 50px;">12:00</div>
+                                        <div style="height: 50px;">13:00</div>
+                                        <div style="height: 50px;">14:00</div>
+                                        <div style="height: 50px;">15:00</div>
+                                        <div style="height: 50px;">16:00</div>
+                                        <!-- ... more times -->
+                                    </div>
+
+                                    <!-- Widget: EventGrid (Generated dynamically in Flutter) -->
+                                    <div class="calendar-grid relative" id="calendar-grid">
+                                        <!-- Current Time Indicator Line (Mock) -->
+                                        <div class="absolute w-full border-t-2 border-red-500 z-20" style="top: 310px;">
+                                            <div class="absolute -left-1.5 -top-1.5 h-3 w-3 rounded-full bg-red-500">
+                                            </div>
+                                        </div>
+
+                                        <!-- Events will be injected here via JS -->
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+
+                        <script src="../js/data_service.js"></script>
+                        <script>
+                            function renderCalendar() {
+                                const events = DataService.events.getAll();
+                                const container = document.getElementById('calendar-grid');
+
+                                // Keep the time indicator
+                                const indicator = container.querySelector('.absolute');
+                                container.innerHTML = '';
+                                if (indicator) container.appendChild(indicator);
+
+                                events.forEach(event => {
+                                    const start = new Date(event.start);
+                                    const end = new Date(event.end);
+
+                                    // Calculate Grid Position
+                                    // Row 1 = 00:00. Each hour is 2 rows.
+                                    // Row = (Hours * 2) + (Minutes / 30) + 1
+                                    const startRow = (start.getHours() * 2) + (start.getMinutes() / 30) + 1;
+                                    const durationMinutes = (end - start) / (1000 * 60);
+                                    const span = durationMinutes / 30;
+
+                                    // Mock column (Day of week). 
+                                    // In a real app, we'd match the date. For prototype, we'll just map ID to col for demo.
+                                    // Let's assume the demo data falls on specific days or just random cols 2-6.
+                                    const col = (event.id % 5) + 2;
+
+                                    const el = document.createElement('div');
+                                    el.className = 'calendar-event hover:z-30 hover:scale-[1.02] shadow-sm absolute w-full';
+                                    el.style.gridColumn = col;
+                                    el.style.gridRow = `${startRow} / span ${span}`;
+
+                                    // Style based on type
+                                    if (event.type === 'court') {
+                                        el.style.backgroundColor = '#EFF6FF'; // Blue-50
+                                        el.style.borderLeftColor = 'var(--accent-color)';
+                                    } else {
+                                        el.style.backgroundColor = '#FFF7ED'; // Orange-50
+                                        el.style.borderLeftColor = 'var(--primary-color)';
+                                    }
+
+                                    el.innerHTML = `
+                    <p class="font-bold text-gray-800 truncate">${event.title}</p>
+                    <p class="text-gray-600 text-xs truncate">${event.description}</p>
+                `;
+
+                                    // We need to wrap it in a grid-positioned div or apply styles directly?
+                                    // The CSS .calendar-event doesn't have grid props by default, we added them inline.
+                                    // But wait, .calendar-grid is display:grid. Direct children need grid-column/row.
+                                    // The class .calendar-event has position:relative.
+                                    // Let's remove 'absolute w-full' from className and rely on grid placement.
+                                    el.className = 'calendar-event hover:z-30 hover:scale-[1.02] shadow-sm';
+
+                                    container.appendChild(el);
+                                });
+                            }
+
+                            window.addEventListener('load', () => {
+                                renderCalendar();
+                                // Scroll to 8 AM (Row 17 -> 17*25 = 425px)
+                                document.getElementById('calendar-main').scrollTop = 425 - 50;
+                            });
+                        </script>
+                    </body>
+
+                    </html>

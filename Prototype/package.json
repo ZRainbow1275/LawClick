@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "framework7": "^8.3.4",
+    "framework7-react": "^8.3.4"
+  }
+}

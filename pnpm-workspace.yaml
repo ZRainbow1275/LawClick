@@ -1,0 +1,11 @@
+packages:
+  - "lawclick-next"
+  # apps/web-frontend 已归档到 _archived/（TG12.5 整改）
+  # apps/mobile 因 Flutter SDK 版本不兼容暂不纳入
+  - "!apps/**"
+  - "!Prototype/**"
+
+prefer-workspace-packages: true
+shared-workspace-lockfile: true
+save-workspace-protocol: rolling
+link-workspace-packages: true

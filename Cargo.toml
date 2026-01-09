@@ -1,0 +1,78 @@
+[package]
+name = "lawtime-erp"
+version = "2.0.0"
+edition = "2021"
+rust-version = "1.75.0"
+authors = ["LawTime Team <dev@lawtime.com>"]
+description = "律时ERP系统 - 面向律师行业的综合性数字化平台"
+license = "MIT"
+repository = "https://github.com/lawtime/lawtime-erp"
+
+[dependencies]
+# Web框架和异步运行时 (Context7验证 2025-12-19)
+axum = { version = "0.8", features = ["multipart"] }
+tokio = { version = "1", features = ["full"] }
+tower = "0.5"
+tower-http = { version = "0.6", features = ["cors", "trace"] }
+
+# 数据库和ORM (共享 lawclick-next 的 PostgreSQL)
+sea-orm = { version = "1.1", features = ["sqlx-postgres", "runtime-tokio-rustls", "macros"] }
+sqlx = { version = "0.8", features = ["postgres", "runtime-tokio-rustls", "chrono", "uuid"] }
+
+# 序列化和数据处理
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+validator = { version = "0.20", features = ["derive"] }
+
+# 时间和UUID
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+
+# 认证和安全
+jsonwebtoken = "9"
+argon2 = "0.5"
+bcrypt = "0.17"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+
+# NextAuth/Auth.js JWT（JWE）解密：用于与 Web 主线统一鉴权
+hkdf = "0.12.4"
+sha2 = "0.10"
+base64 = "0.22"
+hmac = "0.12"
+subtle = "2.6"
+aes = "0.8.4"
+cbc = "0.1.2"
+s3 = { package = "rust-s3", version = "0.37.1", default-features = false, features = ["tokio-rustls-tls"] }
+
+# 错误处理和日志
+anyhow = "1"
+thiserror = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# 环境变量配置
+dotenvy = "0.15"
+
+# 异步 trait
+async-trait = "0.1"
+
+[dev-dependencies]
+tokio-test = "0.4"
+
+[[bin]]
+name = "server"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[profile.dev]
+opt-level = 0
+debug = true
+
+# 工作空间配置（仅包含存在的成员）
+[workspace]
+members = ["."]

@@ -1,0 +1,11 @@
+﻿pnpm type-check
+START 2025-12-28T11:34:35.6969674+08:00
+
+> lawtime-erp@2.0.0 type-check D:\Desktop\LawClick_NEW
+> pnpm --filter lawclick-next type-check
+
+
+> lawclick-next@0.1.0 type-check D:\Desktop\LawClick_NEW\lawclick-next
+> tsc --noEmit
+
+END exitCode=0 2025-12-28T11:34:41.2178260+08:00

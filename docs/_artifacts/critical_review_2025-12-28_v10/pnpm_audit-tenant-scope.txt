@@ -1,0 +1,78 @@
+﻿
+> lawtime-erp@2.0.0 audit:tenant-scope D:\Desktop\LawClick_NEW
+> pnpm --filter lawclick-next audit:tenant-scope
+
+
+> lawclick-next@0.1.0 audit:tenant-scope D:\Desktop\LawClick_NEW\lawclick-next
+> node scripts/tenant-scope-audit.js
+
+[tenant-scope-audit] prisma models: 52
+[tenant-scope-audit] tenant-scoped models: 29
+[tenant-scope-audit] guard targets: 26
+[tenant-scope-audit] exclusions: 3
+
+[tenant-scope-audit] tenant-scoped models:
+- ApprovalRequest
+- Case
+- CaseTemplate
+- ChatThread
+- Contact
+- Contract
+- CustomerTag
+- DocumentTemplate
+- EmailDelivery
+- Event
+- Expense
+- Invoice
+- Notification
+- OpsAlert
+- OpsMetricSnapshot
+- OutOfOffice
+- Payment
+- Project
+- Schedule
+- Task
+- TaskQueue
+- TenantInvite
+- TenantMembership
+- TenantSignal
+- TimeLog
+- ToolInvocation
+- ToolModule
+- UploadIntent
+- User
+
+[tenant-scope-audit] tenant-scope-guard targets:
+- ApprovalRequest
+- Case
+- CaseTemplate
+- ChatThread
+- Contact
+- Contract
+- CustomerTag
+- DocumentTemplate
+- EmailDelivery
+- Event
+- Expense
+- Invoice
+- Notification
+- OpsAlert
+- OpsMetricSnapshot
+- OutOfOffice
+- Payment
+- Project
+- Schedule
+- Task
+- TaskQueue
+- TenantSignal
+- TimeLog
+- ToolInvocation
+- ToolModule
+- UploadIntent
+
+[tenant-scope-audit] exclusions (must remain explicit):
+- TenantInvite
+- TenantMembership
+- User
+
+[tenant-scope-audit] OK: tenant-scoped 妯″瀷鍒楄〃涓?tenant-scope-guard 鐩爣娓呭崟宸茬敓鎴愩€?璇存槑锛歵enant-scope-guard 浼氬涓婅堪 targets 鑷姩娉ㄥ叆/鏍￠獙 tenantId锛?涓ョ鍦ㄧ敓浜у紑鍚?LAWCLICK_ALLOW_UNSCOPED_TENANT_QUERIES锛堥櫎闈炶繘琛屾暟鎹慨澶?瀹¤涓旀湁鏄庣‘闅旂鎺柦锛夈€?

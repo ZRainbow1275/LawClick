@@ -1,0 +1,34 @@
+﻿-- AlterTable
+ALTER TABLE "TaskQueue" ADD COLUMN     "availableAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ADD COLUMN     "idempotencyKey" TEXT,
+ADD COLUMN     "lastError" TEXT,
+ADD COLUMN     "lockedAt" TIMESTAMP(3),
+ADD COLUMN     "lockedBy" TEXT,
+ADD COLUMN     "maxAttempts" INTEGER NOT NULL DEFAULT 8,
+ADD COLUMN     "priority" INTEGER NOT NULL DEFAULT 0;
+
+-- CreateIndex
+CREATE UNIQUE INDEX "TaskQueue_idempotencyKey_key" ON "TaskQueue"("idempotencyKey");
+
+-- CreateIndex
+CREATE INDEX "TaskQueue_status_availableAt_priority_createdAt_idx" ON "TaskQueue"("status", "availableAt", "priority", "createdAt");
+
+-- CreateIndex
+CREATE INDEX "TaskQueue_lockedAt_idx" ON "TaskQueue"("lockedAt");
+
+node.exe : ┌─────────────────────────────────────────────────────────┐
+At C:\Users\HP\AppData\Roaming\npm\pnpm.ps1:24 char:5
++     & "node$exe"  "$basedir/node_modules/pnpm/bin/pnpm.cjs" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (┌──────────────...──────────────┐:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+│  Update available 5.22.0 -> 7.2.0                       │
+│                                                         │
+│  This is a major update - please follow the guide at    │
+│  https://pris.ly/d/major-version-upgrade                │
+│                                                         │
+│  Run the following to update                            │
+│    npm i --save-dev prisma@latest                       │
+│    npm i @prisma/client@latest                          │
+└─────────────────────────────────────────────────────────┘

@@ -1,0 +1,20 @@
+﻿
+> lawtime-erp@2.0.0 restore:snapshot D:\Desktop\LawClick_NEW
+> pnpm --filter lawclick-next restore:snapshot -- "--help"
+
+
+> lawclick-next@0.1.0 restore:snapshot D:\Desktop\LawClick_NEW\lawclick-next
+> node scripts/restore-snapshot.js "--" "--help"
+
+node.exe : [restore-snapshot] 鉂?澶辫触: 鏈煡鍙傛暟: --
+所在位置 C:\Users\HP\AppData\Roaming\npm\pnpm.ps1:24 字符: 5
++     & "node$exe"  "$basedir/node_modules/pnpm/bin/pnpm.cjs" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([restore-snapshot] 鉂?澶辫触: 鏈煡鍙傛暟: 
+    --:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+D:\Desktop\LawClick_NEW\lawclick-next:
+鈥塃RR_PNPM_RECURSIVE_RUN_FIRST_FAIL鈥?lawclick-next@0.1.0 restore:snapshot: `node scripts/restore-snapshot.js "--" "--help"`
+Exit status 1
+鈥塃LIFECYCLE鈥?Command failed with exit code 1.

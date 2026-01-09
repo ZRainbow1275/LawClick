@@ -1,0 +1,83 @@
+﻿pnpm audit:tenant-scope
+START 2025-12-28T11:35:31.9879944+08:00
+
+> lawtime-erp@2.0.0 audit:tenant-scope D:\Desktop\LawClick_NEW
+> pnpm --filter lawclick-next audit:tenant-scope
+
+
+> lawclick-next@0.1.0 audit:tenant-scope D:\Desktop\LawClick_NEW\lawclick-next
+> node scripts/tenant-scope-audit.js
+
+[tenant-scope-audit] prisma models: 52
+[tenant-scope-audit] tenant-scoped models: 29
+[tenant-scope-audit] guard targets: 26
+[tenant-scope-audit] exclusions: 3
+
+[tenant-scope-audit] tenant-scoped models:
+- ApprovalRequest
+- Case
+- CaseTemplate
+- ChatThread
+- Contact
+- Contract
+- CustomerTag
+- DocumentTemplate
+- EmailDelivery
+- Event
+- Expense
+- Invoice
+- Notification
+- OpsAlert
+- OpsMetricSnapshot
+- OutOfOffice
+- Payment
+- Project
+- Schedule
+- Task
+- TaskQueue
+- TenantInvite
+- TenantMembership
+- TenantSignal
+- TimeLog
+- ToolInvocation
+- ToolModule
+- UploadIntent
+- User
+
+[tenant-scope-audit] tenant-scope-guard targets:
+- ApprovalRequest
+- Case
+- CaseTemplate
+- ChatThread
+- Contact
+- Contract
+- CustomerTag
+- DocumentTemplate
+- EmailDelivery
+- Event
+- Expense
+- Invoice
+- Notification
+- OpsAlert
+- OpsMetricSnapshot
+- OutOfOffice
+- Payment
+- Project
+- Schedule
+- Task
+- TaskQueue
+- TenantSignal
+- TimeLog
+- ToolInvocation
+- ToolModule
+- UploadIntent
+
+[tenant-scope-audit] exclusions (must remain explicit):
+- TenantInvite
+- TenantMembership
+- User
+
+[tenant-scope-audit] OK: tenant-scoped 模型列表与 tenant-scope-guard 目标清单已生成。
+说明：tenant-scope-guard 会对上述 targets 自动注入/校验 tenantId；
+严禁在生产开启 LAWCLICK_ALLOW_UNSCOPED_TENANT_QUERIES（除非进行数据修复/审计且有明确隔离措施）。
+END exitCode=0 2025-12-28T11:35:33.1562460+08:00

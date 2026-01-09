@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component: Add Task Modal</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* This component is designed to be displayed as a modal/dialog overlay. */
+        body {
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: var(--font-family-sans);
+        }
+
+        .modal-content {
+            background-color: var(--surface-color);
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--shadow-xl);
+            width: 100%;
+            max-width: 600px;
+            /* Wider for more content */
+            overflow: hidden;
+            /* Simulates the modal popping up */
+            animation: modal-pop 0.3s var(--transition-timing-function);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        @keyframes modal-pop {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 
+        Widget: AlertDialog / ModalBottomSheet
+        Props: title="任务标题", content=Column([...]), actions=[...]
+    -->
+    <div class="modal-content">
+        <div class="p-8">
+            <!-- Widget: TextField | Props: hintText="任务标题", border=none, style=headline -->
+            <input type="text" placeholder="任务标题"
+                class="w-full text-2xl font-bold border-0 focus:ring-0 p-0 mb-6 bg-transparent placeholder-gray-300 text-gray-900"
+                value="审阅并修改'A轮融资协议'">
+
+            <!-- Widget: Row | Props: children=[Icon, DropdownButton, DropdownButton, ...] -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm mb-8">
+                <!-- 所属项目 -->
+                <div
+                    class="flex items-center gap-2 p-2.5 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors border border-transparent hover:border-gray-200">
+                    <i class="fas fa-folder-open text-gray-400"></i>
+                    <span class="font-medium text-gray-700 truncate">个人任务</span>
+                    <i class="fas fa-chevron-down ml-auto text-xs text-gray-400"></i>
+                </div>
+                <!-- 工作类型 -->
+                <div
+                    class="flex items-center gap-2 p-2.5 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors border border-transparent hover:border-gray-200">
+                    <i class="fas fa-briefcase text-gray-400"></i>
+                    <span class="font-medium text-gray-700 truncate">未设置</span>
+                    <i class="fas fa-chevron-down ml-auto text-xs text-gray-400"></i>
+                </div>
+                <!-- 负责人 -->
+                <div
+                    class="flex items-center gap-2 p-2.5 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors border border-transparent hover:border-gray-200">
+                    <img src="https://i.pravatar.cc/150?u=lawyer"
+                        class="h-5 w-5 rounded-full border border-white shadow-sm">
+                    <span class="font-medium text-gray-700 truncate">赵启睿</span>
+                    <i class="fas fa-plus ml-auto text-xs text-gray-400"></i>
+                </div>
+                <!-- 时间 -->
+                <div
+                    class="flex items-center gap-2 p-2.5 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors border border-transparent hover:border-gray-200">
+                    <i class="fas fa-clock text-gray-400"></i>
+                    <div class="text-xs font-mono text-gray-600 leading-tight">
+                        <p>06-10 21:30</p>
+                        <p>06-10 23:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Widget: TextField | Props: hintText="添加描述...", multiline=true -->
+            <textarea
+                class="w-full p-4 border border-gray-200 rounded-lg h-32 focus:ring-2 focus:ring-primary/20 focus:border-primary resize-none transition-all text-sm"
+                placeholder="添加描述..."></textarea>
+        </div>
+
+        <!-- Widget: ModalActionBar -->
+        <div class="bg-gray-50 px-8 py-4 flex justify-between items-center border-t border-gray-100">
+            <div>
+                <!-- Widget: CheckboxListTile | Props: title="创建后打开任务详情", value=false -->
+                <label class="flex items-center text-sm cursor-pointer group">
+                    <input type="checkbox"
+                        class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary transition-colors">
+                    <span class="ml-2 text-gray-500 group-hover:text-gray-700 transition-colors">创建后打开任务详情</span>
+                </label>
+            </div>
+            <div class="flex gap-3">
+                <!-- Widget: TextButton | Props: label="取消", onPressed=... -->
+                <button
+                    class="px-5 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-200 transition-colors">取消</button>
+                <!-- Widget: ElevatedButton | Props: label="保存", onPressed=... -->
+                <button class="btn-primary px-8 py-2.5 text-sm">保存</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+﻿
+> lawtime-erp@2.0.0 audit:routes D:\Desktop\LawClick_NEW
+> pnpm --filter lawclick-next audit:routes
+
+
+> lawclick-next@0.1.0 audit:routes D:\Desktop\LawClick_NEW\lawclick-next
+> node scripts/route-audit.js
+
+[route-audit] app routes: 34
+[route-audit] route refs: 74 (unique: 54)
+[route-audit] OK: 未发现断链路由引用

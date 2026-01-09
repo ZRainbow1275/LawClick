@@ -1,0 +1,114 @@
+/*
+ * 律时 (Lǜ Shí) - Main Stylesheet
+ * Version: 2.0 (Aligned with LegalMind-Arbitration)
+ * Purpose: Imports design tokens, TailwindCSS, and defines global styles.
+*/
+
+/* 1. Import Design Tokens */
+@import url('design_tokens.css');
+
+/* 2. Import Tailwind CSS layers */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css');
+
+/* 3. Global Styles & Custom Utilities */
+body {
+  font-family: var(--font-family-sans);
+  background-color: var(--background-color);
+  color: var(--text-primary-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+/* Custom utility classes that connect our design tokens to Tailwind's philosophy */
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color);
+}
+
+.bg-surface {
+  background-color: var(--surface-color);
+}
+
+.text-primary {
+  color: var(--text-primary-color);
+}
+
+.text-secondary {
+  color: var(--text-secondary-color);
+}
+
+.border-themed {
+  border-color: var(--border-color);
+}
+
+.ring-primary {
+  --tw-ring-color: var(--primary-color);
+}
+
+/* Premium SaaS Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.card-hover {
+  transition: transform 0.2s var(--transition-timing-function), box-shadow 0.2s var(--transition-timing-function);
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Button Overrides */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-primary);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* SVG Chart Animation Styles */
+.chart-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 2s ease-in-out forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}

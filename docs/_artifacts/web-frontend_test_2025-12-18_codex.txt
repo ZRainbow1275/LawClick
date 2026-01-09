@@ -1,0 +1,270 @@
+﻿
+> lawtime-web-frontend@2.0.0 test D:\Desktop\LawClick_NEW\apps\web-frontend
+> jest
+
+node.exe : FAIL tests/components/input.test.tsx
+At C:\Users\HP\AppData\Roaming\npm\pnpm.ps1:24 char:5
++     & "node$exe"  "$basedir/node_modules/pnpm/bin/pnpm.cjs" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (FAIL tests/components/input.test.tsx:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript synta
+x, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel co
+nfiguration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in you
+r config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMa
+pper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    SyntaxError: D:\Desktop\LawClick_NEW\apps\web-frontend\tests\components\input.test.tsx: Support for the experimenta
+l syntax 'jsx' isn't currently enabled (8:12):
+
+    [0m [90m  6 |[39m describe([32m'Input Component'[39m[33m,[39m () [33m=>[39m {
+     [90m  7 |[39m   it([32m'renders with label'[39m[33m,[39m () [33m=>[39m {
+    [31m[1m>[22m[39m[90m  8 |[39m     render([33m<[39m[33mInput[39m label[33m=[39m[32m"Test Label"[39m [
+33m/[39m[33m>[39m)[33m;[39m
+     [90m    |[39m            [31m[1m^[22m[39m
+     [90m  9 |[39m     expect(screen[33m.[39mgetByText([32m'Test Label'[39m))[33m.[39mtoBeInTheDocument()[33m;
+[39m
+     [90m 10 |[39m   })[33m;[39m
+     [90m 11 |[39m[0m
+
+    Add @babel/preset-react (https://github.com/babel/babel/tree/main/packages/babel-preset-react) to the 'presets' sec
+tion of your Babel config to enable transformation.
+    If you want to leave it as-is, add @babel/plugin-syntax-jsx (https://github.com/babel/babel/tree/main/packages/babe
+l-plugin-syntax-jsx) to the 'plugins' section to enable parsing.
+
+    If you already added the plugin for this syntax to your config, it's possible that your config isn't being loaded.
+    You can re-run Babel with the BABEL_SHOW_CONFIG_FOR environment variable to show the loaded configuration:
+    	npx cross-env BABEL_SHOW_CONFIG_FOR=D:\Desktop\LawClick_NEW\apps\web-frontend\tests\components\input.test.tsx <you
+r build command>
+    See https://babeljs.io/docs/configuration#print-effective-configs for more info.
+
+      at constructor (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/parser/src/parse-error.ts:95:45
+)
+      at Parser.toParseError [as raise] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/parser/src/t
+okenizer/index.ts:1503:19)
+      at Parser.raise [as expectOnePlugin] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/parser/sr
+c/tokenizer/index.ts:1568:18)
+      at Parser.expectOnePlugin [as parseExprAtom] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/p
+arser/src/parser/expression.ts:1264:16)
+      at Parser.parseExprAtom [as parseExprSubscripts] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@bab
+el/parser/src/parser/expression.ts:734:23)
+      at Parser.parseExprSubscripts [as parseUpdate] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel
+/parser/src/parser/expression.ts:713:21)
+      at Parser.parseUpdate [as parseMaybeUnary] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/par
+ser/src/parser/expression.ts:675:23)
+      at Parser.parseMaybeUnary [as parseMaybeUnaryOrPrivate] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modul
+es/@babel/parser/src/parser/expression.ts:409:14)
+      at Parser.parseMaybeUnaryOrPrivate [as parseExprOps] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/
+@babel/parser/src/parser/expression.ts:421:23)
+      at Parser.parseExprOps [as parseMaybeConditional] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@ba
+bel/parser/src/parser/expression.ts:376:23)
+      at Parser.parseMaybeConditional [as parseMaybeAssign] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules
+/@babel/parser/src/parser/expression.ts:301:21)
+      at parseMaybeAssign (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/parser/src/parser/expressi
+on.ts:257:12)
+      at Parser.callback [as allowInAnd] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/parser/src/
+parser/expression.ts:3192:12)
+      at Parser.allowInAnd [as parseMaybeAssignAllowIn] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@ba
+bel/parser/src/parser/expression.ts:256:17)
+      at Parser.parseMaybeAssignAllowIn [as parseMaybeAssignAllowInOrVoidPattern] (../../node_modules/.pnpm/@babel+pars
+er@7.28.0/node_modules/@babel/parser/src/parser/expression.ts:3306:17)
+      at Parser.parseMaybeAssignAllowInOrVoidPattern [as parseExprListItem] (../../node_modules/.pnpm/@babel+parser@7.2
+8.0/node_modules/@babel/parser/src/parser/expression.ts:2788:18)
+      at Parser.parseExprListItem [as parseCallExpressionArguments] (../../node_modules/.pnpm/@babel+parser@7.28.0/node
+_modules/@babel/parser/src/parser/expression.ts:1034:14)
+      at Parser.parseCallExpressionArguments [as parseCoverCallAndAsyncArrowHead] (../../node_modules/.pnpm/@babel+pars
+er@7.28.0/node_modules/@babel/parser/src/parser/expression.ts:914:29)
+      at Parser.parseCoverCallAndAsyncArrowHead [as parseSubscript] (../../node_modules/.pnpm/@babel+parser@7.28.0/node
+_modules/@babel/parser/src/parser/expression.ts:796:19)
+      at Parser.parseSubscript [as parseSubscripts] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/
+parser/src/parser/expression.ts:755:19)
+      at Parser.parseSubscripts [as parseExprSubscripts] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@b
+abel/parser/src/parser/expression.ts:740:17)
+      at Parser.parseExprSubscripts [as parseUpdate] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel
+/parser/src/parser/expression.ts:713:21)
+      at Parser.parseUpdate [as parseMaybeUnary] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/par
+ser/src/parser/expression.ts:675:23)
+      at Parser.parseMaybeUnary [as parseMaybeUnaryOrPrivate] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modul
+es/@babel/parser/src/parser/expression.ts:409:14)
+      at Parser.parseMaybeUnaryOrPrivate [as parseExprOps] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/
+@babel/parser/src/parser/expression.ts:421:23)
+      at Parser.parseExprOps [as parseMaybeConditional] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@ba
+bel/parser/src/parser/expression.ts:376:23)
+      at Parser.parseMaybeConditional [as parseMaybeAssign] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules
+/@babel/parser/src/parser/expression.ts:301:21)
+      at Parser.parseMaybeAssign [as parseExpressionBase] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@
+babel/parser/src/parser/expression.ts:226:23)
+      at parseExpressionBase (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/parser/src/parser/expre
+ssion.ts:217:39)
+      at Parser.callback [as allowInAnd] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/parser/src/
+parser/expression.ts:3187:16)
+      at Parser.allowInAnd [as parseExpression] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/pars
+er/src/parser/expression.ts:217:17)
+      at Parser.parseExpression [as parseStatementContent] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/
+@babel/parser/src/parser/statement.ts:683:23)
+      at Parser.parseStatementContent [as parseStatementLike] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modul
+es/@babel/parser/src/parser/statement.ts:477:17)
+      at Parser.parseStatementLike [as parseStatementListItem] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modu
+les/@babel/parser/src/parser/statement.ts:426:17)
+      at Parser.parseStatementListItem [as parseBlockOrModuleBlockBody] (../../node_modules/.pnpm/@babel+parser@7.28.0/
+node_modules/@babel/parser/src/parser/statement.ts:1439:16)
+      at Parser.parseBlockOrModuleBlockBody [as parseBlockBody] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_mod
+ules/@babel/parser/src/parser/statement.ts:1412:10)
+      at Parser.parseBlockBody [as parseBlock] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/parse
+r/src/parser/statement.ts:1380:10)
+      at Parser.parseBlock [as parseFunctionBody] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/pa
+rser/src/parser/expression.ts:2616:24)
+      at Parser.parseFunctionBody [as parseArrowExpression] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules
+/@babel/parser/src/parser/expression.ts:2553:10)
+      at Parser.parseArrowExpression [as parseParenAndDistinguishExpression] (../../node_modules/.pnpm/@babel+parser@7.
+28.0/node_modules/@babel/parser/src/parser/expression.ts:1837:12)
+      at Parser.parseParenAndDistinguishExpression [as parseExprAtom] (../../node_modules/.pnpm/@babel+parser@7.28.0/no
+de_modules/@babel/parser/src/parser/expression.ts:1162:21)
+      at Parser.parseExprAtom [as parseExprSubscripts] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@bab
+el/parser/src/parser/expression.ts:734:23)
+      at Parser.parseExprSubscripts [as parseUpdate] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel
+/parser/src/parser/expression.ts:713:21)
+      at Parser.parseUpdate [as parseMaybeUnary] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/par
+ser/src/parser/expression.ts:675:23)
+      at Parser.parseMaybeUnary [as parseMaybeUnaryOrPrivate] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modul
+es/@babel/parser/src/parser/expression.ts:409:14)
+      at Parser.parseMaybeUnaryOrPrivate [as parseExprOps] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/
+@babel/parser/src/parser/expression.ts:421:23)
+      at Parser.parseExprOps [as parseMaybeConditional] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@ba
+bel/parser/src/parser/expression.ts:376:23)
+      at Parser.parseMaybeConditional [as parseMaybeAssign] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules
+/@babel/parser/src/parser/expression.ts:301:21)
+      at parseMaybeAssign (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/parser/src/parser/expressi
+on.ts:257:12)
+      at Parser.callback [as allowInAnd] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/parser/src/
+parser/expression.ts:3192:12)
+      at Parser.allowInAnd [as parseMaybeAssignAllowIn] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@ba
+bel/parser/src/parser/expression.ts:256:17)
+      at Parser.parseMaybeAssignAllowIn [as parseMaybeAssignAllowInOrVoidPattern] (../../node_modules/.pnpm/@babel+pars
+er@7.28.0/node_modules/@babel/parser/src/parser/expression.ts:3306:17)
+      at Parser.parseMaybeAssignAllowInOrVoidPattern [as parseExprListItem] (../../node_modules/.pnpm/@babel+parser@7.2
+8.0/node_modules/@babel/parser/src/parser/expression.ts:2788:18)
+      at Parser.parseExprListItem [as parseCallExpressionArguments] (../../node_modules/.pnpm/@babel+parser@7.28.0/node
+_modules/@babel/parser/src/parser/expression.ts:1034:14)
+      at Parser.parseCallExpressionArguments [as parseCoverCallAndAsyncArrowHead] (../../node_modules/.pnpm/@babel+pars
+er@7.28.0/node_modules/@babel/parser/src/parser/expression.ts:914:29)
+      at Parser.parseCoverCallAndAsyncArrowHead [as parseSubscript] (../../node_modules/.pnpm/@babel+parser@7.28.0/node
+_modules/@babel/parser/src/parser/expression.ts:796:19)
+      at Parser.parseSubscript [as parseSubscripts] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/
+parser/src/parser/expression.ts:755:19)
+      at Parser.parseSubscripts [as parseExprSubscripts] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@b
+abel/parser/src/parser/expression.ts:740:17)
+      at Parser.parseExprSubscripts [as parseUpdate] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel
+/parser/src/parser/expression.ts:713:21)
+      at Parser.parseUpdate [as parseMaybeUnary] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/par
+ser/src/parser/expression.ts:675:23)
+      at Parser.parseMaybeUnary [as parseMaybeUnaryOrPrivate] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modul
+es/@babel/parser/src/parser/expression.ts:409:14)
+      at Parser.parseMaybeUnaryOrPrivate [as parseExprOps] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/
+@babel/parser/src/parser/expression.ts:421:23)
+      at Parser.parseExprOps [as parseMaybeConditional] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@ba
+bel/parser/src/parser/expression.ts:376:23)
+      at Parser.parseMaybeConditional [as parseMaybeAssign] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules
+/@babel/parser/src/parser/expression.ts:301:21)
+      at Parser.parseMaybeAssign [as parseExpressionBase] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@
+babel/parser/src/parser/expression.ts:226:23)
+      at parseExpressionBase (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/parser/src/parser/expre
+ssion.ts:217:39)
+      at Parser.callback [as allowInAnd] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/parser/src/
+parser/expression.ts:3187:16)
+      at Parser.allowInAnd [as parseExpression] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/pars
+er/src/parser/expression.ts:217:17)
+      at Parser.parseExpression [as parseStatementContent] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/
+@babel/parser/src/parser/statement.ts:683:23)
+      at Parser.parseStatementContent [as parseStatementLike] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modul
+es/@babel/parser/src/parser/statement.ts:477:17)
+      at Parser.parseStatementLike [as parseStatementListItem] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modu
+les/@babel/parser/src/parser/statement.ts:426:17)
+      at Parser.parseStatementListItem [as parseBlockOrModuleBlockBody] (../../node_modules/.pnpm/@babel+parser@7.28.0/
+node_modules/@babel/parser/src/parser/statement.ts:1439:16)
+      at Parser.parseBlockOrModuleBlockBody [as parseBlockBody] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_mod
+ules/@babel/parser/src/parser/statement.ts:1412:10)
+      at Parser.parseBlockBody [as parseBlock] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/parse
+r/src/parser/statement.ts:1380:10)
+      at Parser.parseBlock [as parseFunctionBody] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/pa
+rser/src/parser/expression.ts:2616:24)
+      at Parser.parseFunctionBody [as parseArrowExpression] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules
+/@babel/parser/src/parser/expression.ts:2553:10)
+      at Parser.parseArrowExpression [as parseParenAndDistinguishExpression] (../../node_modules/.pnpm/@babel+parser@7.
+28.0/node_modules/@babel/parser/src/parser/expression.ts:1837:12)
+      at Parser.parseParenAndDistinguishExpression [as parseExprAtom] (../../node_modules/.pnpm/@babel+parser@7.28.0/no
+de_modules/@babel/parser/src/parser/expression.ts:1162:21)
+      at Parser.parseExprAtom [as parseExprSubscripts] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@bab
+el/parser/src/parser/expression.ts:734:23)
+      at Parser.parseExprSubscripts [as parseUpdate] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel
+/parser/src/parser/expression.ts:713:21)
+      at Parser.parseUpdate [as parseMaybeUnary] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/par
+ser/src/parser/expression.ts:675:23)
+      at Parser.parseMaybeUnary [as parseMaybeUnaryOrPrivate] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modul
+es/@babel/parser/src/parser/expression.ts:409:14)
+      at Parser.parseMaybeUnaryOrPrivate [as parseExprOps] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/
+@babel/parser/src/parser/expression.ts:421:23)
+      at Parser.parseExprOps [as parseMaybeConditional] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@ba
+bel/parser/src/parser/expression.ts:376:23)
+      at Parser.parseMaybeConditional [as parseMaybeAssign] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules
+/@babel/parser/src/parser/expression.ts:301:21)
+      at parseMaybeAssign (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/parser/src/parser/expressi
+on.ts:257:12)
+      at Parser.callback [as allowInAnd] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/parser/src/
+parser/expression.ts:3192:12)
+ ELIFECYCLE  Test failed. See above for more details.
+      at Parser.allowInAnd [as parseMaybeAssignAllowIn] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@ba
+bel/parser/src/parser/expression.ts:256:17)
+      at Parser.parseMaybeAssignAllowIn [as parseMaybeAssignAllowInOrVoidPattern] (../../node_modules/.pnpm/@babel+pars
+er@7.28.0/node_modules/@babel/parser/src/parser/expression.ts:3306:17)
+      at Parser.parseMaybeAssignAllowInOrVoidPattern [as parseExprListItem] (../../node_modules/.pnpm/@babel+parser@7.2
+8.0/node_modules/@babel/parser/src/parser/expression.ts:2788:18)
+      at Parser.parseExprListItem [as parseCallExpressionArguments] (../../node_modules/.pnpm/@babel+parser@7.28.0/node
+_modules/@babel/parser/src/parser/expression.ts:1034:14)
+      at Parser.parseCallExpressionArguments [as parseCoverCallAndAsyncArrowHead] (../../node_modules/.pnpm/@babel+pars
+er@7.28.0/node_modules/@babel/parser/src/parser/expression.ts:914:29)
+      at Parser.parseCoverCallAndAsyncArrowHead [as parseSubscript] (../../node_modules/.pnpm/@babel+parser@7.28.0/node
+_modules/@babel/parser/src/parser/expression.ts:796:19)
+      at Parser.parseSubscript [as parseSubscripts] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/
+parser/src/parser/expression.ts:755:19)
+      at Parser.parseSubscripts [as parseExprSubscripts] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@b
+abel/parser/src/parser/expression.ts:740:17)
+      at Parser.parseExprSubscripts [as parseUpdate] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel
+/parser/src/parser/expression.ts:713:21)
+      at Parser.parseUpdate [as parseMaybeUnary] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@babel/par
+ser/src/parser/expression.ts:675:23)
+      at Parser.parseMaybeUnary [as parseMaybeUnaryOrPrivate] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modul
+es/@babel/parser/src/parser/expression.ts:409:14)
+      at Parser.parseMaybeUnaryOrPrivate [as parseExprOps] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/
+@babel/parser/src/parser/expression.ts:421:23)
+      at Parser.parseExprOps [as parseMaybeConditional] (../../node_modules/.pnpm/@babel+parser@7.28.0/node_modules/@ba
+bel/parser/src/parser/expression.ts:376:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        1.938 s
+Ran all test suites.

@@ -1,0 +1,24 @@
+﻿Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+Datasource "db": PostgreSQL database "lawclick", schema "public" at "127.0.0.1:5434"
+
+
+⚠️  Warnings for the current datasource:
+
+  • A unique constraint covering the columns `[idempotencyKey]` on the table `TaskQueue` will be added. If there are existing duplicate values, this will fail.
+
+node.exe : Error: Prisma Migrate has detected that the environment is non-interactive, which is not supported.
+At C:\Users\HP\AppData\Roaming\npm\pnpm.ps1:24 char:5
++     & "node$exe"  "$basedir/node_modules/pnpm/bin/pnpm.cjs" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Error: Prisma M... not supported.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+`prisma migrate dev` is an interactive command designed to create new migrations and evolve the database in development
+.
+To apply existing migrations in deployments, use prisma migrate deploy.
+See https://www.prisma.io/docs/reference/api-reference/command-reference#migrate-deploy
+undefined
+D:\Desktop\LawClick_NEW\lawclick-next:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command "prisma" not found

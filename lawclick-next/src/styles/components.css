@@ -1,0 +1,88 @@
+/* src/styles/components.css */
+
+/* 组件层样式（可复用 class），由 tokens 驱动，避免重复硬编码 */
+
+.shadow-brand {
+    box-shadow: var(--shadow-brand);
+}
+
+.shadow-brand-lg {
+    box-shadow: var(--shadow-brand-lg);
+}
+
+.shadow-card {
+    box-shadow: var(--shadow-card);
+}
+
+.shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+}
+
+.bg-gradient-brand {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-600) 100%);
+}
+
+.bg-gradient-card {
+    background: linear-gradient(135deg, var(--color-muted) 0%, var(--color-accent) 100%);
+}
+
+.nav-item {
+    transition-property: background-color, transform;
+    transition-duration: var(--animation-duration-normal);
+    transition-timing-function: var(--animation-easing-smooth);
+    border-radius: calc(var(--radius) - 0.25rem);
+}
+
+.nav-item:hover {
+    background-color: rgb(var(--lc-primary-rgb) / 0.10);
+    transform: translateX(4px);
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-600) 100%);
+    box-shadow: 0 2px 4px rgb(var(--lc-primary-rgb) / 0.25);
+}
+
+.form-input {
+    transition-property: background-color, border-color, box-shadow, color;
+    transition-duration: var(--animation-duration-normal);
+    transition-timing-function: var(--animation-easing-smooth);
+    border: 1px solid var(--color-border);
+    border-radius: calc(var(--radius) - 0.25rem);
+}
+
+.form-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgb(var(--lc-primary-rgb) / 0.10);
+    outline: none;
+}
+
+.status-success {
+    background-color: var(--color-success);
+    color: var(--color-success-foreground);
+}
+
+.status-warning {
+    background-color: var(--color-warning);
+    color: var(--color-warning-foreground);
+}
+
+.status-error {
+    background-color: var(--color-destructive);
+    color: var(--color-destructive-foreground);
+}
+
+.status-info {
+    background-color: var(--color-info);
+    color: var(--color-info-foreground);
+}
+
+.text-brand {
+    color: var(--color-primary);
+}
+
+.text-brand-dark {
+    color: var(--color-primary-600);
+}
+
+/* 高对比度模式支持 */

@@ -1,0 +1,81 @@
+export type NavLabelKey =
+    | "dashboard"
+    | "calendar"
+    | "dispatch"
+    | "cases.label"
+    | "cases.intake"
+    | "cases.active"
+    | "cases.archived"
+    | "projects"
+    | "tasks"
+    | "invites"
+    | "time"
+    | "documents"
+    | "tools"
+    | "ai"
+    | "crm"
+    | "admin.label"
+    | "admin.tenants"
+    | "admin.approvals"
+    | "admin.finance"
+    | "admin.templates"
+    | "admin.recycle"
+    | "admin.ops"
+    | "chat"
+    | "profile"
+
+export function navLabelKeyFromHref(href: string): NavLabelKey | null {
+    switch (href) {
+        case "/dashboard":
+            return "dashboard"
+        case "/calendar":
+            return "calendar"
+        case "/dispatch":
+            return "dispatch"
+        case "/cases":
+            return "cases.label"
+        case "/cases/intake":
+            return "cases.intake"
+        case "/cases/active":
+            return "cases.active"
+        case "/cases/archived":
+            return "cases.archived"
+        case "/projects":
+            return "projects"
+        case "/tasks":
+            return "tasks"
+        case "/invites":
+            return "invites"
+        case "/time":
+        case "/timelog":
+            return "time"
+        case "/documents":
+            return "documents"
+        case "/tools":
+            return "tools"
+        case "/ai":
+            return "ai"
+        case "/crm/customers":
+            return "crm"
+        case "/admin":
+            return "admin.label"
+        case "/admin/tenants":
+            return "admin.tenants"
+        case "/admin/approvals":
+            return "admin.approvals"
+        case "/admin/finance":
+            return "admin.finance"
+        case "/admin/document-templates":
+            return "admin.templates"
+        case "/admin/recycle-bin":
+            return "admin.recycle"
+        case "/admin/ops":
+            return "admin.ops"
+        case "/chat":
+            return "chat"
+        case "/profile":
+            return "profile"
+        default:
+            return null
+    }
+}

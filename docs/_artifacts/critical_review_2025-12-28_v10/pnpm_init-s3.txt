@@ -1,0 +1,8 @@
+﻿
+> lawclick-next@0.1.0 init:s3 D:\Desktop\LawClick_NEW\lawclick-next
+> node scripts/init-s3.js
+
+馃 Initializing S3 Bucket: lawclick-documents...
+鉁?Bucket already exists.
+馃寪 Configuring bucket CORS (origins: http://localhost:3000, http://127.0.0.1:3000)...
+鈿狅笍 褰撳墠 S3 鍏煎鏈嶅姟涓嶆敮鎸?PutBucketCors锛圡inIO 甯歌锛夈€?   鐩翠紶鑻ラ亣鍒?CORS锛岃妫€鏌?MinIO 鍏ㄥ眬閰嶇疆锛歚mc admin config export <alias>/ | findstr cors_allow_origin`銆?

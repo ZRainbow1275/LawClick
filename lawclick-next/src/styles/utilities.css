@@ -1,0 +1,17 @@
+/* src/styles/utilities.css */
+
+/* 响应式工具类（仅放轻量 utilities，避免与 Tailwind 语义冲突） */
+@media (max-width: 768px) {
+    .mobile-hidden {
+        display: none;
+    }
+
+    .mobile-full {
+        width: 100%;
+    }
+
+    .mobile-stack {
+        flex-direction: column;
+    }
+}
+

@@ -1,0 +1,11 @@
+﻿lawclick-next\src\actions\ai-actions.ts:22:    if (lower.includes("mock")) return false
+lawclick-next\src\lib\queue.ts:48:            await new Promise(resolve => setTimeout(resolve, 2000)) // Fake work
+lawclick-next\src\actions\auth.ts:64:    // Mock Email Sending
+lawclick-next\src\actions\auth.ts:65:    console.log(`[Mock Email] Password Reset Token for ${user.email}: ${token}`)
+lawclick-next\src\actions\tasks-crud.ts:487:            TODO: tasks.filter(t => t.status === "TODO"),
+lawclick-next\src\actions\tasks-crud.ts:494:        return { TODO: [], IN_PROGRESS: [], REVIEW: [], DONE: [] }
+lawclick-next\src\components\features\conflict-check-wizard.tsx:19:// Mock conflict search
+lawclick-next\src\components\layout\app-header.tsx:9:// Import from mocks
+lawclick-next\src\components\timelog\TimeLogClient.tsx:51:        // Mock duration calculation or input
+lawclick-next\src\components\profile\ProfileClient.tsx:87:    TODO: "待办",
+lawclick-next\src\components\tasks\TaskKanban.tsx:126:            TODO: [],

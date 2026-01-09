@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>案件时间轴 - 律时</title>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+        .mobile-shell {
+            width: 100%;
+            max-width: 420px;
+            height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .calendar-grid div {
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+        .calendar-day-event {
+            position: relative;
+        }
+        /* A dot under the date, indicating an event */
+        .calendar-day-event::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+        }
+        .svg-node {
+            cursor: pointer;
+            transition: all var(--transition-duration) ease-in-out;
+        }
+        .svg-node:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+        }
+        .svg-text {
+            font-family: var(--font-family-sans);
+            font-size: 14px;
+            font-weight: var(--font-weight-medium);
+            fill: var(--text-primary-color);
+            pointer-events: none; /* Text shouldn't block clicking the node */
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-shell bg-background flex flex-col">
+        <!-- Widget: AppBar -->
+        <header class="flex-shrink-0 bg-surface shadow-sm">
+            <div class="flex items-center justify-between p-4">
+                <i class="fas fa-arrow-left text-xl cursor-pointer"></i>
+                <h1 class="text-xl font-bold">案件时间轴</h1>
+                <i class="fas fa-share-alt text-xl cursor-pointer"></i>
+            </div>
+        </header>
+
+        <!-- Main content area -->
+        <main class="flex-grow overflow-y-auto p-4 flex flex-col gap-6">
+
+            <!-- Widget: CaseHeader | Props: caseName="'A轮融资协议' 争议案", client="科创未来" -->
+            <div class="bg-surface p-4 rounded-lg shadow-md">
+                <h2 class="text-lg font-bold" style="color: var(--primary-color);">'A轮融资协议' 争议案</h2>
+                <p class="text-sm" style="color: var(--text-secondary-color);">客户: 科创未来有限公司</p>
+            </div>
+            
+            <!-- Widget: CalendarView | Props: month="2024年7月", events=[{date: 8}, {date: 15}, {date: 25}] -->
+            <div class="bg-surface p-4 rounded-lg shadow-md">
+                <div class="flex items-center justify-between mb-4">
+                    <i class="fas fa-chevron-left cursor-pointer"></i>
+                    <h3 class="font-bold text-lg">2024年 7月</h3>
+                    <i class="fas fa-chevron-right cursor-pointer"></i>
+                </div>
+                <div class="grid grid-cols-7 gap-1 text-center text-sm text-secondary" style="color: var(--text-secondary-color);">
+                    <div>日</div><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div>
+                </div>
+                <div class="grid grid-cols-7 gap-1 mt-2 calendar-grid">
+                    <!-- Dates would be populated dynamically. This is a static representation. -->
+                    <div class="text-gray-400">30</div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+                    <div>7</div><div class="calendar-day-event font-bold">8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div>
+                    <div>14</div><div class="calendar-day-event font-bold">15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div>
+                    <div>21</div><div>22</div><div>23</div><div>24</div><div class="calendar-day-event font-bold">25</div><div>26</div><div>27</div>
+                    <div class="bg-primary rounded-full text-white font-bold">28</div><div>29</div><div>30</div><div>31</div>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-bold mt-2" style="color: var(--text-primary-color);">项目关键节点</h3>
+            
+            <!-- 
+                Widget: CaseTimelineChart 
+                Props: nodes=[...], connections=[...]
+                Note: The line animation is handled by 'chart-line' class defined in main.css
+            -->
+            <div class="bg-surface p-4 rounded-lg shadow-md">
+                <svg width="100%" viewBox="0 0 350 250" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Connecting lines with animation -->
+                    <path class="chart-line" d="M 50 50 L 150 50" stroke="var(--primary-color)" stroke-width="2" fill="none"/>
+                    <path class="chart-line" d="M 170 50 C 200 50, 200 125, 230 125 L 250 125" stroke="var(--primary-color)" stroke-width="2" fill="none" style="animation-delay: 0.5s;"/>
+                    <path class="chart-line" d="M 50 125 L 150 125" stroke="var(--primary-color)" stroke-width="2" fill="none" style="animation-delay: 1s;"/>
+                    <path class="chart-line" d="M 170 125 L 230 125" stroke="var(--primary-color)" stroke-width="2" fill="none" style="animation-delay: 1.2s;"/>
+
+                    <!-- Nodes (Tasks/Events) -->
+                    <!-- Widget: TimelineNode | Props: id="1", label="立案", status="completed" -->
+                    <g class="svg-node" transform="translate(50, 50)">
+                        <circle r="20" fill="var(--primary-color)"/>
+                        <text class="svg-text" text-anchor="middle" y="5" fill="white">立案</text>
+                    </g>
+                    
+                    <!-- Widget: TimelineNode | Props: id="2", label="证据交换", status="completed" -->
+                    <g class="svg-node" transform="translate(150, 50)">
+                        <circle r="20" fill="var(--primary-color)"/>
+                        <text class="svg-text" text-anchor="middle" y="5" fill="white">交换</text>
+                    </g>
+
+                    <!-- Widget: TimelineNode | Props: id="3", label="庭前会议", status="in_progress" -->
+                    <g class="svg-node" transform="translate(50, 125)">
+                        <circle r="20" fill="var(--accent-color)" stroke="var(--primary-color)" stroke-width="2"/>
+                        <text class="svg-text" text-anchor="middle" y="5" fill="var(--text-primary-color)">会议</text>
+                    </g>
+                    
+                    <!-- Widget: TimelineNode | Props: id="4", label="开庭审理", status="future" -->
+                    <g class="svg-node" transform="translate(150, 125)">
+                        <circle r="20" fill="var(--surface-color)" stroke="var(--primary-color)" stroke-width="2" stroke-dasharray="4"/>
+                        <text class="svg-text" text-anchor="middle" y="5">开庭</text>
+                    </g>
+                    
+                    <!-- Widget: TimelineNode | Props: id="5", label="判决", status="future" -->
+                    <g class="svg-node" transform="translate(250, 125)">
+                        <circle r="20" fill="var(--surface-color)" stroke="var(--primary-color)" stroke-width="2" stroke-dasharray="4"/>
+                         <text class="svg-text" text-anchor="middle" y="5">判决</text>
+                    </g>
+                </svg>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

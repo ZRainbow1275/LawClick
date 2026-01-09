@@ -1,0 +1,43 @@
+﻿
+> lawtime-erp@2.0.0 test D:\Desktop\LawClick_NEW
+> pnpm --filter lawclick-next test
+
+
+> lawclick-next@0.1.0 test D:\Desktop\LawClick_NEW\lawclick-next
+> playwright test
+
+
+Running 15 tests using 1 worker
+
+
+
+node.exe : [1A[2K(node:6564) Warning: The 'NO_COLOR' env is ignored due to th
+e 'FORCE_COLOR' env being set.
+所在位置 C:\Users\HP\AppData\Roaming\npm\pnpm.ps1:24 字符: 5
++     & "node$exe"  "$basedir/node_modules/pnpm/bin/pnpm.cjs" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([1A[2K(node:6... env being set. 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:6564) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_CO
+LOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[1/15] [chromium] 鈥?tests\e2e\api-realtime-signals-auth.spec.ts:3:5 鈥?API锛歳ealtime signals 鏈櫥褰曡繑鍥?401
+[1A[2K[2/15] [chromium] 鈥?tests\e2e\auth.spec.ts:3:5 鈥?has title
+[1A[2K[3/15] [chromium] 鈥?tests\e2e\auth.spec.ts:9:5 鈥?root redirects to login page
+[1A[2K[4/15] [chromium] 鈥?tests\e2e\case-billing-viewer-readonly.spec.ts:13:5 鈥?VIEWER 鎴愬憳锛氭浠惰处鍔″彲瑙佷絾鍙锛堟棤鍒涘缓鍏ュ彛锛?[1A[2K[5/15] [chromium] 鈥?tests\e2e\case-detail-timelog-events-invites.spec.ts:5:5 鈥?妗堜欢璇︽儏锛氳宸ユ椂 + 鏂板缓鏃ョ▼ + 閭€璇峰彲鍝嶅簲
+[1A[2K[6/15] [chromium] 鈥?tests\e2e\case-tab-deeplink.spec.ts:5:5 鈥?鍚岄〉锛氫换鍔￠€氱煡璺宠浆 /cases/:id?tab=tasks 瀹氫綅
+[1A[2K[7/15] [chromium] 鈥?tests\e2e\chat-notification.spec.ts:5:5 鈥?鍚岄〉锛欻eader 閫氱煡璺宠浆 /chat?threadId 瀹氫綅
+[1A[2K[8/15] [chromium] 鈥?tests\e2e\documents-browser-path-ai.spec.ts:6:5 鈥?鏂囨。锛氫笂浼犫啋棰勮/涓嬭浇鈫掔増鏈摼鈫扐I澶辫触鍙拷婧?[1A[2K[9/15] [chromium] 鈥?tests\e2e\documents-case-visibility.spec.ts:13:5 鈥?鏂囨。鍒楄〃锛氫粎灞曠ず鍙妗堜欢鐨勬枃妗ｏ紙闈炴垚鍛樹笉鍙锛?[1A[2K[10/15] [chromium] 鈥?tests\e2e\documents-viewer-readonly.spec.ts:6:5 鈥?VIEWER 鎴愬憳锛氭枃妗ｄ腑蹇冨彧璇伙紙鏃犱笂浼犲叆鍙ｏ級
+[1A[2K[11/15] [chromium] 鈥?tests\e2e\mainline.spec.ts:5:5 鈥?涓荤嚎锛氭浠垛啋浠诲姟鈫掍换鍔″垎閰嶉€氱煡鈫掕烦杞畾浣?[1A[2K[12/15] [chromium] 鈥?tests\e2e\multi-tenant-isolation.spec.ts:23:5 鈥?鐪熷绉熸埛闅旂锛氳法绉熸埛鏁版嵁涓嶅彲瑙?涓嶅彲璁块棶锛堥」鐩啋浠诲姟鈫掔湅鏉夸富绾匡級
+[1A[2K[13/15] [chromium] 鈥?tests\e2e\ops-upload-intents.spec.ts:28:5 鈥?鍚庡彴杩愮淮锛歎ploadIntent 瀹¤鍙 + 杩囨湡瀛ゅ効瀵硅薄鍙洖鏀?[1A[2K[14/15] [chromium] 鈥?tests\e2e\project-kanban.spec.ts:5:5 鈥?椤圭洰涓荤嚎锛氶」鐩啋浠诲姟鈫掔湅鏉库啋浠诲姟涓績鍙
+[1A[2K[15/15] [chromium] 鈥?tests\e2e\task-viewer-readonly.spec.ts:14:5 鈥?VIEWER 鎴愬憳锛氫换鍔″彲瑙佷絾鍙锛堜笉鍙柊寤?涓嶅彲淇濆瓨锛?[1A[2K  15 passed (3.6m)
+
+To open last HTML report run:
+[36m[39m
+[36m  pnpm exec playwright show-report[39m
+[36m[39m

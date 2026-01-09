@@ -1,0 +1,12 @@
+﻿pnpm -C lawclick-next init:s3
+START 2025-12-28T11:40:26.4577906+08:00
+
+> lawclick-next@0.1.0 init:s3 D:\Desktop\LawClick_NEW\lawclick-next
+> node scripts/init-s3.js
+
+🪣 Initializing S3 Bucket: lawclick-documents...
+✅ Bucket already exists.
+🌐 Configuring bucket CORS (origins: http://localhost:3000, http://127.0.0.1:3000)...
+⚠️ 当前 S3 兼容服务不支持 PutBucketCors（MinIO 常见）。
+   直传若遇到 CORS，请检查 MinIO 全局配置：`mc admin config export <alias>/ | findstr cors_allow_origin`。
+END exitCode=0 2025-12-28T11:40:27.4159236+08:00

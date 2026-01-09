@@ -1,0 +1,98 @@
+/*
+ * 律时 (Lǜ Shí) - Design Tokens
+ * Version: 2.0 (Aligned with LegalMind-Arbitration)
+ * Purpose: Defines all global CSS variables for the design system.
+ * This file is the single source of truth for all stylistic values.
+*/
+
+:root {
+  /* Colors - LegalMind Arbitration Theme */
+  --primary-color: #FF6B35;
+  /* LegalMind Orange */
+  --primary-hover: #E55A2B;
+  /* Darker Orange for hover */
+  --secondary-color: #0F172A;
+  /* Slate 900 - Authority */
+  --accent-color: #3B82F6;
+  /* Info Blue */
+
+  --background-color: #F8FAFC;
+  /* Slate 50 - Clean Background */
+  --surface-color: #FFFFFF;
+  /* White Surface */
+  --surface-hover: #F1F5F9;
+  /* Slate 100 */
+
+  --text-primary-color: #0F172A;
+  /* Slate 900 */
+  --text-secondary-color: #64748B;
+  /* Slate 500 */
+  --text-tertiary-color: #94A3B8;
+  /* Slate 400 */
+
+  --error-color: #EF4444;
+  /* Red 500 */
+  --success-color: #10B981;
+  /* Emerald 500 */
+  --warning-color: #F59E0B;
+  /* Amber 500 */
+
+  --border-color: #E2E8F0;
+  /* Slate 200 */
+
+  /* Typography */
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-size-h1: 2rem;
+  /* 32px */
+  --font-size-h2: 1.5rem;
+  /* 24px */
+  --font-size-h3: 1.25rem;
+  /* 20px */
+  --font-size-body: 1rem;
+  /* 16px */
+  --font-size-caption: 0.875rem;
+  /* 14px */
+  --font-size-sm: 0.75rem;
+  /* 12px */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+  /* Reduced from 700 for a more modern look */
+
+  /* Spacing (4px base grid) */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+
+  /* Border Radius */
+  --border-radius-sm: 6px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-full: 9999px;
+
+  /* Shadows (Premium SaaS Style) */
+  /* Smooth, diffused shadows using multiple layers */
+  --shadow-sm-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
+  --shadow-md-filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.07));
+  --shadow-lg-filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+
+  /* Box Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+  /* Orange Glow for primary actions */
+  --shadow-primary: 0 4px 14px 0 rgba(255, 107, 53, 0.39);
+
+  /* Transitions */
+  --transition-duration: 200ms;
+  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Ease-out */
+}

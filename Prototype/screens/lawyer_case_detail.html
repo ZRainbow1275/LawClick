@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>案件详情 - 律时</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .workflow-step { opacity: 0.4; transition: all 0.3s ease; }
+        .workflow-step.completed { opacity: 1; }
+        .workflow-step.active {
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(94, 53, 177, 0.4);
+        }
+        .workflow-step.active h3 { color: var(--primary-color); }
+    </style>
+</head>
+<body class="bg-background">
+    <div class="w-full max-w-md mx-auto h-screen bg-background flex flex-col">
+        <header class="flex-shrink-0 bg-surface p-4 flex items-center justify-between shadow-sm">
+            <i class="fas fa-arrow-left text-xl cursor-pointer"></i>
+            <h1 class="text-xl font-bold">案件详情</h1>
+            <i class="fas fa-ellipsis-v text-xl cursor-pointer"></i>
+        </header>
+
+        <main class="flex-grow overflow-y-auto p-4 flex flex-col gap-6">
+            <div class="bg-surface p-5 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-2" style="color: var(--primary-color);">'A轮融资协议' 争议案</h2>
+                <div class="text-sm" style="color: var(--text-secondary-color);">
+                    <p class="mb-1"><strong class="font-medium" style="color: var(--text-primary-color);">案件编号:</strong> CASE-2024-007</p>
+                    <p><strong class="font-medium" style="color: var(--text-primary-color);">委托客户:</strong> 科创未来有限公司</p>
+                </div>
+            </div>
+
+            <!-- Widget: CaseWorkflowTracker | Props: steps=[...], activeStep=3 -->
+            <div>
+                <h3 class="font-bold text-lg mb-3">案件工作流 (第一阶段)</h3>
+                <div class="flex flex-col gap-3">
+                    <!-- STEP 01 -->
+                    <div class="bg-surface p-3 rounded-lg shadow-sm workflow-step completed">
+                        <h3 class="font-bold text-sm mb-2">STEP 01: 承办准备</h3>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="py-1 px-2 bg-gray-200 rounded-full">基本信息采集</span>
+                            <span class="py-1 px-2 bg-gray-200 rounded-full">利益冲突检索</span>
+                        </div>
+                    </div>
+                    <!-- STEP 02 -->
+                    <div class="bg-surface p-3 rounded-lg shadow-sm workflow-step completed">
+                        <h3 class="font-bold text-sm mb-2">STEP 02: 案件评估</h3>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                           <span class="py-1 px-2 bg-gray-200 rounded-full">提出初步意见</span>
+                        </div>
+                    </div>
+                    <!-- STEP 03 -->
+                    <div class="bg-surface p-3 rounded-lg shadow-sm workflow-step active">
+                        <h3 class="font-bold text-sm mb-2">STEP 03: 前期工作</h3>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                           <span class="py-1 px-2 rounded-full" style="background-color: var(--secondary-color); color: var(--primary-color);">发送工作联系函</span>
+                           <span class="py-1 px-2 bg-gray-200 rounded-full">第一次正式会谈</span>
+                        </div>
+                    </div>
+                    <!-- STEP 04 -->
+                    <div class="bg-surface p-3 rounded-lg shadow-sm workflow-step">
+                        <h3 class="font-bold text-sm mb-2">STEP 04: 办案执行</h3>
+                    </div>
+                     <!-- STEP 05 -->
+                    <div class="bg-surface p-3 rounded-lg shadow-sm workflow-step">
+                         <h3 class="font-bold text-sm mb-2">STEP 05: 阶段汇报</h3>
+                    </div>
+                </div>
+            </div>
+             <!-- Widget: NavigationList -->
+            <div class="bg-surface rounded-lg shadow-md overflow-hidden">
+                <a href="lawyer_contract_review.html" class="flex items-center p-4 border-b border-themed hover:bg-secondary">
+                    <i class="fas fa-shield-alt w-8 text-center text-xl" style="color: var(--text-secondary-color);"></i>
+                    <span class="flex-grow font-medium">AI审查报告</span>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary-color);"></i>
+                </a>
+                 <div class="flex items-center p-4 hover:bg-secondary cursor-pointer">
+                    <i class="fas fa-folder-open w-8 text-center text-xl" style="color: var(--text-secondary-color);"></i>
+                    <span class="flex-grow font-medium">相关文书 (5)</span>
+                    <i class="fas fa-chevron-right" style="color: var(--text-secondary-color);"></i>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

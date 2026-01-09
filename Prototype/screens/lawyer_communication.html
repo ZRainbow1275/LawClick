@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>沟通中心 - 律时</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-background">
+    <div class="w-full max-w-md mx-auto h-screen bg-background flex flex-col">
+        <!-- Widget: AppBar | Props: title="沟通中心", leadingIcon="menu" -->
+        <header class="flex-shrink-0 bg-surface p-4 flex items-center gap-4 shadow-sm">
+            <i class="fas fa-bars text-xl cursor-pointer"></i>
+            <h1 class="text-xl font-bold">沟通中心</h1>
+        </header>
+
+        <!-- Widget: TabBar | Props: tabs=["案件沟通", "AI助手"] -->
+        <div class="flex-shrink-0 bg-surface border-b border-themed">
+            <div class="flex">
+                <button class="flex-1 py-3 text-center font-medium border-b-2" style="color: var(--primary-color); border-color: var(--primary-color);">案件沟通</button>
+                <button class="flex-1 py-3 text-center font-medium" style="color: var(--text-secondary-color);">AI 助手</button>
+            </div>
+        </div>
+
+        <!-- Widget: ListView.builder for chat channels -->
+        <main class="flex-grow overflow-y-auto">
+            <!-- Widget: ChatListItem | Props: title="'A轮融资协议' 争议案", lastMessage="王律师: 好的，我今天会审阅...", time="10:45", unreadCount=2 -->
+            <div class="flex items-center p-4 border-b border-themed hover:bg-secondary cursor-pointer transition-colors">
+                <div class="relative mr-4">
+                    <img class="h-12 w-12 rounded-full" src="https://i.pravatar.cc/150?u=client-kechuang" alt="科创未来">
+                    <span class="absolute bottom-0 right-0 h-4 w-4 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center">2</span>
+                </div>
+                <div class="flex-grow">
+                    <div class="flex justify-between items-center">
+                        <h2 class="font-bold">'A轮融资协议' 争议案</h2>
+                        <span class="text-xs" style="color: var(--text-secondary-color);">10:45</span>
+                    </div>
+                    <p class="text-sm" style="color: var(--text-secondary-color);">王律师: 好的，我今天会审阅...</p>
+                </div>
+            </div>
+            
+            <!-- Widget: ChatListItem | Props: title="劳动合同纠纷案", lastMessage="你: 已将证据材料发送给您。", time="昨天" -->
+             <div class="flex items-center p-4 border-b border-themed hover:bg-secondary cursor-pointer transition-colors">
+                <div class="relative mr-4">
+                    <img class="h-12 w-12 rounded-full" src="https://i.pravatar.cc/150?u=client-lisi" alt="李四">
+                </div>
+                <div class="flex-grow">
+                    <div class="flex justify-between items-center">
+                        <h2 class="font-bold">劳动合同纠纷案</h2>
+                        <span class="text-xs" style="color: var(--text-secondary-color);">昨天</span>
+                    </div>
+                    <p class="text-sm" style="color: var(--text-secondary-color);">你: 已将证据材料发送给您。</p>
+                </div>
+            </div>
+
+            <!-- Widget: ChatListItem | Props: title="恒大置业收购案", lastMessage="[文件] 尽职调查报告终稿.pdf", time="3天前" -->
+             <div class="flex items-center p-4 border-b border-themed hover:bg-secondary cursor-pointer transition-colors opacity-60">
+                <div class="relative mr-4">
+                    <img class="h-12 w-12 rounded-full" src="https://i.pravatar.cc/150?u=client-hengda" alt="恒大置业">
+                </div>
+                <div class="flex-grow">
+                    <div class="flex justify-between items-center">
+                        <h2 class="font-bold">恒大置业收购案</h2>
+                        <span class="text-xs" style="color: var(--text-secondary-color);">3天前</span>
+                    </div>
+                    <p class="text-sm" style="color: var(--text-secondary-color);"><i class="fas fa-file-alt mr-1"></i> [文件] 尽职调查报告终稿.pdf</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

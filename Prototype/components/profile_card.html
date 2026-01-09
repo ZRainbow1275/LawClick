@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component: Profile Card</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* This component is designed to be a pop-up, not a full page. */
+        body {
+            background-color: transparent;
+        }
+        .profile-card-content {
+            background-color: var(--surface-color);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            padding: var(--spacing-lg);
+            width: 100%;
+            max-width: 360px;
+            animation: card-fade-in 0.2s ease-out;
+        }
+        @keyframes card-fade-in {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        Widget: Card (or custom Dialog)
+        Props: child: Column([...])
+    -->
+    <div class="profile-card-content">
+        <!-- Widget: Row | Props: children=[Avatar, Column, IconButton] -->
+        <div class="flex items-start gap-4">
+            <!-- Widget: Avatar | Props: radius=lg, child=Icon(...) -->
+            <div class="h-16 w-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-user text-3xl text-blue-600"></i>
+            </div>
+            <!-- Widget: Column | Props: crossAxisAlignment=start -->
+            <div class="flex-grow">
+                <h2 class="text-xl font-bold" style="color: var(--text-primary-color);">赵启睿</h2>
+                <p class="text-sm" style="color: var(--text-secondary-color);">江西凌科安时律师事务所</p>
+                <p class="text-sm mt-1" style="color: var(--text-secondary-color);">151****8390</p>
+            </div>
+             <!-- Widget: IconButton | Props: icon=close, onPressed=... -->
+            <i class="fas fa-times text-lg cursor-pointer" style="color: var(--text-secondary-color);"></i>
+        </div>
+        <!-- Widget: Divider -->
+        <hr class="my-4 border-themed">
+        <!-- Widget: TextButton | Props: child=Row([...]), onPressed=... -->
+        <a href="../screens/lawyer_profile.html" target="_parent" class="flex items-center justify-between text-sm font-medium hover:bg-gray-100 p-2 rounded-md no-underline" style="color: var(--text-primary-color);">
+            <span>查看个人中心</span>
+            <i class="fas fa-chevron-right" style="color: var(--text-secondary-color);"></i>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+﻿
+> lawtime-erp@2.0.0 type-check D:\Desktop\LawClick_NEW
+> pnpm --filter lawclick-next type-check
+
+
+> lawclick-next@0.1.0 type-check D:\Desktop\LawClick_NEW\lawclick-next
+> tsc --noEmit
+

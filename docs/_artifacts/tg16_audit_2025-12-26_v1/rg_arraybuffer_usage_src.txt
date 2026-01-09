@@ -1,0 +1,1 @@
+﻿lawclick-next\src\actions\documents.ts:23:    return Buffer.from(await file.arrayBuffer())

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>计时 - 律时</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .mobile-shell {
+            width: 100%;
+            max-width: 420px;
+            height: 100vh;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .custom-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .time-entry-card {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .time-entry-card:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body class="bg-surface">
+
+    <div class="mobile-shell bg-surface flex flex-col">
+        <!-- Widget: AppBar with TabBar -->
+        <header class="flex-shrink-0 bg-surface shadow-sm z-10 border-b border-gray-100">
+            <div class="p-4 flex justify-between items-center">
+                <i
+                    class="fas fa-arrow-left text-xl cursor-pointer text-gray-600 hover:text-gray-900 transition-colors"></i>
+                <!-- Widget: TabBar -->
+                <div class="flex-grow text-center">
+                    <a href="#"
+                        class="font-medium px-4 py-2 rounded-full hover:bg-gray-50 transition-colors text-gray-500">任务</a>
+                    <a href="#"
+                        class="font-bold px-4 py-2 rounded-full bg-orange-50 text-primary transition-colors">计时</a>
+                    <a href="#"
+                        class="font-medium px-4 py-2 rounded-full hover:bg-gray-50 transition-colors text-gray-500">成就</a>
+                </div>
+                <!DOCTYPE html>
+                <html lang="zh-CN">
+
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+                    <title>计时 - 律时</title>
+                    <link rel="stylesheet" href="../styles/main.css">
+                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+                        rel="stylesheet">
+                    <link rel="stylesheet"
+                        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+                    <style>
+                        body {
+                            display: flex;
+                            justify-content: center;
+                        }
+
+                        .mobile-shell {
+                            width: 100%;
+                            max-width: 420px;
+                            height: 100vh;
+                            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+                        }
+
+                        .custom-scrollbar::-webkit-scrollbar {
+                            display: none;
+                        }
+
+                        .custom-scrollbar {
+                            -ms-overflow-style: none;
+                            scrollbar-width: none;
+                        }
+
+                        .time-entry-card {
+                            display: flex;
+                            align-items: center;
+                            gap: var(--spacing-md);
+                            padding: var(--spacing-md) 0;
+                            border-bottom: 1px solid var(--border-color);
+                        }
+
+                        .time-entry-card:last-child {
+                            border-bottom: none;
+                        }
+                    </style>
+                </head>
+
+                <body class="bg-surface">
+
+                    <div class="mobile-shell bg-surface flex flex-col">
+                        <!-- Widget: AppBar with TabBar -->
+                        <header class="flex-shrink-0 bg-surface shadow-sm z-10 border-b border-gray-100">
+                            <div class="p-4 flex justify-between items-center">
+                                <i
+                                    class="fas fa-arrow-left text-xl cursor-pointer text-gray-600 hover:text-gray-900 transition-colors"></i>
+                                <!-- Widget: TabBar -->
+                                <div class="flex-grow text-center">
+                                    <a href="#"
+                                        class="font-medium px-4 py-2 rounded-full hover:bg-gray-50 transition-colors text-gray-500">任务</a>
+                                    <a href="#"
+                                        class="font-bold px-4 py-2 rounded-full bg-orange-50 text-primary transition-colors">计时</a>
+                                    <a href="#"
+                                        class="font-medium px-4 py-2 rounded-full hover:bg-gray-50 transition-colors text-gray-500">成就</a>
+                                </div>
+                                <!-- Widget: Avatar -->
+                                <img class="h-9 w-9 rounded-full border border-gray-200 shadow-sm"
+                                    src="https://i.pravatar.cc/150?u=lawyer" alt="律师头像">
+                            </div>
+                        </header>
+
+                        <!-- Widget: TimeLogDashboard -->
+                        <div class="p-6 flex-shrink-0 border-b border-gray-100 bg-surface">
+                            <div class="flex justify-between items-center mb-6">
+                                <span
+                                    class="text-sm font-medium text-gray-500 bg-gray-50 px-3 py-1 rounded-full border border-gray-200">本月
+                                    | 2025.06.01 - 2025.07.01</span>
+                                <i
+                                    class="fas fa-calendar-alt text-gray-400 hover:text-primary cursor-pointer transition-colors"></i>
+                            </div>
+                            <div class="text-center mb-8">
+                                <p class="text-6xl font-bold tracking-tight" style="color: var(--primary-color);">
+                                    <span id="total-hours">00</span><span
+                                        class="text-4xl font-medium text-orange-300">'</span><span
+                                        id="total-minutes">00</span><span
+                                        class="text-4xl font-medium text-orange-300">'</span>
+                                </p>
+                                <p class="text-sm font-medium text-gray-500 mt-2 uppercase tracking-wide">累计计时</p>
+                            </div>
+                            <!-- Widget: FilterBar -->
+                            <div class="flex items-center gap-3 text-sm">
+                                <div
+                                    class="flex-grow flex items-center bg-gray-50 rounded-lg px-4 py-2.5 border border-transparent focus-within:border-primary/30 focus-within:bg-white transition-all">
+                                    <i class="fas fa-search mr-3 text-gray-400"></i>
+                                    <input type="text" placeholder="搜索描述"
+                                        class="bg-transparent w-full focus:outline-none text-gray-700 placeholder-gray-400">
+                                </div>
+                                <button
+                                    class="px-4 py-2.5 bg-gray-50 rounded-lg hover:bg-gray-100 text-gray-600 transition-colors border border-transparent hover:border-gray-200"><i
+                                        class="fas fa-filter"></i></button>
+                                <button
+                                    class="px-4 py-2.5 bg-gray-50 rounded-lg hover:bg-gray-100 text-gray-600 transition-colors border border-transparent hover:border-gray-200"><i
+                                        class="fas fa-file-export"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Widget: ListView.builder grouped by date -->
+                        <main class="flex-grow overflow-y-auto custom-scrollbar p-4" id="time-log-container">
+                            <!-- Loaded via JS -->
+                        </main>
+                    </div>
+
+                    <script src="../js/data_service.js"></script>
+                    <script>
+                        function renderTimeLogs() {
+                            const logs = DataService.timeLogs.getAll();
+                            const container = document.getElementById('time-log-container');
+                            container.innerHTML = '';
+
+                            // Update Total
+                            const totalMinutes = DataService.timeLogs.getTotalDuration();
+                            const hours = Math.floor(totalMinutes / 60);
+                            const mins = totalMinutes % 60;
+                            document.getElementById('total-hours').innerText = hours.toString().padStart(2, '0');
+                            document.getElementById('total-minutes').innerText = mins.toString().padStart(2, '0');
+
+                            // Group by Date
+                            const grouped = {};
+                            logs.forEach(log => {
+                                if (!grouped[log.date]) grouped[log.date] = [];
+                                grouped[log.date].push(log);
+                            });
+
+                            // Render Groups
+                            Object.keys(grouped).sort().reverse().forEach(date => {
+                                const dayLogs = grouped[date];
+                                const dayTotal = dayLogs.reduce((acc, l) => acc + l.duration, 0);
+                                const dayHours = Math.floor(dayTotal / 60);
+                                const dayMins = dayTotal % 60;
+
+                                const groupEl = document.createElement('div');
+                                groupEl.className = 'mb-6';
+
+                                // Date Header
+                                groupEl.innerHTML = `
+                    <div class="flex justify-between items-baseline mb-3 px-2">
+                        <h3 class="text-lg font-bold text-gray-800">${date}</h3>
+                        <p class="text-xs font-medium bg-gray-100 px-2 py-1 rounded text-gray-600">共 ${dayHours.toString().padStart(2, '0')}:${dayMins.toString().padStart(2, '0')}'</p>
+                    </div>
+                    <div class="flex flex-col gap-2" id="group-${date}"></div>
+                `;
+                                container.appendChild(groupEl);
+
+                                const listEl = groupEl.querySelector(`#group-${date}`);
+                                dayLogs.forEach(log => {
+                                    const logHours = Math.floor(log.duration / 60);
+                                    const logMins = log.duration % 60;
+
+                                    const card = document.createElement('div');
+                                    card.className = 'time-entry-card p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer border border-transparent hover:border-gray-100';
+                                    card.innerHTML = `
+                        <span class="h-10 w-1.5 rounded-full flex-shrink-0" style="background-color: var(--primary-color);"></span>
+                        <div class="flex-grow ml-3">
+                            <p class="font-bold text-gray-800">${log.task}</p>
+                            <p class="text-xs mt-1 text-gray-500">${log.client}</p>
+                        </div>
+                        <div class="text-right flex-shrink-0 ml-4">
+                            <p class="font-bold text-lg text-gray-900">${logHours.toString().padStart(2, '0')}:${logMins.toString().padStart(2, '0')}<span class="font-medium text-sm text-gray-400">'</span></p>
+                            <p class="text-xs text-gray-400 font-mono mt-1">${log.startTime} ~ ${log.endTime}</p>
+                        </div>
+                    `;
+                                    listEl.appendChild(card);
+                                });
+                            });
+                        }
+
+                        window.addEventListener('load', renderTimeLogs);
+                    </script>
+                </body>
+
+                </html>

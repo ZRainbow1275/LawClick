@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>登录 - 律时</title>
+    
+    <!-- Core Stylesheets -->
+    <link rel="stylesheet" href="../styles/main.css">
+    
+    <!-- External Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Scoped styles for this screen, mimicking a Flutter screen's build method */
+        html, body {
+            height: 100%;
+            overflow: hidden; /* Simulates a mobile app screen */
+        }
+        body {
+            display: flex; /* Equivalent to a Center widget wrapping a Column */
+            align-items: center;
+            justify-content: center;
+            background-color: var(--background-color);
+        }
+        .login-card {
+            filter: var(--shadow-md-filter); /* Using drop-shadow for better rendering */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+      Flutter Widget Tree Equivalent:
+      Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: 400),
+          child: Padding(
+            padding: EdgeInsets.all(32),
+            child: Card(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [ ... ],
+              ),
+            ),
+          ),
+        ),
+      )
+    -->
+    <div class="w-full max-w-sm">
+        <!-- Widget: Card | Props: elevation="md", shape="rounded-lg" -->
+        <div class="bg-surface rounded-lg p-8 login-card">
+            
+            <!-- This container represents the Column inside the Card -->
+            <div class="flex flex-col items-center gap-6">
+
+                <!-- Widget: AppLogoIcon | Props: size=64 -->
+                <svg class="h-16 w-16 text-primary" fill="currentColor" viewBox="0 0 256 256">
+                    <use href="../assets/icons/logo.svg#app-logo"></use>
+                </svg>
+                
+                <!-- Widget: Text | Props: text="登录律时", style="headline2" -->
+                <h1 class="text-2xl font-bold text-primary text-center" style="color: var(--primary-color);">登录律时</h1>
+
+                <!-- Form starts here, wrapping the input fields and button -->
+                <form class="w-full flex flex-col gap-4" action="#">
+                    <!-- Widget: InputField | Props: label="邮箱/手机号", hintText="请输入您的邮箱或手机号" -->
+                    <div>
+                        <label for="email" class="text-sm font-medium text-primary" style="color: var(--text-primary-color);">邮箱 / 手机号</label>
+                        <input type="email" id="email" name="email"
+                               class="mt-1 block w-full px-3 py-2 bg-white border border-themed rounded-md text-sm shadow-sm placeholder-gray-400
+                                      focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                               style="border-color: var(--border-color);"
+                               placeholder="请输入您的邮箱或手机号">
+                    </div>
+
+                    <!-- Widget: InputField | Props: label="密码", obscureText=true -->
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <label for="password" class="text-sm font-medium text-primary" style="color: var(--text-primary-color);">密码</label>
+                            <!-- Widget: TextButton | Props: label="忘记密码?", onPressed="..." -->
+                            <a href="#" class="text-sm font-medium hover:underline" style="color: var(--primary-color);">忘记密码?</a>
+                        </div>
+                        <input type="password" id="password" name="password"
+                               class="mt-1 block w-full px-3 py-2 bg-white border border-themed rounded-md text-sm shadow-sm placeholder-gray-400
+                                      focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+                               style="border-color: var(--border-color);"
+                               placeholder="请输入您的密码">
+                    </div>
+                    
+                    <!-- Widget: PrimaryButton | Props: label="立即登录", onPressed="handleLogin()" -->
+                    <button type="submit"
+                            class="w-full flex justify-center py-3 px-4 mt-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-opacity duration-150"
+                            style="background-color: var(--primary-color);">
+                        立即登录
+                    </button>
+                </form>
+
+                <!-- Widget: RichText | Props: ... -->
+                <p class="text-center text-sm" style="color: var(--text-secondary-color);">
+                    还没有账户? 
+                    <a href="#" class="font-medium hover:underline" style="color: var(--primary-color);">立即注册</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

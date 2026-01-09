@@ -1,0 +1,47 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: "8.12.1"
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Prisma Generate
+        run: pnpm -C lawclick-next prisma:generate
+
+      - name: Lint
+        run: pnpm -C lawclick-next lint
+
+      - name: Type Check
+        run: pnpm -C lawclick-next type-check
+
+      - name: Build
+        run: pnpm -C lawclick-next build
+
+      - name: Audits (Static)
+        run: |
+          pnpm -C lawclick-next audit:routes
+          pnpm -C lawclick-next audit:template-library
+          pnpm -C lawclick-next audit:lego-coverage
+          pnpm -C lawclick-next audit:lego-diy-coverage

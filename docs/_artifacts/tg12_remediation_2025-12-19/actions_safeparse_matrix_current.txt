@@ -1,0 +1,33 @@
+﻿
+file                                               hasSafeParse hasZodImport
+----                                               ------------ ------------
+lawclick-next\src\actions\ai-actions.ts                    True         True
+lawclick-next\src\actions\approval-actions.ts              True         True
+lawclick-next\src\actions\auth.ts                          True        False
+lawclick-next\src\actions\billing-actions.ts               True        False
+lawclick-next\src\actions\cases.ts                         True         True
+lawclick-next\src\actions\cases-crud.ts                    True         True
+lawclick-next\src\actions\chat-actions.ts                  True         True
+lawclick-next\src\actions\collaboration-actions.ts         True         True
+lawclick-next\src\actions\contract-actions.ts              True         True
+lawclick-next\src\actions\customer-actions.ts              True         True
+lawclick-next\src\actions\dashboard-layout.ts              True         True
+lawclick-next\src\actions\documents.ts                     True         True
+lawclick-next\src\actions\event-actions.ts                 True         True
+lawclick-next\src\actions\finance-actions.ts               True         True
+lawclick-next\src\actions\members.ts                       True        False
+lawclick-next\src\actions\notification-actions.ts          True         True
+lawclick-next\src\actions\party-actions.ts                 True         True
+lawclick-next\src\actions\register.ts                      True        False
+lawclick-next\src\actions\search-actions.ts                True         True
+lawclick-next\src\actions\stage-management.ts              True         True
+lawclick-next\src\actions\tasks.ts                         True         True
+lawclick-next\src\actions\tasks-crud.ts                    True         True
+lawclick-next\src\actions\team-directory.ts                True         True
+lawclick-next\src\actions\timeline-actions.ts              True        False
+lawclick-next\src\actions\timelogs.ts                      True        False
+lawclick-next\src\actions\timelogs-crud.ts                 True         True
+lawclick-next\src\actions\tool-actions.ts                  True         True
+
+
+

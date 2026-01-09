@@ -1,0 +1,21 @@
+﻿flutter : Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+At line:1 char:51
++ ... ion D:\Desktop\LawClick_NEW\apps\mobile; flutter analyze *>&1 | Out-F ...
++                                              ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Flutter assets ...st this source!:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Running "flutter pub get" in mobile...                          
+The current Dart SDK version is 2.19.0-146.2.beta.
+
+Because lawtime_mobile requires SDK version >=3.2.3 <4.0.0, version solving failed.
+pub get failed
+command: "D:\flutter\bin\cache\dart-sdk\bin\dart __deprecated_pub --verbosity=warning get --no-precompile"
+pub env: {
+  "FLUTTER_ROOT": "D:\flutter",
+  "PUB_ENVIRONMENT": "flutter_cli:verify:analyze",
+  "PUB_CACHE": "C:\Users\HP\AppData\Local\Pub\Cache",
+}
+exit code: 1
+last line of pub output: "Because lawtime_mobile requires SDK version >=3.2.3 <4.0.0, version solving failed."
+

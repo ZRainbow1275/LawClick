@@ -1,0 +1,26 @@
+﻿pnpm -C lawclick-next exec prisma db seed
+START 2025-12-28T11:43:18.9366067+08:00
+Environment variables loaded from .env
+Running seed command `node prisma/seed.js` ...
+node.exe : 根据极限标准：禁止使用 synthetic seed（示例/造数）。
+At C:\Users\HP\AppData\Roaming\npm\pnpm.ps1:24 char:5
++     & "node$exe"  "$basedir/node_modules/pnpm/bin/pnpm.cjs" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (根据极限标准：禁止使用 synthetic seed（示例/造数）。:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+请先将脱敏生产快照导入当前 DATABASE_URL 指向的数据库，再启动应用。
+
+推荐流程：
+1) pnpm exec prisma migrate deploy
+2) 使用 pg_restore/psql 将脱敏快照导入数据库
+
+说明：历史造数脚本已移动到 prisma/seed-synthetic.ts（非主线/禁止默认运行）。
+
+An error occurred while running the seed command:
+Error: Command failed with exit code 1: node prisma/seed.js
+undefined
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command "prisma" not found
+
+Did you mean "pnpm exec prisma"?
+END exitCode=1 2025-12-28T11:43:20.6754200+08:00

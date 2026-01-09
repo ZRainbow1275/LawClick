@@ -1,0 +1,57 @@
+﻿rg -n prisma.firm|FirmMembership|firmId lawclick-next/src
+START 2025-12-28T11:44:23.1230977+08:00
+lawclick-next/src\actions\auth.ts:39:            select: { id: true, name: true, firmId: true },
+lawclick-next/src\actions\auth.ts:42:        const firmId = existingTenant?.firmId || tenantId
+lawclick-next/src\actions\auth.ts:49:            where: { id: firmId },
+lawclick-next/src\actions\auth.ts:51:            create: { id: firmId, name: firmName },
+lawclick-next/src\actions\auth.ts:57:            create: { id: tenantId, firmId, name: existingTenant?.name || tenantName },
+lawclick-next/src\actions\auth.ts:84:                id: `fm:${firmId}:${created.id}`,
+lawclick-next/src\actions\auth.ts:85:                firmId,
+lawclick-next/src\actions\tenant-actions.ts:143:    let firmId = ""
+lawclick-next/src\actions\tenant-actions.ts:154:        firmId = ctx.tenant.firmId
+lawclick-next/src\actions\tenant-actions.ts:161:    if (!firmId) return { success: false as const, error: "无法确定机构（firmId）" }
+lawclick-next/src\actions\tenant-actions.ts:170:                where: { id: firmId },
+lawclick-next/src\actions\tenant-actions.ts:172:                create: { id: firmId, name: firmName },
+lawclick-next/src\actions\tenant-actions.ts:178:                    firmId,
+lawclick-next/src\actions\tenant-actions.ts:199:                where: { firmId_userId: { firmId, userId: user.id } },
+lawclick-next/src\actions\tenant-actions.ts:205:                    id: `fm:${firmId}:${user.id}`,
+lawclick-next/src\actions\tenant-actions.ts:206:                    firmId,
+lawclick-next/src\actions\tenant-actions.ts:247:    const firmId = (ctx.tenant.firmId || "").trim()
+lawclick-next/src\actions\tenant-actions.ts:248:    if (!firmId) return { success: false as const, error: "无法确定机构（firmId）" }
+lawclick-next/src\actions\tenant-actions.ts:251:        where: { firmId_userId: { firmId, userId: ctx.user.id } },
+lawclick-next/src\actions\tenant-actions.ts:265:            where: { id: firmId },
+lawclick-next/src\actions\tenant-actions.ts:402:    const tenant = await prisma.tenant.findUnique({ where: { id: tenantId }, select: { firmId: true } })
+lawclick-next/src\actions\tenant-actions.ts:422:            where: { firmId_userId: { firmId: tenant.firmId, userId: target.id } },
+lawclick-next/src\actions\tenant-actions.ts:428:                id: `fm:${tenant.firmId}:${target.id}`,
+lawclick-next/src\actions\tenant-actions.ts:429:                firmId: tenant.firmId,
+lawclick-next/src\actions\tenant-actions.ts:582:            const tenant = await tx.tenant.findUnique({ where: { id: tenantId }, select: { firmId: true } })
+lawclick-next/src\actions\tenant-actions.ts:586:                where: { userId: target.userId, status: TenantMembershipStatus.ACTIVE, tenant: { firmId: tenant.firmId } },
+lawclick-next/src\actions\tenant-actions.ts:592:                    where: { firmId: tenant.firmId, userId: target.userId },
+lawclick-next/src\actions\tenant-actions.ts:601:                where: { firmId_userId: { firmId: tenant.firmId, userId: target.userId } },
+lawclick-next/src\actions\tenant-actions.ts:607:                    id: `fm:${tenant.firmId}:${target.userId}`,
+lawclick-next/src\actions\tenant-actions.ts:608:                    firmId: tenant.firmId,
+lawclick-next/src\actions\tenant-actions.ts:715:            const tenant = await tx.tenant.findUnique({ where: { id: tenantId }, select: { firmId: true } })
+lawclick-next/src\actions\tenant-actions.ts:719:                where: { userId: target.userId, status: TenantMembershipStatus.ACTIVE, tenant: { firmId: tenant.firmId } },
+lawclick-next/src\actions\tenant-actions.ts:725:                    where: { firmId: tenant.firmId, userId: target.userId },
+lawclick-next/src\actions\tenant-actions.ts:734:                where: { firmId_userId: { firmId: tenant.firmId, userId: target.userId } },
+lawclick-next/src\actions\tenant-actions.ts:740:                    id: `fm:${tenant.firmId}:${target.userId}`,
+lawclick-next/src\actions\tenant-actions.ts:741:                    firmId: tenant.firmId,
+lawclick-next/src\actions\tenant-actions.ts:841:            const tenant = await tx.tenant.findUnique({ where: { id: invite.tenantId }, select: { firmId: true } })
+lawclick-next/src\actions\tenant-actions.ts:859:                where: { firmId_userId: { firmId: tenant.firmId, userId: user.id } },
+lawclick-next/src\actions\tenant-actions.ts:862:                    id: `fm:${tenant.firmId}:${user.id}`,
+lawclick-next/src\actions\tenant-actions.ts:863:                    firmId: tenant.firmId,
+lawclick-next/src\actions\tenant-actions.ts:919:            const tenant = await tx.tenant.findUnique({ where: { id: invite.tenantId }, select: { firmId: true } })
+lawclick-next/src\actions\tenant-actions.ts:937:                where: { firmId_userId: { firmId: tenant.firmId, userId: user.id } },
+lawclick-next/src\actions\tenant-actions.ts:940:                    id: `fm:${tenant.firmId}:${user.id}`,
+lawclick-next/src\actions\tenant-actions.ts:941:                    firmId: tenant.firmId,
+lawclick-next/src\lib\server-auth.ts:157:                firmId: true,
+lawclick-next/src\lib\server-auth.ts:374:        select: { id: true, name: true, firmId: true },
+lawclick-next/src\lib\server-auth.ts:377:    const firmId = existingTenant?.firmId || tenantId
+lawclick-next/src\lib\server-auth.ts:378:    const existingFirm = await prisma.firm.findUnique({ where: { id: firmId }, select: { name: true } })
+lawclick-next/src\lib\server-auth.ts:384:        where: { id: firmId },
+lawclick-next/src\lib\server-auth.ts:386:        create: { id: firmId, name: firmName },
+lawclick-next/src\lib\server-auth.ts:391:        create: { id: tenantId, firmId, name: tenantName },
+lawclick-next/src\lib\server-auth.ts:413:        where: { firmId_userId: { firmId, userId: user.id } },
+lawclick-next/src\lib\server-auth.ts:419:            id: `fm:${firmId}:${user.id}`,
+lawclick-next/src\lib\server-auth.ts:420:            firmId,
+END exitCode=0 2025-12-28T11:44:23.1866224+08:00

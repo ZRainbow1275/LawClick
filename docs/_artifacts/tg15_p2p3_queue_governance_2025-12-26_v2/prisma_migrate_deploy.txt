@@ -1,0 +1,15 @@
+﻿Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+Datasource "db": PostgreSQL database "lawclick", schema "public" at "127.0.0.1:5434"
+
+30 migrations found in prisma/migrations
+
+Applying migration `20251226120000_tg15_email_delivery_outbox`
+
+The following migration(s) have been applied:
+
+migrations/
+  └─ 20251226120000_tg15_email_delivery_outbox/
+    └─ migration.sql
+      
+All migrations have been successfully applied.

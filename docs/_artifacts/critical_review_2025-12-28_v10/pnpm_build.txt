@@ -1,0 +1,77 @@
+﻿
+> lawtime-erp@2.0.0 build D:\Desktop\LawClick_NEW
+> pnpm --filter lawclick-next build
+
+
+> lawclick-next@0.1.0 build D:\Desktop\LawClick_NEW\lawclick-next
+> next build
+
+   鈻?Next.js 16.0.6 (Turbopack)
+   - Environments: .env
+
+   Creating an optimized production build ...
+ 鉁?Compiled successfully in 6.2s
+   Running TypeScript ...
+   Collecting page data using 19 workers ...
+   Generating static pages using 19 workers (0/6) ...
+   Generating static pages using 19 workers (1/6) 
+   Generating static pages using 19 workers (2/6) 
+   Generating static pages using 19 workers (4/6) 
+ 鉁?Generating static pages using 19 workers (6/6) in 964.6ms
+   Finalizing page optimization ...
+
+Route (app)
+鈹?鈼?/_not-found
+鈹?茠 /admin
+鈹?茠 /admin/approvals
+鈹?茠 /admin/document-templates
+鈹?茠 /admin/finance
+鈹?茠 /admin/ops
+鈹?茠 /admin/ops/kanban
+鈹?茠 /admin/ops/queue
+鈹?茠 /admin/ops/uploads
+鈹?茠 /admin/tenants
+鈹?茠 /api/auth/[...nextauth]
+鈹?茠 /api/documents/[id]/file
+鈹?茠 /api/queue/process
+鈹?茠 /api/realtime/signals
+鈹?鈼?/auth/login
+鈹?鈼?/auth/register
+鈹?茠 /auth/reset-password
+鈹?茠 /calendar
+鈹?茠 /cases
+鈹?茠 /cases/[id]
+鈹?茠 /cases/active
+鈹?茠 /cases/archive
+鈹?茠 /cases/archived
+鈹?茠 /cases/intake
+鈹?茠 /chat
+鈹?茠 /contacts
+鈹?茠 /crm/customers
+鈹?茠 /crm/customers/[id]
+鈹?茠 /dashboard
+鈹?茠 /dispatch
+鈹?茠 /documents
+鈹?茠 /documents/[id]
+鈹?茠 /documents/[id]/review
+鈹?茠 /invites
+鈹?茠 /notifications
+鈹?茠 /profile
+鈹?茠 /projects
+鈹?茠 /projects/[id]
+鈹?茠 /research
+鈹?茠 /settings
+鈹?茠 /tasks
+鈹?茠 /tasks/[id]
+鈹?茠 /tenants
+鈹?茠 /tenants/accept
+鈹?茠 /time
+鈹?茠 /timelog
+鈹?茠 /tools
+
+
+茠 Proxy (Middleware)
+
+鈼? (Static)   prerendered as static content
+茠  (Dynamic)  server-rendered on demand
+

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>仪表盘 - 律时</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .mobile-shell {
+            width: 100%;
+            max-width: 420px;
+            height: 100vh;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            /* For FAB */
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .custom-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* For demonstrating sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            /* Initially hidden */
+            width: 280px;
+            height: 100%;
+            background-color: var(--surface-color);
+            box-shadow: var(--shadow-lg);
+            transition: left 0.3s var(--transition-timing-function);
+            z-index: 100;
+        }
+
+        #sidebar-target:target .sidebar {
+            left: 0;
+        }
+
+        #sidebar-target:target .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+        }
+    </style>
+</head>
+
+<body class="bg-surface">
+
+    <div id="sidebar-target">
+        <!-- Widget: Drawer / Sidebar -->
+        <a href="#" class="sidebar-overlay"></a>
+        <!DOCTYPE html>
+        <html lang="zh-CN">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+            <title>仪表盘 - 律时</title>
+            <link rel="stylesheet" href="../styles/main.css">
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+            <style>
+                body {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .mobile-shell {
+                    width: 100%;
+                    max-width: 420px;
+                    height: 100vh;
+                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+                    position: relative;
+                    /* For FAB */
+                }
+
+                .custom-scrollbar::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .custom-scrollbar {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+
+                /* For demonstrating sidebar */
+                .sidebar {
+                    position: fixed;
+                    top: 0;
+                    left: -280px;
+                    /* Initially hidden */
+                    width: 280px;
+                    height: 100%;
+                    background-color: var(--surface-color);
+                    box-shadow: var(--shadow-lg);
+                    transition: left 0.3s var(--transition-timing-function);
+                    z-index: 100;
+                }
+
+                #sidebar-target:target .sidebar {
+                    left: 0;
+                }
+
+                #sidebar-target:target .sidebar-overlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    z-index: 99;
+                }
+            </style>
+        </head>
+
+        <body class="bg-surface">
+
+            <div id="sidebar-target">
+                <!-- Widget: Drawer / Sidebar -->
+                <a href="#" class="sidebar-overlay"></a>
+                <div class="sidebar">
+                    <!-- The content of the sidebar will be loaded from components/sidebar_menu.html -->
+                    <iframe src="../components/sidebar_menu.html"
+                        style="width:100%; height:100%; border:none;"></iframe>
+                </div>
+            </div>
+
+            <!-- Widget: Add Task Modal (Hidden by default) -->
+            <div id="add-task-modal"
+                class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity opacity-0">
+                <div class="bg-surface rounded-xl shadow-2xl w-full max-w-lg mx-4 transform scale-95 transition-transform duration-200"
+                    id="modal-content">
+                    <div class="p-6">
+                        <input type="text" id="task-title-input" placeholder="任务标题"
+                            class="w-full text-xl font-bold border-0 focus:ring-0 p-0 mb-4 bg-transparent placeholder-gray-300 text-gray-900">
+
+                        <div class="grid grid-cols-2 gap-3 text-sm mb-6">
+                            <!-- Client/Project -->
+                            <div
+                                class="flex items-center gap-2 p-2 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors border border-transparent hover:border-gray-200">
+                                <i class="fas fa-folder-open text-gray-400"></i>
+                                <span class="font-medium text-gray-700 truncate">个人任务</span>
+                                <i class="fas fa-chevron-down ml-auto text-xs text-gray-400"></i>
+                            </div>
+                            <!-- Assignee -->
+                            <div
+                                class="flex items-center gap-2 p-2 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors border border-transparent hover:border-gray-200">
+                                <img src="https://i.pravatar.cc/150?u=lawyer"
+                                    class="h-5 w-5 rounded-full border border-white shadow-sm">
+                                <span class="font-medium text-gray-700 truncate">赵启睿</span>
+                            </div>
+                        </div>
+
+                        <textarea id="task-desc-input"
+                            class="w-full p-3 border border-gray-200 rounded-lg h-24 focus:ring-2 focus:ring-primary/20 focus:border-primary resize-none transition-all text-sm"
+                            placeholder="添加描述..."></textarea>
+                    </div>
+
+                    <div class="bg-gray-50 px-6 py-3 flex justify-end gap-3 rounded-b-xl border-t border-gray-100">
+                        <button onclick="closeAddTaskModal()"
+                            class="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-200 transition-colors">取消</button>
+                        <button onclick="saveTask()"
+                            class="btn-primary px-6 py-2 text-sm rounded-lg shadow-md hover:shadow-lg transition-all">保存</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mobile-shell bg-surface flex flex-col relative">
+                <!-- Widget: AppBar -->
+                <header class="flex-shrink-0 bg-surface p-4 flex items-center justify-between z-10">
+                    <a href="#sidebar-target"><i
+                            class="fas fa-bars text-xl cursor-pointer text-gray-600 hover:text-gray-900 transition-colors"></i></a>
+                    <h1 class="text-lg font-bold text-gray-900">仪表盘</h1>
+                    <img class="h-9 w-9 rounded-full cursor-pointer border border-gray-200 shadow-sm"
+                        src="https://i.pravatar.cc/150?u=lawyer" alt="律师头像">
+                </header>
+
+                <!-- Widget: Dashboard Content -->
+                <main class="flex-grow overflow-y-auto custom-scrollbar p-4 pb-24">
+                    <!-- Widget: AgendaSection -->
+                    <section class="mb-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h2 class="text-lg font-bold text-gray-800">今日日程</h2>
+                            <a href="lawyer_calendar_view.html"
+                                class="text-sm font-medium text-primary hover:text-primary-dark transition-colors">查看全部</a>
+                        </div>
+                        <!-- Dynamic Agenda List -->
+                        <div id="agenda-list" class="space-y-3">
+                            <!-- Loaded via JS -->
+                        </div>
+                    </section>
+
+                    <!-- Widget: TaskSection -->
+                    <section>
+                        <div class="flex justify-between items-center mb-3">
+                            <h2 class="text-lg font-bold text-gray-800">待办任务</h2>
+                            <span
+                                class="text-xs font-medium bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full">3</span>
+                        </div>
+                        <!-- Dynamic Task List -->
+                        <div id="task-list" class="space-y-3">
+                            <!-- Loaded via JS -->
+                        </div>
+                    </section>
+                </main>
+
+                <!-- Widget: Floating Action Button -->
+                <button onclick="openAddTaskModal()"
+                    class="absolute bottom-6 right-6 h-14 w-14 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 z-20"
+                    style="background-color: var(--primary-color);">
+                    <i class="fas fa-plus text-2xl"></i>
+                </button>
+            </div>
+
+            <script src="../js/data_service.js"></script>
+            <script>
+                // Modal Logic
+                const modal = document.getElementById('add-task-modal');
+                const modalContent = document.getElementById('modal-content');
+
+                function openAddTaskModal() {
+                    modal.classList.remove('hidden');
+                    // Small delay to allow display:block to apply before opacity transition
+                    setTimeout(() => {
+                        modal.classList.remove('opacity-0');
+                        modalContent.classList.remove('scale-95');
+                        modalContent.classList.add('scale-100');
+                    }, 10);
+                }
+
+                function closeAddTaskModal() {
+                    modal.classList.add('opacity-0');
+                    modalContent.classList.remove('scale-100');
+                    modalContent.classList.add('scale-95');
+                    setTimeout(() => {
+                        modal.classList.add('hidden');
+                    }, 200);
+                }
+
+                function saveTask() {
+                    const title = document.getElementById('task-title-input').value;
+                    const desc = document.getElementById('task-desc-input').value;
+
+                    if (!title) return alert('请输入任务标题');
+
+                    DataService.tasks.add({
+                        title: title,
+                        client: '个人任务', // Default for now
+                        deadline: '今天',
+                        priority: 'medium',
+                        description: desc
+                    });
+
+                    closeAddTaskModal();
+                    renderTasks();
+                    // Clear inputs
+                    document.getElementById('task-title-input').value = '';
+                    document.getElementById('task-desc-input').value = '';
+                }
+
+                // Render Logic
+                function renderTasks() {
+                    const tasks = DataService.tasks.getAll();
+                    const container = document.getElementById('task-list');
+                    container.innerHTML = '';
+
+                    tasks.forEach(task => {
+                        const el = document.createElement('div');
+                        el.className = 'bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 hover:shadow-md transition-shadow cursor-pointer group';
+                        el.innerHTML = `
+                    <div onclick="toggleTask(${task.id}, event)" class="h-5 w-5 rounded-full border-2 ${task.completed ? 'bg-green-500 border-green-500' : 'border-gray-300 group-hover:border-primary'} flex items-center justify-center transition-colors">
+                        ${task.completed ? '<i class="fas fa-check text-white text-xs"></i>' : ''}
+                    </div>
+                    <div class="flex-grow ${task.completed ? 'opacity-50 line-through' : ''}">
+                        <h3 class="font-bold text-gray-800 text-sm">${task.title}</h3>
+                        <p class="text-xs text-gray-500 mt-1">${task.client} • ${task.deadline}</p>
+                    </div>
+                    ${task.priority === 'high' ? '<span class="h-2 w-2 rounded-full bg-red-500"></span>' : ''}
+                `;
+                        container.appendChild(el);
+                    });
+                }
+
+                function toggleTask(id, event) {
+                    event.stopPropagation();
+                    DataService.tasks.toggleComplete(id);
+                    renderTasks();
+                }
+
+                function renderAgenda() {
+                    const events = DataService.events.getAll().slice(0, 2); // Show top 2
+                    const container = document.getElementById('agenda-list');
+                    container.innerHTML = '';
+
+                    events.forEach(event => {
+                        const el = document.createElement('div');
+                        el.className = 'bg-blue-50 p-4 rounded-xl border-l-4 border-blue-500 flex justify-between items-center';
+                        // Parse time
+                        const start = new Date(event.start);
+                        const timeStr = `${start.getHours()}:${start.getMinutes().toString().padStart(2, '0')}`;
+
+                        el.innerHTML = `
+                    <div>
+                        <h3 class="font-bold text-gray-800 text-sm">${event.title}</h3>
+                        <p class="text-xs text-gray-600 mt-1">${timeStr} • ${event.description}</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+                `;
+                        container.appendChild(el);
+                    });
+                }
+
+                // Init
+                window.addEventListener('load', () => {
+                    renderTasks();
+                    renderAgenda();
+                });
+
+                // Listen for updates from other windows/components
+                window.addEventListener('task-updated', renderTasks);
+            </script>
+        </body>
+
+        </html>

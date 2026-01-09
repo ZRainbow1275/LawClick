@@ -1,0 +1,137 @@
+﻿[
+    {
+        "file":  "lawclick-next\\src\\actions\\ai-actions.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\approval-actions.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\auth.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  false
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\billing-actions.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  false
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\cases.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\cases-crud.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\chat-actions.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\collaboration-actions.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\contract-actions.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\customer-actions.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\dashboard-layout.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\documents.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\event-actions.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\finance-actions.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\members.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  false
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\notification-actions.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\party-actions.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\register.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  false
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\search-actions.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\stage-management.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\tasks.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\tasks-crud.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\team-directory.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\timeline-actions.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  false
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\timelogs.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  false
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\timelogs-crud.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    },
+    {
+        "file":  "lawclick-next\\src\\actions\\tool-actions.ts",
+        "hasSafeParse":  true,
+        "hasZodImport":  true
+    }
+]

@@ -1,0 +1,21 @@
+﻿Environment variables loaded from .env
+Running seed command `node prisma/seed.js` ...
+node.exe : 鏍规嵁鏋侀檺鏍囧噯锛氱姝娇鐢?synthetic seed锛堢ず渚?閫犳暟锛夈€?璇峰厛灏嗚劚鏁忕敓浜у揩鐓у鍏ュ綋鍓?DATAB
+ASE_URL 鎸囧悜鐨勬暟鎹簱锛屽啀鍚姩搴旂敤銆?
+所在位置 C:\Users\HP\AppData\Roaming\npm\pnpm.ps1:24 字符: 5
++     & "node$exe"  "$basedir/node_modules/pnpm/bin/pnpm.cjs" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (鏍规嵁鏋侀檺鏍囧噯锛氱姝娇...暟鎹簱锛屽啀鍚姩搴旂敤銆? 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+鎺ㄨ崘娴佺▼锛?1) pnpm exec prisma migrate deploy
+2) pnpm restore:snapshot -- --file <path-to-dump> --reset --yes
+   锛堟垨鎵嬪姩浣跨敤 pg_restore/psql 灏嗚劚鏁忓揩鐓у鍏ユ暟鎹簱锛?
+璇存槑锛氬巻鍙查€犳暟鑴氭湰宸茬Щ鍔ㄥ埌 prisma/seed-synthetic.ts锛堥潪涓荤嚎/绂佹榛樿杩愯锛夈€?
+An error occurred while running the seed command:
+Error: Command failed with exit code 1: node prisma/seed.js
+undefined
+鈥塃RR_PNPM_RECURSIVE_EXEC_FIRST_FAIL鈥?Command "prisma" not found
+
+Did you mean "pnpm exec prisma"?

@@ -1,0 +1,13 @@
+﻿
+> lawtime-web-frontend@2.0.0 lint D:\Desktop\LawClick_NEW\apps\web-frontend
+> next lint
+
+node.exe : Failed to load config "@typescript-eslint/recommended" to extend from.
+At C:\Users\HP\AppData\Roaming\npm\pnpm.ps1:24 char:5
++     & "node$exe"  "$basedir/node_modules/pnpm/bin/pnpm.cjs" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Failed to load ...to extend from.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Referenced from: D:\Desktop\LawClick_NEW\apps\web-frontend\.eslintrc.json
+ ELIFECYCLE  Command failed with exit code 1.

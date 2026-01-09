@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Document" ALTER COLUMN "fileUrl" DROP NOT NULL,
+ALTER COLUMN "fileType" DROP NOT NULL;

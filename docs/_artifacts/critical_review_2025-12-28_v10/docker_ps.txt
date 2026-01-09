@@ -1,0 +1,5 @@
+﻿CONTAINER ID   IMAGE                                 COMMAND                  CREATED       STATUS                PORTS                                                             NAMES
+c1e7030c48fa   weishaw/claude-relay-service:latest   "dumb-init -- /usr/l鈥?   13 days ago   Up 4 days (healthy)   0.0.0.0:3000->3000/tcp                                            claude-relay-service-claude-relay-1
+d3badb016ae4   redis:7-alpine                        "docker-entrypoint.s鈥?   13 days ago   Up 4 days (healthy)   6379/tcp                                                          claude-relay-service-redis-1
+2f04b91a5d8f   minio/minio                           "/usr/bin/docker-ent鈥?   3 weeks ago   Up 4 days             0.0.0.0:9000-9001->9000-9001/tcp, [::]:9000-9001->9000-9001/tcp   lawclick-minio
+2742fbc370e3   postgres:15-alpine                    "docker-entrypoint.s鈥?   3 weeks ago   Up 4 days             0.0.0.0:5434->5432/tcp, [::]:5434->5432/tcp                       lawclick-postgres

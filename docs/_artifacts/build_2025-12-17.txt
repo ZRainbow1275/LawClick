@@ -1,0 +1,59 @@
+﻿
+> lawclick-next@0.1.0 build
+> next build
+
+   鈻?Next.js 16.0.6 (Turbopack)
+   - Environments: .env
+
+   Creating an optimized production build ...
+ 鉁?Compiled successfully in 7.1s
+   Running TypeScript ...
+   Collecting page data using 19 workers ...
+   Generating static pages using 19 workers (0/24) ...
+   Generating static pages using 19 workers (6/24) 
+   Generating static pages using 19 workers (12/24) 
+   Generating static pages using 19 workers (18/24) 
+ 鉁?Generating static pages using 19 workers (24/24) in 1813.4ms
+   Finalizing page optimization ...
+
+Route (app)
+鈹?鈼?/_not-found
+鈹?茠 /admin
+鈹?茠 /admin/approvals
+鈹?茠 /admin/finance
+鈹?茠 /api/auth/[...nextauth]
+鈹?茠 /api/documents/[id]/file
+鈹?茠 /api/queue/process
+鈹?鈼?/auth/login
+鈹?鈼?/auth/register
+鈹?鈼?/auth/reset-password
+鈹?茠 /calendar
+鈹?茠 /cases
+鈹?茠 /cases/[id]
+鈹?茠 /cases/active
+鈹?茠 /cases/archived
+鈹?茠 /cases/intake
+鈹?茠 /chat
+鈹?鈼?/contacts
+鈹?茠 /crm/customers
+鈹?茠 /crm/customers/[id]
+鈹?茠 /dashboard
+鈹?茠 /dispatch
+鈹?茠 /documents
+鈹?茠 /documents/[id]
+鈹?茠 /documents/[id]/review
+鈹?鈼?/notifications
+鈹?茠 /profile
+鈹?鈼?/research
+鈹?鈼?/settings
+鈹?鈼?/tasks
+鈹?茠 /time
+鈹?鈼?/timelog
+鈹?鈼?/tools
+
+
+茠 Proxy (Middleware)
+
+鈼? (Static)   prerendered as static content
+茠  (Dynamic)  server-rendered on demand
+

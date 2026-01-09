@@ -1,0 +1,23 @@
+﻿pnpm test
+START 2025-12-28T11:36:13.8867184+08:00
+
+> lawtime-erp@2.0.0 test D:\Desktop\LawClick_NEW
+> pnpm --filter lawclick-next test
+
+
+> lawclick-next@0.1.0 test D:\Desktop\LawClick_NEW\lawclick-next
+> playwright test
+
+
+Running 8 tests using 1 worker
+
+[1A[2K[1/8] [chromium] › tests\e2e\auth.spec.ts:3:5 › has title
+[1A[2K[2/8] [chromium] › tests\e2e\auth.spec.ts:9:5 › root redirects to login page
+[1A[2K[3/8] [chromium] › tests\e2e\case-tab-deeplink.spec.ts:5:5 › 同页：任务通知跳转 /cases/:id?tab=tasks 定位
+[1A[2K[4/8] [chromium] › tests\e2e\chat-notification.spec.ts:5:5 › 同页：Header 通知跳转 /chat?threadId 定位
+[1A[2K[5/8] [chromium] › tests\e2e\mainline.spec.ts:5:5 › 主线：案件→任务→任务分配通知→跳转定位
+[1A[2K[6/8] [chromium] › tests\e2e\multi-tenant-isolation.spec.ts:23:5 › 真多租户隔离：跨租户数据不可见/不可访问（项目→任务→看板主线）
+[1A[2K[7/8] [chromium] › tests\e2e\ops-upload-intents.spec.ts:28:5 › 后台运维：UploadIntent 审计可见 + 过期孤儿对象可回收
+[1A[2K[8/8] [chromium] › tests\e2e\project-kanban.spec.ts:5:5 › 项目主线：项目→任务→看板→任务中心可见
+[1A[2K  8 passed (2.4m)
+END exitCode=0 2025-12-28T11:38:42.1332591+08:00

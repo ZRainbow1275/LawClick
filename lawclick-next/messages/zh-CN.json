@@ -1,0 +1,123 @@
+{
+  "app": {
+    "title": "LawClick - 次世代律师工作台",
+    "description": "LegalMind 旗下专业法律协作平台"
+  },
+  "nav": {
+    "dashboard": "工作台",
+    "calendar": "日程安排",
+    "dispatch": "调度中心",
+    "cases": {
+      "label": "案件项目",
+      "intake": "立案侦查",
+      "active": "我的案件",
+      "archived": "归档库"
+    },
+    "projects": "项目中心",
+    "tasks": "任务中心",
+    "invites": "协作邀请",
+    "time": "工时追踪",
+    "documents": "文档中心",
+    "tools": "工具箱",
+    "ai": "AI 助手",
+    "crm": "客户管理",
+    "admin": {
+      "label": "行政中心",
+      "tenants": "租户管理",
+      "approvals": "审批中心",
+      "finance": "财务中心",
+      "templates": "文书模板",
+      "recycle": "回收站",
+      "ops": "运行机制"
+    },
+    "chat": "消息沟通",
+    "profile": "个人中心"
+  },
+  "settings": {
+    "global": {
+      "title": "界面偏好（全局）",
+      "theme": "主题",
+      "density": "密度",
+      "accent": "主色调",
+      "contrast": "对比度",
+      "locale": "语言",
+      "restoreDefault": "恢复默认",
+      "hint": "以上配置写入数据库，跨设备同步；可随时恢复默认。"
+    },
+    "locale": {
+      "zhCN": "中文（简体）",
+      "enUS": "English (US)"
+    }
+  },
+  "common": {
+    "loading": "加载中…",
+    "apply": "应用",
+    "cancel": "取消",
+    "noPermission": "无权限访问"
+  },
+  "ai": {
+    "page": {
+      "title": "AI 助手",
+      "subtitle": "对话、生成草稿与调用审计（可追溯）"
+    },
+    "widgets": {
+      "header": "概览",
+      "conversations": "会话列表",
+      "chat": "对话",
+      "draft": "生成草稿",
+      "invocations": "调用审计"
+    },
+    "status": {
+      "configured": "已配置",
+      "notConfigured": "未配置",
+      "provider": "Provider",
+      "model": "默认模型",
+      "lastInvocation": "最近一次调用",
+      "tokens": "Token 用量"
+    },
+    "conversations": {
+      "new": "新建会话",
+      "creating": "创建中…",
+      "refresh": "刷新",
+      "empty": "暂无会话",
+      "untitled": "未命名会话",
+      "selectHint": "请选择或新建一个会话开始对话"
+    },
+    "chat": {
+      "placeholder": "输入你的问题…",
+      "send": "发送",
+      "sending": "发送中…"
+    },
+    "draft": {
+      "case": "关联案件",
+      "caseSearch": "搜索案件（标题/编号）",
+      "caseSelect": "选择案件",
+      "titleOptional": "文书标题（可选）",
+      "instructions": "写作要求",
+      "generate": "生成草稿",
+      "generating": "生成中…",
+      "generated": "已生成草稿",
+      "openDocument": "打开文档",
+      "noCasePermission": "当前角色缺少案件查看权限，无法生成案件文书草稿。"
+    },
+    "toast": {
+      "statusLoadFailed": "获取 AI 状态失败",
+      "conversationsLoadFailed": "获取会话列表失败",
+      "openConversationFailed": "打开会话失败",
+      "createConversationFailed": "创建会话失败",
+      "sendFailed": "发送失败",
+      "caseOptionsLoadFailed": "获取案件失败",
+      "selectCaseRequired": "请选择案件",
+      "instructionsRequired": "请填写写作要求",
+      "draftGenerateFailed": "生成失败",
+      "draftGenerated": "草稿已生成",
+      "draftGeneratedDescription": "文档已写入文档中心：{documentId}",
+      "invocationsLoadFailed": "获取调用记录失败"
+    },
+    "invocations": {
+      "refresh": "刷新",
+      "empty": "暂无调用记录",
+      "filterByConversation": "仅看当前会话"
+    }
+  }
+}
